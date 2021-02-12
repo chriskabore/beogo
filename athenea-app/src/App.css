@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+footer{
+  background-color: #43425D;
+  max-height:2.2rem;
+  height:2.2rem;
+}
+
+footer .copyright{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: white;
+  font-size: 0.75rem;
+  margin: 0px;
+  line-height: 14px;
+  padding: 0.6rem;
+
+}
+
+.footer-separator{
+  margin-top: 0.05rem!important;
+  margin-bottom: 0.05rem!important;
+}
