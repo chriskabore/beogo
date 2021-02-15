@@ -3,10 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import {Trans, useTranslation} from 'react-i18next';
 import{BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import LoginLayout from './layouts/LoginLayout';
-import Layout from './layouts/Layout'
-import NotFound from "./pages/error/NotFound";
-import PublicRoute from "./components/routing/PublicRoute";
+import AuthLayout from './layouts/AuthLayout';
+import Layout from './layouts/Layout';
+
 
 
 
@@ -22,7 +21,8 @@ function App() {
         <Router>
             <div className="container">
                 <Switch>
-                    <PublicRoute  />
+                    <Route exact path={["/","/sign-in","/sign-up","/sign-out"]} render={(props) => <AuthLayout {...props} />}/>
+                    <Route exact path="/*" render={(props) => <Layout {...props} />}/>
                 </Switch>
             </div>
         </Router>

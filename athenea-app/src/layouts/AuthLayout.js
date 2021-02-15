@@ -3,7 +3,7 @@ import FooterComponent from "../components/layout/FooterComponent";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LoginPage from "../pages/login/LoginPage";
 
-const LoginLayout = ({match}) =>  {
+const AuthLayout = ({match}) =>  {
 
         return (
             <div className="login">
@@ -20,4 +20,4 @@ const LoginLayout = ({match}) =>  {
 
 }
 
-export default LoginLayout;
+export default AuthLayout;
