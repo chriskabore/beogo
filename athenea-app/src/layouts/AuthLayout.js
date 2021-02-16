@@ -5,7 +5,7 @@ import Footer from "../components/layout/Footer";
 
 const AuthLayout = props =>{
     return(
-       <div class="auth-layout-container">
+       <div className="auth-layout-container">
            <main role="main" className={`auth-layout ${props.className !== undefined ? props.className : ''}`}>
                <Container fluid>
                    {props.children}

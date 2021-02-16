@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AuthLayout from "../../layouts/AtheneaLayout";
+import AuthLayout from "../../layouts/AuthLayout";
 
 const NotFound = props => {
     return(

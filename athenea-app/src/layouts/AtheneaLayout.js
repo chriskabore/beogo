@@ -10,7 +10,7 @@ const AtheneaLayout = props =>{
     return(
        <div className="athenea-layout-container">
            <Header/>
-           <main role="main" className={`auth-layout ${props.className !== undefined ? props.className : ''}`}>
+           <main role="main" className={`athenea-layout ${props.className !== undefined ? props.className : ''}`}>
                <Container fluid>
                    <div className="row">
                         <div className="col-md-3">
