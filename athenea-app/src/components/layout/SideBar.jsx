@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-class SideBarComponent extends Component {
+class SideBar extends Component {
     render() {
         return (
             <>
@@ -20,4 +20,4 @@ class SideBarComponent extends Component {
     }
 }
 
-export default SideBarComponent;
+export default SideBar;

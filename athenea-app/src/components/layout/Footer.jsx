@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Trans} from "react-i18next";
 
-class FooterComponent extends Component {
+class Footer extends Component {
     render() {
 
         return (
-            <div>
+            <>
 
                 <hr className="footer-separator"/>
                     <footer className="footer">
@@ -14,9 +14,9 @@ class FooterComponent extends Component {
                                 BEOGOTECH SARL. All rights reserved.</Trans></p>
                         </div>
                     </footer>
-            </div>
+            </>
         );
     }
 }
 
-export default FooterComponent;
+export default Footer;
