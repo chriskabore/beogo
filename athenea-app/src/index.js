@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import Athenea from './Athenea';
 import reportWebVitals from './reportWebVitals';
+import i18n from './utils/i18n/i18n';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Athenea />
+      <Suspense fallback={<div>Loading...</div>}>
+          <Athenea />
+      </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );

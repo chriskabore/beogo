@@ -1,7 +1,7 @@
 
 import './Athenea.css';
 import './css/custom.css';
-import React, {Component}  from 'react';
+import React  from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import SignIn from "./pages/sign-in/SignIn";
 import SignUp from "./pages/sign-up/SignUp";
@@ -15,6 +15,7 @@ import AuthorizedRoute from "./utils/routing/AuthorizedRoute";
 
 
 function Athenea() {
+
     Auth.authenticate();
     Auth.setRole("admin");
     const isAuthorized = Auth.getRole()==='admin'? true: false;
