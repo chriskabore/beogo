@@ -1,25 +1,27 @@
+import React, {Suspense } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useTranslation } from 'react-i18next';
 
-function App() {
+function Athenea () {
+  const { t, i18n } = useTranslation();
+  const changeLanguage =(language) => {
+    i18n.changeLanguage(language);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <p>{t('title')}</p>
+      <button className="btn btn-primary m-2" onClick={() => changeLanguage('en')}>english</button>
+      <button className="btn btn-primary m-2" onClick={() => changeLanguage('es')}>spanish</button>
+      <button className="btn btn-primary m-2" onClick={() => changeLanguage('fr')}>french</button>
+    </>
   );
-}
+};
 
-export default App;
+export default function  App(){
+  return(
+      <Suspense fallback={<div>Loading...</div>}>
+        <Athenea />
+      </Suspense>
+  );
+};
