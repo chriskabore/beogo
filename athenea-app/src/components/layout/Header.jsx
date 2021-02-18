@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import HeaderPage from "../../pages/headers/HeaderPage";
 
 class Header extends Component {
     render() {
         return (
             <>
-                <h2>header</h2>
+                <HeaderPage/>
             </>
         );
     }

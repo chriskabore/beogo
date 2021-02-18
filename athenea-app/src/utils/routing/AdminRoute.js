@@ -6,15 +6,7 @@ import AuthenticatedRoute from "./AuthenticatedRoute";
 import Preferences from "../../pages/settings/Preferences";
 
 const AdminRoute = ({ component: Component, isAuthorized,  ...rest }) => {
-    if(Auth.getAuth()){
-       if(isAuthorized){
-         return  <Route {...rest} component={Settings}/>
-       }else{
-         return  <Route {...rest} component={Preferences}/>
-       }
-    }else{
-      return  <Redirect to="/sign-in"/>;
-    }
+        <Route {...rest} render={(props) => (Auth.getAuth() && isAuthorized) ? (<Component {...rest}{...props}/> ) : (<Redirect to={{pathname:'/sign-in',state:{from: props.location},}}/>)}/>
 
 }
 
