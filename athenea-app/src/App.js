@@ -1,4 +1,4 @@
-import React, {Suspense } from 'react';
+import React, {Suspense, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useTranslation } from 'react-i18next';
@@ -13,25 +13,29 @@ import SignIn from "./pages/sign-in/SignIn";
 import AuthenticatedRoute from "./utils/routes/AuthenticatedRoute";
 import AuthorizedRoute from "./utils/routes/AuthorizedRoute";
 import Auth from "./utils/athentication/Auth";
+import * as Constants from './utils/constants';
+import {Trans} from "react-i18next";
 
 
 function Athenea () {
+
   const { t, i18n } = useTranslation();
   const changeLanguage =(language) => {
     i18n.changeLanguage(language);
   };
-  const isAuthorized = Auth.getRole()==="admin"? true:false;
+  const isAuthorized = Auth.getRole()===Constants.ROLE_ADMIN ? true:false;
   return (
     <>
         <Router>
             <Switch>
-                <Route exact path="/sign-up" component={SignUp} />
-                <Route exact path="/sign-in" component={SignIn} />
-                <AuthenticatedRoute exact path="/dashboard" component={Dashboard} />
-                <AuthenticatedRoute exact path="/preferences" component={Preferences} />
-                <AuthorizedRoute isAuthorized={isAuthorized} exact path="/settings" component={Settings} />
+                <Route exact path={Constants.SIGNUP_PATHNAME} component={SignUp} />
+                <Route exact path={Constants.SIGNIN_PATHNAME} component={SignIn} />
+                <AuthenticatedRoute exact path={Constants.DASHBOARD_PATHNAME} component={Dashboard} />
+                <AuthenticatedRoute exact path={Constants.PREFERENCES_PATHNAME} component={Preferences} />
+                <AuthorizedRoute isAuthorized={isAuthorized} exact path={Constants.SETTINGS_PATHNAME} component={Settings} />
                 <AuthorizedRoute isAuthorized={isAuthorized} exact path="/test" component={Test} />
-                <Route path="*" component={NotFound} />
+                <AuthenticatedRoute exact path={Constants.HOME_PATHNAME} component={Dashboard} />
+                <Route path={Constants.ALL_PATHS} component={NotFound} />
             </Switch>
         </Router>
 
@@ -44,7 +48,7 @@ function Athenea () {
 
 export default function  App(){
   return(
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div><Trans i18nKey='loading'>Loading...</Trans></div>}>
         <Athenea />
       </Suspense>
   );

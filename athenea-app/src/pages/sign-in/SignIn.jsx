@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PublicPagesLayout from "../../components/layouts/PublicPagesLayout";
+import * as Constants from "../../utils/constants";
 
 const SignIn = () =>{
-
+    useEffect(() => {
+        document.title = Constants.SIGNIN_PAGE_TITLE;
+    });
         return (
             <>
                 <PublicPagesLayout>
