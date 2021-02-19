@@ -1,6 +1,7 @@
 import React, {Suspense, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './css/athenea.css';
 import { useTranslation } from 'react-i18next';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NotFound from "./pages/404/NotFound";
@@ -23,6 +24,8 @@ function Athenea () {
   const changeLanguage =(language) => {
     i18n.changeLanguage(language);
   };
+  Auth.authenticate();
+  Auth.setRole('admin');
   const isAuthorized = Auth.getRole()===Constants.ROLE_ADMIN ? true:false;
   return (
     <>

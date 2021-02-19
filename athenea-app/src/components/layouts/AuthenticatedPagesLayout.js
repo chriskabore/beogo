@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import Footer from "../../pages/footer/Footer";
 
 
 const AuthenticatedPagesLayout = ({children}) => {
@@ -6,11 +7,11 @@ const AuthenticatedPagesLayout = ({children}) => {
             <>
                 <Fragment>
                    <header><h2>header</h2></header>
-                    <div className="container">
+                    <div className="container-fluid">
                         <nav><p>navigation</p></nav>
                         <main>{children}</main>
                     </div>
-                    <footer>footer</footer>
+                    <Footer/>
                 </Fragment>
             </>
         );

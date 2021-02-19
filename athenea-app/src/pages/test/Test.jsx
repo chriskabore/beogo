@@ -10,7 +10,7 @@ const Test = () =>  {
         return (
             <>
                 <PublicPagesLayout>
-                    <p>{t('title')}</p>
+                    <p className="paragraph animated bounceInDown">{t('title')}</p>
                     <button className="btn btn-primary m-2" onClick={() => changeLanguage('en')}>english</button>
                     <button className="btn btn-primary m-2" onClick={() => changeLanguage('es')}>spanish</button>
                     <button className="btn btn-primary m-2" onClick={() => changeLanguage('fr')}>french</button>
