@@ -1,12 +1,12 @@
 import React, {Fragment} from 'react';
 import Footer from "../../pages/footer/Footer";
-
+import Header from "../../pages/headers/Header";
 
 const AuthenticatedPagesLayout = ({children}) => {
         return (
             <>
                 <Fragment>
-                   <header><h2>header</h2></header>
+                   <Header/>
                     <div className="container-fluid">
                         <nav><p>navigation</p></nav>
                         <main>{children}</main>

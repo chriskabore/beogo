@@ -2,7 +2,7 @@ import React, {Suspense, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './css/athenea.css';
-import { useTranslation } from 'react-i18next';
+
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NotFound from "./pages/404/NotFound";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -15,15 +15,11 @@ import AuthenticatedRoute from "./utils/routes/AuthenticatedRoute";
 import AuthorizedRoute from "./utils/routes/AuthorizedRoute";
 import Auth from "./utils/athentication/Auth";
 import * as Constants from './utils/constants';
-import {Trans} from "react-i18next";
+
+
 
 
 function Athenea () {
-
-  const { t, i18n } = useTranslation();
-  const changeLanguage =(language) => {
-    i18n.changeLanguage(language);
-  };
   Auth.authenticate();
   Auth.setRole('admin');
   const isAuthorized = Auth.getRole()===Constants.ROLE_ADMIN ? true:false;
@@ -51,8 +47,8 @@ function Athenea () {
 
 export default function  App(){
   return(
-      <Suspense fallback={<div><Trans i18nKey='loading'>Loading...</Trans></div>}>
-        <Athenea />
-      </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+              <Athenea />
+          </Suspense>
   );
 };

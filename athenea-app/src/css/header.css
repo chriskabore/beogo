@@ -1,0 +1,10 @@
+.header{
+    background-color: #43425D;
+    padding: 0;
+}
+
+.navbar-brand .brand-logo-image{
+    width: 8rem;
+    border-radius: 0.4rem;
+    background-color: white;
+}
