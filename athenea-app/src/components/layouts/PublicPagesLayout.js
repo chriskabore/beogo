@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import Footer from "../../pages/footer/Footer";
+import {withTranslation} from "react-i18next";
 
 const PublicPagesLayout = ({children}) => {
         return (
@@ -15,4 +16,4 @@ const PublicPagesLayout = ({children}) => {
 
 }
 
-export default PublicPagesLayout;
+export default withTranslation() (PublicPagesLayout);

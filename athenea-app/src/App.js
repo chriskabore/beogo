@@ -1,5 +1,4 @@
 import React, {Suspense, useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './css/athenea.css';
 
@@ -15,7 +14,6 @@ import AuthenticatedRoute from "./utils/routes/AuthenticatedRoute";
 import AuthorizedRoute from "./utils/routes/AuthorizedRoute";
 import Auth from "./utils/athentication/Auth";
 import * as Constants from './utils/constants';
-
 
 
 

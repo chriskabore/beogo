@@ -1,17 +1,13 @@
-import React, {useState, Fragment, useEffect} from 'react';
+import React, { Fragment, useEffect, useState} from 'react';
 import flagEn from '../../img/flags/US.svg';
 import flagES from '../../img/flags/ES.svg';
 import flagFR from '../../img/flags/FR.svg';
-import i18n from '../../i18n/i18n';
-
-import * as Constants from "../../utils/constants";
-import {useTranslation} from "react-i18next";
 
 
-function LanguageSelector(){
 
-    const defaultLanguage="English";
-    const[currentLanguage,setCurrentLanguage]=useState(defaultLanguage);
+const  LanguageSelector = props => {
+
+     const[currentLanguage, setCurrentLanguage]=useState();
 
     const languages = [
         {
@@ -34,23 +30,25 @@ function LanguageSelector(){
         }
     ];
 
-    const handleChangeLanguage =(event)=>{
-        setCurrentLanguage(event.target.value);
-        const selectLanguage = languages.find((item)=>item.title===event.target.value);
-        const selectLocale = selectLanguage.id;
-        console.log(selectLocale);
 
-    }
+const handleChange = (event)=>{
+    const selectedLocale = event.target.value;
+    setCurrentLanguage(selectedLocale);
+    props.onGetLanguage({selectedLocale});
+}
 
 
 
  return(
      <>
       <Fragment>
-          <select id = "dropdown" value={currentLanguage}  defaultValue={currentLanguage} onChange={(event)=>handleChangeLanguage(event)}>
+          <select id = "dropdown" value={currentLanguage}   onChange={event =>handleChange(event)}>
               {languages.map((language,index)=>{
                   return(
-                      <option value={language.title}>{language.name}</option>
+                      <Fragment key={language.id}>
+                          <option  value={language.id}>{language.name}</option>
+                      </Fragment>
+
                   );
               })}
           </select>

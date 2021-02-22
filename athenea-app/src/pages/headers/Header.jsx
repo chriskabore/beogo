@@ -1,14 +1,23 @@
-import React from 'react';
-
+import React, {useState} from 'react';
 import atheneaLogo  from '../../logo.svg';
 import { Navbar,Nav,NavDropdown,NavItem, Dropdown } from 'react-bootstrap';
 import {ActivityNotificationItems,MessageNotificationItems} from "../../utils/constants/HeaderNotifications";
-
-
-import { browserHistory } from 'react-router';
 import LanguageSelector from "../../components/layouts/LanguageSelector";
+import i18next from "i18next";
+import {withTranslation} from "react-i18next";
+
 
 const Header = () => {
+
+    let currentLanguage = '';
+    const getSelectedLocale= (locale)=>{
+        console.log("locale gotten from getSelectedLocale",locale.selectedLocale);
+        currentLanguage = locale.selectedLocale;
+        i18next.changeLanguage(currentLanguage);
+
+    }
+
+
         return (
             <>
                 <Navbar expand="md" sticky="top"  style={{ backgroundColor: '#43425D', color:'#ffffff' }}>
@@ -29,7 +38,7 @@ const Header = () => {
                                         <Dropdown.Menu>
                                             {ActivityNotificationItems.map((item,index)=>{
                                                 return (
-                                                    <Dropdown.Item>
+                                                    <Dropdown.Item key={index}>
                                                         <div className="notification d-flex justify-content-between">
                                                             <div className="notification-content">
                                                                 <span className="action-author">{item.author}</span>
@@ -58,7 +67,7 @@ const Header = () => {
                                     </Dropdown>
                                 </NavItem>
                                 <NavItem>
-                                    <LanguageSelector />
+                                    <LanguageSelector onGetLanguage={getSelectedLocale}/>
                                 </NavItem>
                                 <NavItem>
                                     <NavDropdown title="User Dropdown" id="user-nav-dropdown">
