@@ -35,10 +35,6 @@ function Athenea () {
                 <Route path={Constants.ALL_PATHS} component={NotFound} />
             </Switch>
         </Router>
-
-
-
-
     </>
   );
 };

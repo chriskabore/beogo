@@ -1,88 +1,65 @@
 import React, {useState} from 'react';
 import atheneaLogo  from '../../logo.svg';
-import { Navbar,Nav,NavDropdown,NavItem, Dropdown } from 'react-bootstrap';
-import {ActivityNotificationItems,MessageNotificationItems} from "../../utils/constants/HeaderNotifications";
-import LanguageSelector from "../../components/layouts/LanguageSelector";
+import { Navbar,Nav,NavItem } from 'react-bootstrap';
 import i18next from "i18next";
-import {withTranslation} from "react-i18next";
+
+import LanguageDropdown from "../../components/header/LanguageDropdown";
+import UserDropdown from "../../components/header/UserDropdown";
+import ActivityNotifications from "../../components/header/ActivityNotifications";
+import MessageNotifications from "../../components/header/MessageNotifications";
+import LanguageSelector from "../../components/header/LanguageSelector";
+
 
 
 const Header = () => {
 
     let currentLanguage = '';
     const getSelectedLocale= (locale)=>{
-        console.log("locale gotten from getSelectedLocale",locale.selectedLocale);
-        currentLanguage = locale.selectedLocale;
+        currentLanguage = locale;
         i18next.changeLanguage(currentLanguage);
 
     }
-
+    const handleSelect = (e)=>{
+        console.log(e);
+    }
 
         return (
             <>
-                <Navbar expand="md" sticky="top"  style={{ backgroundColor: '#43425D', color:'#ffffff' }}>
-                        <Navbar.Brand>
-                            <a href="/">
-                                <img  src={atheneaLogo} alt="athenea logo" className="brand-logo-image img-fluid"/>
-                            </a>
-                        </Navbar.Brand>
-                        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                        <Navbar.Collapse id="responsive-navbar-nav">
-                            <Nav className="mr-auto">
-                                <NavItem>
-                                    <Dropdown id="notifications">
-                                        <Dropdown.Toggle>
-                                            <i className="fa fa-bell fa-lg"></i>
-                                            <span className="badge badge-warning">3</span>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu>
-                                            {ActivityNotificationItems.map((item,index)=>{
-                                                return (
-                                                    <Dropdown.Item key={index}>
-                                                        <div className="notification d-flex justify-content-between">
-                                                            <div className="notification-content">
-                                                                <span className="action-author">{item.author}</span>
-                                                                <span className="action">{item.action}</span>
-                                                            </div>
-                                                            <div className="notification-time">
-                                                                <small>
-                                                                    <span className="action-time">{item.time}</span>
-                                                                </small>
-                                                            </div>
-                                                        </div>
-                                                    </Dropdown.Item>
-                                                );
-                                            })}
-                                            <Dropdown.Divider />
-                                            <Dropdown.Item>
-                                                <a rel="nofollow" href="#"
-                                                   className="dropdown-item all-notifications text-center">
-                                                    <strong>
-                                                        <i className="fa fa-bell all-notifications-icon"></i>view
-                                                        all notifications
-                                                    </strong>
-                                                </a>
-                                            </Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </NavItem>
-                                <NavItem>
-                                    <LanguageSelector onGetLanguage={getSelectedLocale}/>
-                                </NavItem>
-                                <NavItem>
-                                    <NavDropdown title="User Dropdown" id="user-nav-dropdown">
-                                        <NavDropdown.Item href="#action/3.1">User Name</NavDropdown.Item>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item href="#action/3.4">Profile</NavDropdown.Item>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item href="#action/3.2">Preferences</NavDropdown.Item>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item href="#action/3.4">Signout</NavDropdown.Item>
-                                    </NavDropdown>
-                                </NavItem>
-                            </Nav>
-                        </Navbar.Collapse>
-                </Navbar>
+                <header className="header row navbar navbar-light navbar-expand-md">
+                    <nav className="nav navbar navbar-expand-md w-100">
+                        <div className="container-fluid">
+                            <div className="navbar-wrapper w-100">
+                                <div className="navbar-header">
+                                    <a href="#" className="navbar-brand">
+                                        <img  src={atheneaLogo} alt="athenea logo" className="brand-logo-image img-fluid"/>
+                                    </a>
+                                </div>
+                                <button type="button" className="navbar-toggler" data-toggle="collapse"
+                                        data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+                                        aria-label="Toggle-navigation">
+                                    <span className="sr-only">Toggle navigation</span>
+                                    <span className="toggler-icon"><i className="fas fa-bars"></i></span>
+                                </button>
+                                <div className="collapse navbar-collapse justify-content-end">
+                                    <ul className="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                                        <li className="nav-item dropdown">
+                                            <ActivityNotifications/>
+                                        </li>
+                                        <li className="nav-item dropdown">
+                                            <MessageNotifications/>
+                                        </li>
+                                        <li className="nav-item dropdown">
+                                            <LanguageSelector onSelectLanguge={getSelectedLocale}/>
+                                        </li>
+                                        <li className="nav-item dropdown">
+                                            <UserDropdown/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
             </>
         );
 
