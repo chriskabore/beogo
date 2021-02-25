@@ -14,6 +14,16 @@
 		"sign-in": "Sign in",
 		"sign-out": "Sign out",
 		"sign-up": "Sign up"
+	},
+	"login": {
+		"phrase-text": "Manage your projects more easily and follow the progress of your action plans in real time.",
+		"signin-text": "Sign in to your account",
+		"user-email-placeholder": "Please enter your email here!",
+		"user-password-placeholder": "Please enter your password here!",
+		"remember-me-text": "Remember me",
+		"password-forgotten-text": "Password forgotten?",
+		"submit-button-text": "Sign in",
+		"no-account-text": "Don't have an account?"
 	}
 
 

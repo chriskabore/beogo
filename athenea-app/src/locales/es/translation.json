@@ -14,6 +14,16 @@
 		"sign-in": "Iniciar sesión",
 		"sign-out": "Cerrar sesión",
 		"sign-up": "Registrarse"
+	},
+	"login": {
+		"phrase-text": "Gestione sus proyectos con mayor facilidad y siga el progreso de sus planes de acción en tiempo real.",
+		"signin-text": "Iniciar sesión en su cuenta",
+		"user-email-placeholder": "¡Por favor, introduzca aquí su correo electrónico!",
+		"user-password-placeholder": "¡Por favor introduzca su contraseña aquí!",
+		"remember-me-text": "Recordarme",
+		"password-forgotten-text": "¿contraseña olvidada?",
+		"submit-button-text": "Iniciar sesión",
+		"no-account-text": "¿No tiene cuenta?"
 	}
 
 }

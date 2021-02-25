@@ -15,8 +15,8 @@ const  LanguageSelector = props => {
     };
 
      const[currentLanguage, setCurrentLanguage]=useState();
-    const [toggleContent, setToggleContent] = useState(<><Fragment><img src={defaultLanguage.flagImg} alt={defaultLanguage.title}/>
-        <span className="d-none d-sm-inline-block">{defaultLanguage.name}</span></Fragment></>);
+    const [toggleContent, setToggleContent] = useState(<><Fragment><img src={defaultLanguage.flagImg} alt={defaultLanguage.title} className="mr-2"/>
+        <span>{defaultLanguage.name}</span></Fragment></>);
 
     const languages = [
         {
@@ -45,8 +45,8 @@ const handleChange = (event)=>{
     setCurrentLanguage(selectedLanguageLocale);
     props.onSelectLanguge(selectedLanguageLocale);
     let selectedLanguage = languages.find(lang =>{return (lang.id === selectedLanguageLocale)});
-    setToggleContent(<><Fragment><img src={selectedLanguage.flagImg} alt={selectedLanguage.title}/>
-        <span className="d-none d-sm-inline-block">{selectedLanguage.name}</span></Fragment></>);
+    setToggleContent(<><Fragment><img src={selectedLanguage.flagImg} alt={selectedLanguage.title} className="mr-2"/>
+        <span>{selectedLanguage.name}</span></Fragment></>);
 
 }
 

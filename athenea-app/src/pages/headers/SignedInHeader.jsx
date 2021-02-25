@@ -10,16 +10,16 @@ import {Trans} from 'react-i18next';
 
 
 
-const Header = () => {
-   let isSignedIn = Auth.getAuth();
+const SignedInHeader = () => {
+
     let currentLanguage = '';
     const getSelectedLocale= (locale)=>{
         currentLanguage = locale;
         i18next.changeLanguage(currentLanguage);
 
     }
-    if(isSignedIn){
-        return (
+
+    return (
             <>
                 <header className="header row navbar navbar-light navbar-expand-md">
                     <nav className="nav navbar navbar-expand-md w-100">
@@ -59,7 +59,7 @@ const Header = () => {
                 </header>
             </>
         );
-    }else{
+    /*else{
         return(
             <>
                 <header className="header row navbar navbar-light navbar-expand-md">
@@ -91,7 +91,7 @@ const Header = () => {
             </>
         );
     }
-
+  */
 }
 
-export default Header;
+export default SignedInHeader;

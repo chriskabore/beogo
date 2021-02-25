@@ -1,13 +1,13 @@
 import React, {Fragment} from 'react';
 import Footer from "../../pages/footer/Footer";
-import Header from "../../pages/headers/Header";
+import SignedInHeader from "../../pages/headers/SignedInHeader";
 import {withTranslation} from "react-i18next";
 
 const AuthenticatedPagesLayout = ({children}) => {
         return (
             <>
                 <Fragment>
-                   <Header/>
+                   <SignedInHeader/>
                     <div className="container-fluid">
                         <nav><p>navigation</p></nav>
                         <main>{children}</main>

@@ -15,6 +15,16 @@
 		"sign-in": "Se connecter",
 		"sign-out": "Se déconnecter",
 		"sign-up": "S'inscrire"
+	},
+	"login": {
+		"phrase-text": "Pilotez plus facilement vos projets et suivez l'avancement de vos plans d'actions en temps réel.",
+		"signin-text": "Connectez-vous à votre compte",
+		"user-email-placeholder": "Veuillez saisir votre email ici!",
+		"user-password-placeholder": "Veuillez saisir votre mot de passe ici!",
+		"remember-me-text": "Se souvenir de moi",
+		"password-forgotten-text": "Mot de passe oublié?",
+		"submit-button-text": "S'identifier",
+		"no-account-text": "Nouveau sur Athenea?"
 	}
 
 }

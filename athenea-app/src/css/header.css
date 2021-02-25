@@ -159,7 +159,7 @@
 .dropdown-menu.show,
 .language-dropdown-menu.show{
     right: 0;
-    left: auto;
+    left: -18px!important;
     float: left;
     margin-top: 16px;
     margin-bottom: 0;
