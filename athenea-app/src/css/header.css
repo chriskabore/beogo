@@ -148,7 +148,14 @@
 .dropdown-item{
     font-size: 0.85rem;
 }
+.user-name, .user-position{
+    color:#ffffff;
+    font-size: 0.8rem;
+}
 
+.user-name{
+    font-weight: bold;
+}
 .dropdown-menu.show,
 .language-dropdown-menu.show{
     right: 0;
