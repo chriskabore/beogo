@@ -12,7 +12,7 @@ const Test = () =>  {
         return (
             <>
                 <PublicPagesLayout>
-                   <p className="paragraph animate__animated animate__fadeInDown">{t('title')}</p>
+                   <p className="paragraph animate__animated animate__fadeInDown">{t('header.title')}</p>
                     <button className="btn btn-primary m-2" onClick={() => changeLanguage('en')}>english</button>
                     <button className="btn btn-primary m-2" onClick={() => changeLanguage('es')}>spanish</button>
                     <button className="btn btn-primary m-2" onClick={() => changeLanguage('fr')}>french</button>

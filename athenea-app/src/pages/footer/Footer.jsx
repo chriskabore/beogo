@@ -6,9 +6,9 @@ const Footer = () => {
         return (
             <>
                 <hr className="footer-separator"/>
-                <footer className="footer">
+                <footer className="footer row">
                     <div className="col-12 my-auto">
-                        <p className="copyright float-md-right text-center my-auto">&copy;<span>{new Date().getFullYear()}</span>&nbsp;<Trans i18nKey="copyright">Copyright
+                        <p className="copyright float-md-right text-center my-auto">&copy;<span>{new Date().getFullYear()}</span>&nbsp;<Trans i18nKey="footer.copyright">Copyright
                             BEOGOTECH SARL. All rights reserved.</Trans></p>
                     </div>
                 </footer>

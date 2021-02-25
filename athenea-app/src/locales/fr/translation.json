@@ -1,5 +1,20 @@
 {
-	"copyright": "Copyright BEOGOTECH SARL. Tous droits reservés.",
-	"title": "Bienvenue dans Athenea M&E",
-	"loading": "Chargement..."
+	"header": {
+
+		"title": "Bienvenue dans Athenea M&E",
+		"loading": "Chargement...",
+		"view-all-notifications": "Afficher toutes vos notifications",
+		"read-all-messages": "Lire tous vos messages",
+		"my-profile": "Mon profil",
+		"settings": "Paramètres"
+	},
+	"footer": {
+		"copyright": "Copyright BEOGOTECH SARL. Tous droits reservés."
+	},
+	"auth": {
+		"sign-in": "Se connecter",
+		"sign-out": "Se déconnecter",
+		"sign-up": "S'inscrire"
+	}
+
 }

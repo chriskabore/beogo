@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react';
 import {MessageNotificationItems} from "../../utils/constants/HeaderNotifications";
-import userImg from '../../img/user.svg';
+import {Trans} from "react-i18next";
 
 const MessageNotifications = () =>  {
     let numberOfNotifications =MessageNotificationItems.length;
@@ -30,7 +30,9 @@ const MessageNotifications = () =>  {
                         <hr/>
                         <li>
                             <a rel="nofollow" href="#" className="dropdown-item all-notifications text-center">
-                                <strong> <i className="fa fa-envelope fa-lg fa-fw mr-2"></i>Read all messages</strong>
+                                <strong> <i className="fa fa-envelope fa-lg fa-fw mr-2"></i>
+                                  <Trans i18nKey="header.read-all-messages"> Read all messages</Trans>
+                                </strong>
                             </a>
                         </li>
                     </ul>

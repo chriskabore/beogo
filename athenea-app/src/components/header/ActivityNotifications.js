@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
-
-
 import {ActivityNotificationItems} from "../../utils/constants/HeaderNotifications";
+import {Trans} from "react-i18next";
 
 const ActivityNotifications = props =>  {
 
@@ -23,8 +22,8 @@ const ActivityNotifications = props =>  {
                                     <a className="dropdown-item">
                                         <div className="notification d-flex justify-content-between">
                                             <div className="notification-content">
-                                                <span className="action-author">{notification.author}</span>
-                                                <span className="action">{notification.action}</span>
+                                                <span className="action-author mr-2">{notification.author}</span>
+                                                <span className="action mr-2">{notification.action}</span>
                                             </div>
                                             <div className="notification-time">
                                                 <small>
@@ -41,8 +40,8 @@ const ActivityNotifications = props =>  {
                             <a rel="nofollow" href="#"
                                className="dropdown-item all-notifications text-center">
                                 <strong>
-                                    <i className="fa fa-bell all-notifications-icon"></i>view
-                                    all notifications
+                                    <i className="fa fa-bell all-notifications-icon"></i>
+                                    <Trans i18nKey="header.view-all-notifications">view all notifications</Trans>
                                 </strong>
                             </a>
                         </li>

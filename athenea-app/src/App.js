@@ -21,6 +21,7 @@ function Athenea () {
   Auth.authenticate();
   Auth.setRole('admin');
   const isAuthorized = Auth.getRole()===Constants.ROLE_ADMIN ? true:false;
+  Auth.signOut();
   return (
     <>
         <Router>

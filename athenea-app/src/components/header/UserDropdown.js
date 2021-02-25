@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
-import {Dropdown} from "react-bootstrap";
 import userImg from '../../img/user.svg';
+import {Trans} from 'react-i18next';
 
 const UserDropdown = ()=>  {
          let userInfo= {
@@ -30,20 +30,26 @@ const UserDropdown = ()=>  {
                         <li>
                             <a href="/profile" className="user-dropdown-item dropdown-item">
                                 <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                <span className="d-none d-sm-inline-block mr-2">Profile</span>
+                                <span className="d-none d-sm-inline-block mr-2">
+                                   <Trans i18nKey="header.my-profile"> My Profile</Trans>
+                                </span>
                             </a>
                         </li>
                         <li>
                             <a href="/settings" className="user-dropdown-item dropdown-item">
                                 <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                <span className="d-none d-sm-inline-block mr-2">Settings</span>
+                                <span className="d-none d-sm-inline-block mr-2">
+                                    <Trans i18nKey="header.settings"> Settings </Trans>
+                                </span>
                             </a>
                         </li>
                         <hr/>
                         <li>
                             <a href="/sign-in" className="user-dropdown-item dropdown-item logout">
                                 <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                <span className="d-none d-sm-inline-block">Sign Out</span>
+                                <span className="d-none d-sm-inline-block">
+                                  <Trans i18nKey="auth.sign-out"> Sign Out </Trans>
+                                </span>
 
                             </a>
                         </li>
