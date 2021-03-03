@@ -52,32 +52,6 @@ const SignIn = (props) =>{
             }
             window.location.href="/dashboard";
         }
-        /*if(userInfo){
-            if(userInfo.errors){
-                if(userInfo.errors.length>0){
-                    let loginErrors = [];
-                    console.log('there are some errors...');
-                    userInfo.errors.map((error,index)=>{
-                        loginErrors.push(error);
-                        setState({errors:loginErrors});;
-                        setShow(true);
-                    })
-                }
-
-            }else{
-                if(userInfo.isSignedIn){
-                    sessionStorage.setItem('username',userInfo.name);
-                    sessionStorage.setItem('userPosition',userInfo.position);
-                    sessionStorage.setItem('isAuthenticated', true);
-                    if (userInfo.role===ROLE_ADMIN){
-                        sessionStorage.setItem('isAuthorized', true);
-                    }
-
-                }
-
-            }
-        }*/
-
     }
 
     const handleChange = (e) => {

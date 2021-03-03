@@ -23,7 +23,6 @@ const Auth ={
             this.isAuthenticated = true;
             userInfo.isSignedIn=true;
             userInfo.rememberMe=rememberMe;
-
             return userInfo;
         }else{
             userInfo={id:'',name:'',position: '', avatar:'', rememberMe: rememberMe, role:'', isSignedIn: false,emailAddress: "kirsikabore@gmail.com",password: "secret",errors:[]};

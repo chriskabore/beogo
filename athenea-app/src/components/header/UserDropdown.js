@@ -4,7 +4,7 @@ import {Trans} from 'react-i18next';
 
 const UserDropdown = ()=>  {
          const username = localStorage.getItem('username');
-         const position = localStorage.getItem('position');
+         const position = localStorage.getItem('userPosition');
          const isAuthenticated = localStorage.getItem('isAuthenticated');
 
          let userInfo= {
