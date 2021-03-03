@@ -3,12 +3,16 @@ import userImg from '../../img/user.svg';
 import {Trans} from 'react-i18next';
 
 const UserDropdown = ()=>  {
+         const username = localStorage.getItem('username');
+         const position = localStorage.getItem('position');
+         const isAuthenticated = localStorage.getItem('isAuthenticated');
+
          let userInfo= {
              id: "userId",
-             name:"Kirsi Armand KABORE",
-             position:"Project Coordinator",
+             name:username,
+             position:position,
              avatar:userImg,
-             isSignedIn:true
+             isSignedIn:isAuthenticated
          }
     const [toggleContent, setToggleContent]= useState(<><Fragment>
         <img src={userInfo.avatar} className="img-fluid rounded-circle user-avatar"/>
