@@ -4,7 +4,7 @@ import Auth from '../athentication/Auth'
 
 const AuthorizedRoute = ({component:Component,isAuthorized,...rest}) => (
     <Route {...rest} render={(props)=>{
-        const isSignedIn =Auth.getAuth();
+        const isSignedIn =localStorage.getItem('isAuthenticated');
         if(!isSignedIn){
             return (<Redirect to={{pathname:'/sign-in', state:{from:props.location}}}/>);
         }

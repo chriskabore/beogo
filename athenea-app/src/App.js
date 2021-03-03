@@ -18,10 +18,7 @@ import * as Constants from './utils/constants';
 
 
 function Athenea () {
-  Auth.authenticate();
-  Auth.setRole('admin');
-  const isAuthorized = Auth.getRole()===Constants.ROLE_ADMIN ? true:false;
-  Auth.signOut();
+    let isAuthorized = sessionStorage.getItem('isAuthorized') || false;
   return (
     <>
         <Router>

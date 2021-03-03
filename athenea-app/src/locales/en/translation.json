@@ -24,6 +24,13 @@
 		"password-forgotten-text": "Password forgotten?",
 		"submit-button-text": "Sign in",
 		"no-account-text": "Don't have an account?"
+	},
+	"validation": {
+		"field-is-required-text": "Field {{name}} is required and must not be empty.",
+		"invalid-email-format-text": "Invalid email address format. johndoe@example.com is an example of valid email address.",
+		"password-format-text": "password must contain at least one number, one special character and one uppercase and lowercase letter.",
+		"password-length-text": "password must contain at least 8 or more characters",
+		"incorrect-email-address-or-password-text": "Incorrect email address or password."
 	}
 
 
