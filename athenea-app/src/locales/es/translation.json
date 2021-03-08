@@ -26,7 +26,7 @@
 		"no-account-text": "¿No tiene cuenta?"
 	},
 	"validation": {
-		"field-is-required-text": "El campo {{name}} es obligatorio y no debe estar vacío.",
+		"field-is-required-text": "Este campo es obligatorio y no debe estar vacío.",
 		"invalid-email-format-text": "Formato de dirección de correo electrónico no válido. johndoe@example.com es un ejemplo de una dirección de correo electrónico válida.",
 		"password-format-text": "Su contraseña debe contener al menos un número, un carácter especial, una letra mayúscula y una letra minúscula.",
 		"password-length-text": "Votre mot de passe doit contenir au moins 8 caractères ou plus.",

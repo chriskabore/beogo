@@ -27,7 +27,7 @@
 		"no-account-text": "Nouveau sur Athenea?"
 	},
 	"validation": {
-		"field-is-required-text": "Le champ {{name}} est obligatoire et ne doit pas être vide.",
+		"field-is-required-text": "Ce champ est obligatoire et ne doit pas être vide.",
 		"invalid-email-format-text": "Format d'adresse e-mail non valide. johndoe@example.com est un exemple d'adresse e-mail valide.",
 		"password-format-text": "Votre mot de passe doit contenir au moins un chiffre, un caractère spécial, une lettre majuscule et une minuscule.",
 		"password-length-text": "Votre mot de passe doit contenir au moins 8 caractères ou plus.",

@@ -5,32 +5,28 @@ import {ROLE_ADMIN} from "../constants";
 const Auth ={
     isAuthenticated:false,
     role : 'user',
+    userData:{
+        id: "userId",
+        name:"Kirsi Armand KABORE",
+        position:"Project Coordinator",
+        avatar:userImg,
+        isSignedIn:false,
+        role:ROLE_ADMIN,
+        emailAddress:"kirsikabore@gmail.com",
+        password:"secret",
+        rememberMe:false,
+        incorrectCredentialsErrorKey:''
+    },
     authenticate(emailAddress, password, rememberMe){
-        let userInfo= {
-            id: "userId",
-            name:"Kirsi Armand KABORE",
-            position:"Project Coordinator",
-            avatar:userImg,
-            isSignedIn:false,
-            role:ROLE_ADMIN,
-            emailAddress:"kirsikabore@gmail.com",
-            password:"secret",
-            rememberMe:false,
-            errors:[]
-        }
 
-        if(userInfo.emailAddress===emailAddress && userInfo.password===password){
+        if(this.userData.emailAddress===emailAddress && this.userData.password===password){
             this.isAuthenticated = true;
-            userInfo.isSignedIn=true;
-            userInfo.rememberMe=rememberMe;
-            return userInfo;
+            this.userData.isSignedIn=true;
+            this.userData.rememberMe=rememberMe;
         }else{
-            userInfo={id:'',name:'',position: '', avatar:'', rememberMe: rememberMe, role:'', isSignedIn: false,emailAddress: "kirsikabore@gmail.com",password: "secret",errors:[]};
-            const error = {i18nKey:'validation.incorrect-email-address-or-password-text', fieldName:''};
-            userInfo.errors.push(error);
-            return userInfo;
+            this.userData.incorrectCredentialsErrorKey='validation.incorrect-email-address-or-password-text';
         }
-
+        return this.userData;
     },
     signOut (){
         this.isAuthenticated = false;
