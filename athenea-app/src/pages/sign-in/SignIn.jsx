@@ -13,7 +13,7 @@ const SignIn = (props) =>{
     return (
             <>
                 <PublicPagesLayout>
-                   <SignInCard/>
+                   <SignInCard {...props}/>
                 </PublicPagesLayout>
             </>
         );

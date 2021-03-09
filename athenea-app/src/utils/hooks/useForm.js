@@ -1,24 +1,20 @@
 import React, {useState} from 'react';
-import Validator from "../validations/Validator";
-import Auth from "../athentication/Auth";
+import {authenticateUser} from "../athentication";
+import * as Constants from "../../utils/constants";
 
-const useForm= () =>  {
+const useForm= (props) =>  {
 
-    let canBeSubmitted = false;
-    const [values , setValues] = useState({
-        email : "",
-        password : ""
-    });
+    const [credentials , setCredentials] = useState({});
 
     const [rememberMe, setRememberMe] = useState(false);
 
     const [errors, setErrors] = useState({});
 
-    const [canSubmitForm, setCanSubmitForm] = useState(false);
+    const [isFormValid, setIsFormValid]  = useState(false);
 
-    const handleChange = (e) => {
+   const handleChange = (e) => {
         const {name, value} = e.target;
-        setValues(prevState => ({
+        setCredentials(prevState => ({
             ...prevState,
             [name]:value
         }));
@@ -28,7 +24,25 @@ const useForm= () =>  {
         setRememberMe(!rememberMe);
     }
 
-    const handleOnBlur = (e) =>{
+    const handleSubmit = async  (e) =>{
+        e.preventDefault();
+        console.log('submitting form ......');
+        let isAuthenticated = false;
+        setIsFormValid(true);
+        if(isFormValid){
+            console.log('form is valid: ', isFormValid);
+         isAuthenticated = authenticateUser(credentials);
+         console.log('user authenticated successfully: ', isAuthenticated);
+            if(isAuthenticated){
+                props.history.push(Constants.DASHBOARD_PATHNAME);
+            }else if(isAuthenticated){
+                setErrors(prevState => ({...prevState,
+                    ["incorrectCredentialsError"]: 'validation.incorrect-email-address-or-password-text'}));
+            }
+        }
+    }
+
+   /* const handleOnBlur = (e) =>{
         const name = e.target.name;
         if(name==='email'){
             setErrors(prevState => ({...prevState,
@@ -39,9 +53,9 @@ const useForm= () =>  {
                 ["passwordFieldError"]: Validator.validatePassword(values.password)}));
         }
 
-    }
+    }*/
 
-    const handleSubmit= (e) =>{
+  /*  const handleSubmit= (e) =>{
         e.preventDefault();
         console.log('there are errors:', !canSubmitForm);
         let incorrectCredentialsError ="";
@@ -57,14 +71,14 @@ const useForm= () =>  {
             }
         }
 
-    }
+    }*/
 
     const handleKeyPress = (event: React.KeyboardEvent) => {
         if (event.keyCode === 13 || event.which === 13) {
-            handleSubmit(event);
+
         }
     };
-    return {handleChange, handleOnCheck,handleSubmit,handleKeyPress, handleOnBlur, values,errors, rememberMe};
+    return { handleOnCheck,handleKeyPress, handleSubmit,handleChange, credentials,errors, rememberMe};
 
 }
 

@@ -23,7 +23,9 @@
 		"remember-me-text": "Remember me",
 		"password-forgotten-text": "Password forgotten?",
 		"submit-button-text": "Sign in",
-		"no-account-text": "Don't have an account?"
+		"no-account-text": "Don't have an account?",
+		"username": "username",
+		"password": "password"
 	},
 	"validation": {
 		"field-is-required-text": "This field is required and must not be empty.",

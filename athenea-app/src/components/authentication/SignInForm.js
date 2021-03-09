@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Trans, useTranslation} from "react-i18next";
 import useForm from './../../utils/hooks/useForm';
 
-const SignInForm = ()=> {
+const SignInForm = (props)=> {
     const { t, i18n } = useTranslation();
-    const {handleChange, handleOnCheck, handleSubmit, handleKeyPress, handleOnBlur, values, errors, rememberMe} = useForm();
+    const { handleOnCheck, handleKeyPress,handleSubmit,handleChange, credentials, errors} = useForm(props);
 
     return (
             <>
@@ -14,9 +14,10 @@ const SignInForm = ()=> {
                         <div className="input-group-append">
                             <span className="input-group-text"><i className="fas fa-user fa-lg"></i></span>
                         </div>
-                        <input id="email-address" type="text" name="email" autoFocus={true}
-                               className="form-control input_user" value={values.email}
-                               placeholder={t('login.user-email-placeholder')} onChange={handleChange} onBlur={handleOnBlur}/>
+                        <input id="email-address" type="text" name="username" autoFocus={true}
+                               className="form-control input_user" defaultValue={credentials.username}
+                               onChange={handleChange}
+                               placeholder={t('login.user-email-placeholder')} />
                     </div>
                      <div className={errors.emailFieldError? "text-danger" : "hidden"}>{t(errors.emailFieldError)}</div>
                     <div className="input-group password-input-group shakeable">
@@ -24,13 +25,14 @@ const SignInForm = ()=> {
                             <span className="input-group-text"><i className="fas fa-key fa-lg"></i></span>
                         </div>
                         <input id="password" type="password" name="password"
-                               className="form-control input_pass" value={values.password}
-                               placeholder={t('login.user-password-placeholder')} onChange={handleChange} onBlur={handleOnBlur}/>
+                               className="form-control input_pass" defaultValue={credentials.password}
+                               onChange={handleChange}
+                               placeholder={t('login.user-password-placeholder')} />
                     </div>
                     <div className={errors.passwordFieldError? "text-danger" : "hidden"}>{t(errors.passwordFieldError)}</div>
                     <div className="input-group justify-content-between">
                         <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="remember-me" name="rememberMe"  value={rememberMe} onChange={handleOnCheck}/>
+                            <input type="checkbox" className="form-check-input" id="remember-me" name="rememberMe"  value={credentials.rememberMe} onChange={handleOnCheck} />
                             <label htmlFor="remember-me" className="form-check-label">
                                 <Trans i18nKey="login.remember-me-text"> Remember me </Trans>
                             </label>

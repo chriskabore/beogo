@@ -24,7 +24,9 @@
 		"remember-me-text": "Se souvenir de moi",
 		"password-forgotten-text": "Mot de passe oublié?",
 		"submit-button-text": "S'identifier",
-		"no-account-text": "Nouveau sur Athenea?"
+		"no-account-text": "Nouveau sur Athenea?",
+		"username": "Nom d'utilisateur",
+		"password": "Mot de passe"
 	},
 	"validation": {
 		"field-is-required-text": "Ce champ est obligatoire et ne doit pas être vide.",

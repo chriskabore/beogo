@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Trans} from "react-i18next";
 import SignInForm from "./SignInForm";
 
-const SignInCard = () => {
+const SignInCard = (props) => {
     return (
             <>
                 <div className="col-md-5 mx-auto my-4">
@@ -13,7 +13,7 @@ const SignInCard = () => {
                             </p>
                         </div>
                         <div className="card-body">
-                            <SignInForm/>
+                            <SignInForm {...props}/>
                         </div>
                         <div className="card-footer d-flex justify-content-center">
                             <span><Trans i18nKey="login.no-account-text"> Don't have an account?</Trans></span>&nbsp; <a

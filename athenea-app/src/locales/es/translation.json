@@ -23,7 +23,9 @@
 		"remember-me-text": "Recordarme",
 		"password-forgotten-text": "¿contraseña olvidada?",
 		"submit-button-text": "Iniciar sesión",
-		"no-account-text": "¿No tiene cuenta?"
+		"no-account-text": "¿No tiene cuenta?",
+		"username": "Nombre de usuario",
+		"password": "Contraseña"
 	},
 	"validation": {
 		"field-is-required-text": "Este campo es obligatorio y no debe estar vacío.",
