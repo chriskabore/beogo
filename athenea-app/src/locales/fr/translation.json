@@ -33,7 +33,7 @@
 		"invalid-email-format-text": "Format d'adresse e-mail non valide. johndoe@example.com est un exemple d'adresse e-mail valide.",
 		"password-format-text": "Votre mot de passe doit contenir au moins un chiffre, un caractère spécial, une lettre majuscule et une minuscule.",
 		"password-length-text": "Votre mot de passe doit contenir au moins 8 caractères ou plus.",
-		"incorrect-email-address-or-password-text": "Adresse e-mail ou mot de passe incorrect."
+		"incorrect-email-address-or-password-text": "Nom d'utilisateur ou mot de passe incorrect."
 	}
 
 }

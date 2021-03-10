@@ -2,14 +2,18 @@ import React, {Component} from 'react';
 import {Trans, useTranslation} from "react-i18next";
 import useForm from './../../utils/hooks/useForm';
 
+
+
 const SignInForm = (props)=> {
+
     const { t, i18n } = useTranslation();
-    const { handleOnCheck, handleKeyPress,handleSubmit,handleChange, credentials, errors} = useForm(props);
+    const { handleOnCheck, handleKeyPress,handleSubmit,handleChange,handleOnBlur, credentials, errors,isFormValid} = useForm(props);
 
     return (
             <>
+
                 <form className="form" onSubmit={handleSubmit}>
-                    <div className={errors.incorrectCredentialsError? 'text-danger' : 'hidden'}>{t(errors.incorrectCredentialsError)}</div>
+                    <div className={errors.incorrectCredentialsError? 'alert alert-danger text-align-center' : 'hidden'}>{t(errors.incorrectCredentialsError)}</div>
                     <div className="input-group email-input-group shakeable">
                         <div className="input-group-append">
                             <span className="input-group-text"><i className="fas fa-user fa-lg"></i></span>
@@ -17,7 +21,8 @@ const SignInForm = (props)=> {
                         <input id="email-address" type="text" name="username" autoFocus={true}
                                className="form-control input_user" defaultValue={credentials.username}
                                onChange={handleChange}
-                               placeholder={t('login.user-email-placeholder')} />
+                               placeholder={t('login.user-email-placeholder')}
+                                onBlur={handleOnBlur}/>
                     </div>
                      <div className={errors.emailFieldError? "text-danger" : "hidden"}>{t(errors.emailFieldError)}</div>
                     <div className="input-group password-input-group shakeable">
@@ -27,7 +32,9 @@ const SignInForm = (props)=> {
                         <input id="password" type="password" name="password"
                                className="form-control input_pass" defaultValue={credentials.password}
                                onChange={handleChange}
-                               placeholder={t('login.user-password-placeholder')} />
+                               placeholder={t('login.user-password-placeholder')}
+                               onBlur={handleOnBlur}
+                        />
                     </div>
                     <div className={errors.passwordFieldError? "text-danger" : "hidden"}>{t(errors.passwordFieldError)}</div>
                     <div className="input-group justify-content-between">
@@ -50,7 +57,8 @@ const SignInForm = (props)=> {
                                    name="login-submit"
                                    id="login-submit"
                                    className="form-control btn btn-primary"
-                                   value={t('login.submit-button-text')} />
+                                   value={t('login.submit-button-text')}
+                                   disabled={!isFormValid} />
                         </div>
                     </div>
                 </form>

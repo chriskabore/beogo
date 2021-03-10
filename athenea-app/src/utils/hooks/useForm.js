@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {authenticateUser} from "../athentication";
 import * as Constants from "../../utils/constants";
+import {validatePassword, validateUserName, clearErrors, shakeUserNameInput,shakePasswordInput} from "../validations";
+
 
 const useForm= (props) =>  {
 
@@ -13,6 +15,8 @@ const useForm= (props) =>  {
     const [isFormValid, setIsFormValid]  = useState(false);
 
    const handleChange = (e) => {
+        setErrors({});
+        clearErrors();
         const {name, value} = e.target;
         setCredentials(prevState => ({
             ...prevState,
@@ -26,59 +30,86 @@ const useForm= (props) =>  {
 
     const handleSubmit = async  (e) =>{
         e.preventDefault();
-        console.log('submitting form ......');
+        let passwordErrorKey="";
+        let userNameErrorKey ="";
+        let canSubmitForm = false;
         let isAuthenticated = false;
-        setIsFormValid(true);
-        if(isFormValid){
-            console.log('form is valid: ', isFormValid);
+        userNameErrorKey =  validateUserName(credentials.username);
+        passwordErrorKey =  validatePassword(credentials.password);
+        if(userNameErrorKey || passwordErrorKey ){
+            setIsFormValid(false);
+            setErrors(prevState => ({...prevState,
+                ["emailFieldError"]: userNameErrorKey}));
+
+            setErrors(prevState => ({...prevState,
+                ["passwordFieldError"]: passwordErrorKey}));
+            if(userNameErrorKey){
+                shakeUserNameInput();
+            }
+            if(passwordErrorKey){
+                shakePasswordInput();
+            }
+
+        }else if(!userNameErrorKey && !passwordErrorKey){
+            canSubmitForm = true;
+
+        }
+
+        if(canSubmitForm){
          isAuthenticated = authenticateUser(credentials);
-         console.log('user authenticated successfully: ', isAuthenticated);
             if(isAuthenticated){
                 props.history.push(Constants.DASHBOARD_PATHNAME);
-            }else if(isAuthenticated){
+            }else if(!isAuthenticated){
+                setIsFormValid(false);
                 setErrors(prevState => ({...prevState,
                     ["incorrectCredentialsError"]: 'validation.incorrect-email-address-or-password-text'}));
             }
         }
     }
 
-   /* const handleOnBlur = (e) =>{
-        const name = e.target.name;
-        if(name==='email'){
-            setErrors(prevState => ({...prevState,
-                ["emailFieldError"]: Validator.validateEmail(values.email)}));
+   const handleOnBlur = (e) =>{
+       const name = e.target.name;
+       let passwordErrorKey="";
+       let userNameErrorKey ="";
+        if(name==='username'){
+            userNameErrorKey =  validateUserName(credentials.username);
+            if(!userNameErrorKey || "" === userNameErrorKey){
+                setIsFormValid(true);
+                setErrors(prevState => ({...prevState,
+                    ["emailFieldError"]: ""}));
+            }else{
+                shakeUserNameInput();
+                setIsFormValid(false);
+                setErrors(prevState => ({...prevState,
+                    ["emailFieldError"]: userNameErrorKey}));
 
-        }else{
-            setErrors(prevState => ({...prevState,
-                ["passwordFieldError"]: Validator.validatePassword(values.password)}));
-        }
+            }
 
-    }*/
+        }else if(name==='password'){
+            passwordErrorKey =  validatePassword(credentials.password);
+            if(!passwordErrorKey || ""===passwordErrorKey){
+                setIsFormValid(true);
+                setErrors(prevState => ({...prevState,
+                    ["passwordFieldError"]: ""}));
+            }else{
+                shakePasswordInput();
+                setIsFormValid(false);
+                setErrors(prevState => ({...prevState,
+                    ["passwordFieldError"]: passwordErrorKey}));
 
-  /*  const handleSubmit= (e) =>{
-        e.preventDefault();
-        console.log('there are errors:', !canSubmitForm);
-        let incorrectCredentialsError ="";
-        if(canSubmitForm){
-            console.log("submitting form....");
-            let userInfo = Auth.authenticate(values.email, values.password, rememberMe);
-            if(userInfo.incorrectCredentialsErrorKey!==""){
-                incorrectCredentialsError =userInfo.incorrectCredentialsErrorKey;
-                if(incorrectCredentialsError){
-                    setErrors(prevState => ({...prevState,
-                        ["incorrectCredentialsError"]: incorrectCredentialsError}));
-                }
             }
         }
 
-    }*/
+    }
+
+
 
     const handleKeyPress = (event: React.KeyboardEvent) => {
         if (event.keyCode === 13 || event.which === 13) {
 
         }
     };
-    return { handleOnCheck,handleKeyPress, handleSubmit,handleChange, credentials,errors, rememberMe};
+    return { handleOnCheck,handleKeyPress, handleSubmit,handleChange,handleOnBlur, credentials,errors, isFormValid};
 
 }
 

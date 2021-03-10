@@ -31,8 +31,8 @@
 		"field-is-required-text": "Este campo es obligatorio y no debe estar vacío.",
 		"invalid-email-format-text": "Formato de dirección de correo electrónico no válido. johndoe@example.com es un ejemplo de una dirección de correo electrónico válida.",
 		"password-format-text": "Su contraseña debe contener al menos un número, un carácter especial, una letra mayúscula y una letra minúscula.",
-		"password-length-text": "Votre mot de passe doit contenir au moins 8 caractères ou plus.",
-		"incorrect-email-address-or-password-text": "Dirección de correo electrónico o contraseña incorrecta."
+		"password-length-text": "Su contraseña debe tener al menos 8 caracteres o más.",
+		"incorrect-email-address-or-password-text": "Nombre de usuario o contraseña incorrecta."
 
 	}
 
