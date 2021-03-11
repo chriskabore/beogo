@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import $ from'jquery';
 
 // validates username by checking that it is a valid email address

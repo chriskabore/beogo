@@ -33,7 +33,44 @@
 		"password-format-text": "password must contain at least one number, one special character and one uppercase and lowercase letter.",
 		"password-length-text": "password must contain at least 8 or more characters",
 		"incorrect-email-address-or-password-text": "Incorrect username or password."
-	}
+	},
+	"sidebar": {
+		"menu": {
+			"dashboard": "Dashboard",
+			"projects": "Projects",
+			"budgets": "Budgets",
+			"procurements": "Procurements",
+			"indicators": "Indicators",
+			"stakeholders": "StakeHolders",
+			"messages": "Messages",
+			"notifications": "Notifications",
+			"settings": "Settings"
+		},
+		"submenu": {
+			"action-plans": "Action plans",
+			"actions": "Actions",
+			"activities": "Activities",
+			"budget-lines": "Budget lines",
+			"payments": "Payments",
+			"disbursements": "Disbursements",
+			"procurement-plans": "Procurement plans",
+			"procurements": "Procurements",
+			"contracts": "Contracts",
+			"invoices": "Invoices",
+			"indicators-of-impact": "Indicators of impact",
+			"indicators-of-results": "Indicators of results",
+			"indicators-of-evaluation": "Indicators of evaluation",
+			"beneficiaries": "Beneficiaries",
+			"suppliers": "Suppliers",
+			"supervisors": "Supervisors",
+			"inbox": "Inbox",
+			"sent": "Sent",
+			"compose-mail": "Compose new email",
+			"trash": "Trash",
+			"users": "Users",
+			"permissions": "Permissions"
+		}
 
+	}
 
 }

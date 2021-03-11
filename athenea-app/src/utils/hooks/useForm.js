@@ -104,12 +104,8 @@ const useForm= (props) =>  {
 
 
 
-    const handleKeyPress = (event: React.KeyboardEvent) => {
-        if (event.keyCode === 13 || event.which === 13) {
 
-        }
-    };
-    return { handleOnCheck,handleKeyPress, handleSubmit,handleChange,handleOnBlur, credentials,errors, isFormValid};
+    return { handleOnCheck, handleSubmit,handleChange,handleOnBlur, credentials,errors};
 
 }
 

@@ -34,6 +34,44 @@
 		"password-format-text": "Votre mot de passe doit contenir au moins un chiffre, un caractère spécial, une lettre majuscule et une minuscule.",
 		"password-length-text": "Votre mot de passe doit contenir au moins 8 caractères ou plus.",
 		"incorrect-email-address-or-password-text": "Nom d'utilisateur ou mot de passe incorrect."
+	},
+	"sidebar": {
+		"menu": {
+			"dashboard": "Tableau de bord",
+			"projects": "Projets",
+			"budgets": "Budgets",
+			"procurements": "Marchés",
+			"indicators": "Indicateurs",
+			"stakeholders": "Partenaires",
+			"messages": "Méssages",
+			"notifications": "Notifications",
+			"settings": "Paramètres"
+		},
+		"submenu": {
+			"action-plans": "Plans d'action",
+			"actions": "Actions",
+			"activities": "Activités",
+			"budget-lines": "Lignes budgétaires",
+			"payments": "Paiements",
+			"disbursements": "Décaissements",
+			"procurement-plans": "Plans de passation de marchés",
+			"procurements": "Marchés",
+			"contracts": "Contrats",
+			"invoices": "Factures",
+			"indicators-of-impact": "Indicateurs d'impact",
+			"indicators-of-results": "Indicateurs de résultats",
+			"indicators-of-evaluation": "Indicateurs d'évaluation",
+			"beneficiaries": "Bénéficiaires",
+			"suppliers": "Fournisseurs",
+			"supervisors": "Superviseurs",
+			"inbox": "Boîte de réception",
+			"sent": "Envoyés",
+			"compose-mail": "Nouveau message",
+			"trash": "Corbeille",
+			"users": "Utilisateurs",
+			"permissions": "Permissions"
+		}
+
 	}
 
 }

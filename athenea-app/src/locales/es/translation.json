@@ -34,6 +34,44 @@
 		"password-length-text": "Su contraseña debe tener al menos 8 caracteres o más.",
 		"incorrect-email-address-or-password-text": "Nombre de usuario o contraseña incorrecta."
 
+	},
+	"sidebar": {
+		"menu": {
+			"dashboard": "Dashboard",
+			"projects": "Proyectos",
+			"budgets": "Presupuestos",
+			"procurements": "Adquisiciones",
+			"indicators": "Indicadores",
+			"stakeholders": "Colaboradores",
+			"messages": "Mensajes",
+			"notifications": "Notificaciones",
+			"settings": "Configuraciones"
+		},
+		"submenu": {
+			"action-plans": "Planes de acción",
+			"actions": "Acciones",
+			"activities": "Actividades",
+			"budget-lines": "Líneas presupuestarias",
+			"payments": "Pagos",
+			"disbursements": "Desembolsos",
+			"procurement-plans": "Planes de adquisiciones",
+			"procurements": "Adquisiciones",
+			"contracts": "Contratos",
+			"invoices": "Facturas",
+			"indicators-of-impact": "Indicadores de impacto",
+			"indicators-of-results": "Indicadores de resultados",
+			"indicators-of-evaluation": "Indicadores de evaluación",
+			"beneficiaries": "Beneficiarios",
+			"suppliers": "Proveedores",
+			"supervisors": "Supervisores",
+			"inbox": "Buzón",
+			"sent": "Enviado",
+			"compose-mail": "Nuevo mensaje",
+			"trash": "Papelera",
+			"users": "Usuarios",
+			"permissions": "Permisos"
+		}
+
 	}
 
 }

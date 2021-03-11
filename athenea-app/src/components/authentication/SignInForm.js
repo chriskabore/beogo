@@ -6,8 +6,8 @@ import useForm from './../../utils/hooks/useForm';
 
 const SignInForm = (props)=> {
 
-    const { t, i18n } = useTranslation();
-    const { handleOnCheck, handleKeyPress,handleSubmit,handleChange,handleOnBlur, credentials, errors,isFormValid} = useForm(props);
+    const { t, i18n } = useTranslation('translation');;
+    const { handleOnCheck,handleSubmit,handleChange,handleOnBlur, credentials, errors} = useForm(props);
 
     return (
             <>
@@ -57,8 +57,7 @@ const SignInForm = (props)=> {
                                    name="login-submit"
                                    id="login-submit"
                                    className="form-control btn btn-primary"
-                                   value={t('login.submit-button-text')}
-                                   disabled={!isFormValid} />
+                                   value={t('login.submit-button-text')}/>
                         </div>
                     </div>
                 </form>

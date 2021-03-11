@@ -12,7 +12,6 @@ import SignUp from "./pages/sign-up/SignUp";
 import SignIn from "./pages/sign-in/SignIn";
 import AuthenticatedRoute from "./utils/routes/AuthenticatedRoute";
 import AuthorizedRoute from "./utils/routes/AuthorizedRoute";
-import Auth from "./utils/athentication/Auth";
 import * as Constants from './utils/constants';
 
 

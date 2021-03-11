@@ -18,3 +18,11 @@ footer .copyright{
     margin-top: 0.05rem!important;
     margin-bottom: 0.05rem!important;
 }
+
+.footer-wrap{
+    position: absolute;
+    bottom: 0px;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+}
