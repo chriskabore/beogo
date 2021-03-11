@@ -3,6 +3,7 @@ import flagEn from "../../img/flags/US.svg";
 import flagES from "../../img/flags/ES.svg";
 import flagFR from "../../img/flags/FR.svg";
 import { Dropdown } from 'react-bootstrap';
+
 const LanguageDropdown = props =>  {
     const defaultLanguage = {
         id:"en",
@@ -43,13 +44,11 @@ const LanguageDropdown = props =>  {
         const selectedLocale = event;
         setCurrentLanguage(selectedLocale);
         let selectedLanguage = languages.find(lang =>{return (lang.id === selectedLocale)});
-        console.log(selectedLanguage);
         setToggleContent(<><Fragment> <Dropdown.Item  key={selectedLanguage.id} eventKey={selectedLanguage.id} className="language-dropdown-item">
             <img src={selectedLanguage.flagImg} className="mr-2"/>
             <span>{selectedLanguage.name}</span>
         </Dropdown.Item></Fragment></>);
         props.onSelectLanguge({selectedLocale});
-        console.log(event);
     }
 
 

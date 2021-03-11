@@ -23,11 +23,7 @@ const SignedInHeader = (props) => {
     }
 
     const handleClick = ()=>{
-        console.clear();
-        console.log("clicked toggle in header");
         props.setDisplaySideBar(true);
-        console.log("\n");
-        console.log("display side bar: ", props.displaySideBar);
         props.setDisplayToggle(false);
     }
 

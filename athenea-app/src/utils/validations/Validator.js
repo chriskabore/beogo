@@ -3,24 +3,18 @@ import $ from'jquery';
 
 // validates username by checking that it is a valid email address
 export const validateUserName = (username)=>{
-    console.clear();
-    console.log('validating username...');
     let emailErrorKey = "";
     const emailFormat = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
     if(!username || ""===username){
         emailErrorKey = 'validation.field-is-required-text';
-        console.log('error found in username:', 'username empty');
     }else if(!emailFormat.test(username)){
         emailErrorKey =  'validation.invalid-email-format-text';
-        console.log('error found in username:', 'email format invalid');
     }
     return emailErrorKey;
 }
 
 // validates password by checking that it is not empty
 export const validatePassword = (password) =>{
-    console.clear();
-    console.log('validating password...');
     let passwordErrorKey = "";
     if(!password || ""===password){
         passwordErrorKey = 'validation.field-is-required-text';

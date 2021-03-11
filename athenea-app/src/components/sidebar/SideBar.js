@@ -11,6 +11,7 @@ import * as BsIcons from 'react-icons/bs';
 import * as GrIcons from 'react-icons/gr';
 import styled from 'styled-components';
 import {SideBarToggle} from "./SideBarToggle";
+import SubMenu from './SubMenu';
 
 
 const SideBarNav = styled.nav`
@@ -19,12 +20,11 @@ const SideBarNav = styled.nav`
     border-top: 2px solid #9160A6;
     color: #ffffff;
     display:flex;
-    align-items:center;
+    align-items: start;
     max-width: 15%;
     width: 100%;
-    height: 100%;
     position:fixed;
-    justify-content:center;
+    justify-content:flex-start;
     transition:350ms;
     z-index:10;
     left:${({displaySideBar})=>(displaySideBar? '0':'-100%')}
@@ -35,6 +35,7 @@ const SideBarWrap = styled.div`
 `;
 
 const SideBar = (props)=> {
+
     const {t,i18n} = useTranslation('translation');
     let displaySideBar = props.displaySideBar;
 
@@ -192,7 +193,7 @@ const SideBar = (props)=> {
             // Messages
             title:  `${t('sidebar.menu.messages')}`,
             path:Constants.MESSAGES_PATHNAME,
-            icon:<FaIcons.FaEnvelope/>,
+            icon:<FaIcons.FaEnvelopeOpenText/>,
             iconClosed: <AiIcons.AiFillCaretDown/>,
             iconOpen: <AiIcons.AiFillCaretUp/>,
             subNav:[
@@ -224,13 +225,13 @@ const SideBar = (props)=> {
         },
         {
             // notifications
-            title: `${t('sidebar.menu.messages')}`,
+            title: `${t('sidebar.menu.notifications')}`,
             path: Constants.NOTIFICATIONS_PATHNAME,
             icon:<FaIcons.FaBell/>
         },
         {
             //settings
-            title: `${t('sidebar.menu.messages')}`,
+            title: `${t('sidebar.menu.settings')}`,
             path: Constants.SETTINGS_PATHNAME,
             icon: <FaIcons.FaCog/>,
             iconClosed: <AiIcons.AiFillCaretDown/>,
@@ -260,6 +261,9 @@ const SideBar = (props)=> {
                                 <SideBarToggle to="#">
                                     <AiIcons.AiOutlineClose onClick={showSideBar}/>
                                 </SideBarToggle>
+                                {menuData.map((item,index)=>{
+                                    return <SubMenu item={item} index={index}/>
+                                })}
                             </SideBarWrap>
                         </SideBarNav>
                 </div>

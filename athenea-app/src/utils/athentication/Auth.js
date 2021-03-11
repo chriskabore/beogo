@@ -45,9 +45,6 @@ export const authenticateUser = (credentials) =>{
     };
 
     if(credentials){
-        console.log('credentials are ok...');
-        console.log(credentials.username);
-        console.log(credentials.password);
       if(demoUser.username===credentials.username && demoUser.password===credentials.password){
           isAuthenticated = true;
           setUserSession(userToken,demoUser);
