@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useTranslation} from "react-i18next";
 import * as Constants from "../../utils/constants";
 import * as FaIcons from 'react-icons/fa';
@@ -8,7 +8,6 @@ import * as GoIcons from 'react-icons/go';
 import * as Io5Icons from 'react-icons/io5';
 import * as MdIcons from 'react-icons/md';
 import * as BsIcons from 'react-icons/bs';
-import * as GrIcons from 'react-icons/gr';
 import styled from 'styled-components';
 import {SideBarToggle} from "./SideBarToggle";
 import SubMenu from './SubMenu';
@@ -16,17 +15,18 @@ import SubMenu from './SubMenu';
 
 const SideBarNav = styled.nav`
     background: #43425D;
-    padding:0;
-    border-top: 2px solid #9160A6;
+    border-top: 3px solid #9160A6;
     color: #ffffff;
+    padding:0;
     display:flex;
-    align-items: start;
-    max-width: 15%;
+    flex-direction: column; 
+    align-items: center;
+    max-width: 18%;
     width: 100%;
     position:fixed;
     justify-content:flex-start;
     transition:350ms;
-    z-index:10;
+    z-index:1;
     left:${({displaySideBar})=>(displaySideBar? '0':'-100%')}
 `;
 
@@ -67,12 +67,13 @@ const SideBar = (props)=> {
                     title: `${t('sidebar.submenu.action-plans')}`,
                     path: Constants.ACTION_PLANS_PATHNAME,
                     icon: <FaIcons.FaTasks/>
+
                 },
                 {
                     // actions
                     title: `${t('sidebar.submenu.actions')}`,
                     path: Constants.ACTIONS_PATHNAME,
-                    icon:<GrIcons.GrTask/>
+                    icon:<BsIcons.BsListCheck/>
                 },
                 {
                     //Activities
@@ -255,7 +256,7 @@ const SideBar = (props)=> {
 
     return (
             <>
-                <div className="col-md-2">
+                <div className="col-md-3 vh-100">
                         <SideBarNav displaySideBar={displaySideBar}>
                             <SideBarWrap>
                                 <SideBarToggle to="#">

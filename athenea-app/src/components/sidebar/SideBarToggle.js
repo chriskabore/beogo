@@ -6,10 +6,14 @@ import styled from 'styled-components';
 
 export const SideBarToggle = styled(Link)`
     margin-let:2rem;
-    font-size:1.4rem;
-    height:80px;
+    font-size:1.3rem;
+    height:40px;
     display:flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items:center;
     color: #ffffff;
+    padding
+    &:hover{
+     color:#9160A6;
+    }
 `;
