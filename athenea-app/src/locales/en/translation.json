@@ -35,6 +35,7 @@
 		"incorrect-email-address-or-password-text": "Incorrect username or password."
 	},
 	"sidebar": {
+		"close": "Close",
 		"menu": {
 			"dashboard": "Dashboard",
 			"projects": "Projects",

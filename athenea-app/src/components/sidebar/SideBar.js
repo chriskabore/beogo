@@ -11,6 +11,7 @@ import * as BsIcons from 'react-icons/bs';
 import styled from 'styled-components';
 import {SideBarToggle} from "./SideBarToggle";
 import SubMenu from './SubMenu';
+import {ActivityNotificationItems, MessageNotificationItems} from "../../utils/constants/HeaderNotifications";
 
 
 const SideBarNav = styled.nav`
@@ -21,20 +22,39 @@ const SideBarNav = styled.nav`
     display:flex;
     flex-direction: column; 
     align-items: center;
-    max-width: 18%;
+    max-width: 22%;
     width: 100%;
     position:fixed;
     justify-content:flex-start;
     transition:350ms;
     z-index:1;
+    top:5.28rem;
+    height:100%;
+    overflow:scroll;
     left:${({displaySideBar})=>(displaySideBar? '0':'-100%')}
 `;
 
 const SideBarWrap = styled.div`
- width:100%;
+  width:100%;
+  /*min-height: calc(100vh -7.45725rem);*/
+`;
+
+const CloseSideBarText= styled.span`
+ color:#ffffff;
+ font-weight:200;
+ font-size:1rem;
+ margin-right:0.2rem;
+ padding-bottom:0.2rem;
+ &:hover{
+  color:#9160A6;
+ }
+ 
 `;
 
 const SideBar = (props)=> {
+
+    let numberOfActNotifications = ActivityNotificationItems.length;
+    let numberOfMsgNotifications =MessageNotificationItems.length;
 
     const {t,i18n} = useTranslation('translation');
     let displaySideBar = props.displaySideBar;
@@ -208,7 +228,8 @@ const SideBar = (props)=> {
                     // inbox
                     title: `${t('sidebar.submenu.inbox')}`,
                     path: Constants.INBOX_PATHNAME,
-                    icon: <FaIcons.FaInbox/>
+                    icon: <FaIcons.FaInbox/>,
+                    badge: <span className="inbox-badge badge rounded bg-white float-right">{numberOfMsgNotifications}</span>,
                 },
                 {
                     // sent
@@ -228,7 +249,8 @@ const SideBar = (props)=> {
             // notifications
             title: `${t('sidebar.menu.notifications')}`,
             path: Constants.NOTIFICATIONS_PATHNAME,
-            icon:<FaIcons.FaBell/>
+            icon:<FaIcons.FaBell/>,
+            badge: <span className="notification-badge badge rounded bg-white float-right">{numberOfActNotifications}</span>
         },
         {
             //settings
@@ -256,11 +278,12 @@ const SideBar = (props)=> {
 
     return (
             <>
-                <div className="col-md-3 vh-100">
+                <div className="col-md-3">
                         <SideBarNav displaySideBar={displaySideBar}>
                             <SideBarWrap>
                                 <SideBarToggle to="#">
-                                    <AiIcons.AiOutlineClose onClick={showSideBar}/>
+                                    <CloseSideBarText>{t('sidebar.close')}</CloseSideBarText>
+                                    <AiIcons.AiFillCaretLeft onClick={showSideBar}/>
                                 </SideBarToggle>
                                 {menuData.map((item,index)=>{
                                     return <SubMenu item={item} index={index}/>

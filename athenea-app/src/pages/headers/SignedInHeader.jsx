@@ -53,7 +53,7 @@ const SignedInHeader = (props) => {
                                             <LanguageSelector onSelectLanguge={getSelectedLocale}/>
                                         </li>
                                         <li className="nav-item dropdown ml-2">
-                                            <UserDropdown/>
+                                            <UserDropdown {...props} />
                                         </li>
                                         {
                                             props.displayToggle && <SideBarToggle to="#" >

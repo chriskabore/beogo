@@ -36,6 +36,7 @@
 		"incorrect-email-address-or-password-text": "Nom d'utilisateur ou mot de passe incorrect."
 	},
 	"sidebar": {
+		"close": "Fermer",
 		"menu": {
 			"dashboard": "Tableau de bord",
 			"projects": "Projets",

@@ -19,11 +19,13 @@ export const getToken = () => {
 export const removeUserSession = () => {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
+    sessionStorage.setItem('isAuthenticated', false);
+    sessionStorage.setItem('isAuthorized',false);
 }
 
 // set the token and user from the session storage
 export const setUserSession = (token, user) => {
-    sessionStorage.setItem('isAuthenticated', user.isAuthenticated);
+    sessionStorage.setItem('isAuthenticated', user.isSignedIn);
     sessionStorage.setItem('token', token);
     sessionStorage.setItem('user', JSON.stringify(user));
 }
@@ -47,6 +49,7 @@ export const authenticateUser = (credentials) =>{
     if(credentials){
       if(demoUser.username===credentials.username && demoUser.password===credentials.password){
           isAuthenticated = true;
+          demoUser.isSignedIn = true;
           setUserSession(userToken,demoUser);
           setUserPermissions(demoUser);
       }
@@ -65,4 +68,6 @@ export const setUserPermissions= (user)=>{
        }
     }
 }
+
+
 

@@ -33,6 +33,7 @@ const SideBarLink = styled(Link)`
   text-decoration:none;
   font-size: 1.05rem;
   font-weight: 200;
+  border-bottom: 1px solid #23282e;
   &:hover{
     border-left: 4px solid #9160A6;
     background-color: #4f5b69;
@@ -61,11 +62,12 @@ const SubMenu = ({item}) => {
         return (
             <>
                 <SideBarLink to='#' onClick={item.subNav && showSubNav}>
-                    <div>
+                    <div className="menu-item">
                         <i className="menu-icon">{item.icon}</i>
                         <SideBarLabel>{item.title}</SideBarLabel>
                     </div>
-                    <div>
+                    <div className="menu-item-toggle">
+                        {item.badge && item.badge}
                         {item.subNav && subNav ? item.iconOpen: item.subNav ? item.iconClosed:null}
                     </div>
                 </SideBarLink>
@@ -73,6 +75,7 @@ const SubMenu = ({item}) => {
                     return(<DropdownLink to='#' key={index}>
                         <i className="submenu-icon">{subItem.icon}</i>
                         <SideBarLabel>{subItem.title}</SideBarLabel>
+                        {subItem.badge && subItem.badge}
                     </DropdownLink>)
                 })}
             </>

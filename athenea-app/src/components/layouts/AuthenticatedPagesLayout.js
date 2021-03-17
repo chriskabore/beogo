@@ -22,7 +22,7 @@ const AuthenticatedPagesLayout = ({children}) => {
                                      setDisplaySideBar={setDisplaySideBar}
                                      displayToggle={displayToggle}
                                      setDisplayToggle={setDisplayToggle}/>
-                            <div className="col-md-9 vh-100">
+                            <div className="col-md-9">
                                 <main>{children}</main>
                             </div>
                         </div>

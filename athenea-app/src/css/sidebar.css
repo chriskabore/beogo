@@ -1,1 +1,21 @@
 
+.menu-item-toggle{
+    margin-right:0.6rem;
+}
+
+.menu-icon, .submenu-icon{
+    font-size: 1.1rem;
+    width:24px;
+}
+
+.notification-badge{
+    margin-top: 0.25rem;
+    margin-left:2rem;
+    color: black;
+}
+
+.inbox-badge{
+    color: black;
+    margin-left: 7.8rem;
+}
+

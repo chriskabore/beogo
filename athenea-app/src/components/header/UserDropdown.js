@@ -1,19 +1,36 @@
 import React, {Fragment, useState} from 'react';
-import userImg from '../../img/user.svg';
+import {useHistory} from 'react-router-dom';
+
 import {Trans} from 'react-i18next';
+import {authenticateUser, getUser,getToken,removeUserSession,setUserSession,setUserPermissions } from "../../utils/athentication";
+import * as Constants from "../../utils/constants";
 
-const UserDropdown = ()=>  {
-         const username = localStorage.getItem('username');
-         const position = localStorage.getItem('userPosition');
-         const isAuthenticated = localStorage.getItem('isAuthenticated');
+const UserDropdown = (props) =>  {
+         let authenticatedUser = getUser();
+         const history = useHistory();
+          let userInfo={};
+         if(authenticatedUser){
+             const username = authenticatedUser.name;
+             const position = authenticatedUser.position;
+             const userImg = authenticatedUser.avatar;
+             const isSignedIn= authenticatedUser.isSignedIn;
+             const isAuthenticated = isSignedIn;
+             console.log("\n");
+             console.log("username:", username);
+             console.log("position:", position);
+             console.log("isAuthenticated:", isAuthenticated);
 
-         let userInfo= {
-             id: "userId",
-             name:username,
-             position:position,
-             avatar:userImg,
-             isSignedIn:isAuthenticated
+             userInfo= {
+                 id: "userId",
+                 name:username,
+                 position:position,
+                 avatar:userImg,
+                 isSignedIn:isAuthenticated
+             }
          }
+
+
+
     const [toggleContent, setToggleContent]= useState(<><Fragment>
         <img src={userInfo.avatar} className="img-fluid rounded-circle user-avatar"/>
         <div className="user-info ml-3">
@@ -21,6 +38,11 @@ const UserDropdown = ()=>  {
             <div className="user-position">{userInfo.position}</div>
         </div>
     </Fragment></>);
+         const handleSignOut = (e) =>{
+             e.preventDefault();
+             removeUserSession();
+             history.push(Constants.SIGNIN_PATHNAME);
+         }
         return (
             <>
                 <Fragment>
@@ -49,7 +71,7 @@ const UserDropdown = ()=>  {
                         </li>
                         <hr/>
                         <li>
-                            <a href="/sign-in" className="user-dropdown-item dropdown-item logout">
+                            <a href="/sign-in" className="user-dropdown-item dropdown-item logout" onClick={handleSignOut}>
                                 <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 <span className="d-none d-sm-inline-block">
                                   <Trans i18nKey="auth.sign-out"> Sign Out </Trans>
