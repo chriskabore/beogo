@@ -36,6 +36,7 @@
 	},
 	"sidebar": {
 		"close": "Close",
+		"menu-text": "Menu",
 		"menu": {
 			"dashboard": "Dashboard",
 			"projects": "Projects",

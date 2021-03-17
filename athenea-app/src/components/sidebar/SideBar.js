@@ -22,16 +22,18 @@ const SideBarNav = styled.nav`
     display:flex;
     flex-direction: column; 
     align-items: center;
-    max-width: 22%;
+    max-width: 21%;
     width: 100%;
     position:fixed;
     justify-content:flex-start;
     transition:350ms;
     z-index:1;
     top:5.28rem;
-    height:100%;
-    overflow:scroll;
+    max-height: 83.5%;
+    height: 84%;
+    overflow-y:auto;
     left:${({displaySideBar})=>(displaySideBar? '0':'-100%')}
+  
 `;
 
 const SideBarWrap = styled.div`
@@ -43,8 +45,7 @@ const CloseSideBarText= styled.span`
  color:#ffffff;
  font-weight:200;
  font-size:1rem;
- margin-right:0.2rem;
- padding-bottom:0.2rem;
+ margin-right:0.4rem;
  &:hover{
   color:#9160A6;
  }
@@ -281,9 +282,9 @@ const SideBar = (props)=> {
                 <div className="col-md-3">
                         <SideBarNav displaySideBar={displaySideBar}>
                             <SideBarWrap>
-                                <SideBarToggle to="#">
+                                <SideBarToggle to="#" onClick={showSideBar}>
                                     <CloseSideBarText>{t('sidebar.close')}</CloseSideBarText>
-                                    <AiIcons.AiFillCaretLeft onClick={showSideBar}/>
+                                   <i className="close-sidebar-toogle-icon"><AiIcons.AiFillCaretLeft /></i>
                                 </SideBarToggle>
                                 {menuData.map((item,index)=>{
                                     return <SubMenu item={item} index={index}/>

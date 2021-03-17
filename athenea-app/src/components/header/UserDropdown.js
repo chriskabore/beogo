@@ -15,10 +15,6 @@ const UserDropdown = (props) =>  {
              const userImg = authenticatedUser.avatar;
              const isSignedIn= authenticatedUser.isSignedIn;
              const isAuthenticated = isSignedIn;
-             console.log("\n");
-             console.log("username:", username);
-             console.log("position:", position);
-             console.log("isAuthenticated:", isAuthenticated);
 
              userInfo= {
                  id: "userId",

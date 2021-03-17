@@ -7,13 +7,22 @@ import MessageNotifications from "../../components/header/MessageNotifications";
 import LanguageSelector from "../../components/header/LanguageSelector";
 import {SideBarToggle} from "../../components/sidebar/SideBarToggle";
 import * as FaIcons from 'react-icons/fa';
+import styled from 'styled-components';
+import {useTranslation} from "react-i18next";
 
 
 
-
-
-
+const ShowSideBarText= styled.span`
+ color:#ffffff;
+ font-weight:200;
+ font-size:1rem;
+ margin-right:0.5rem;
+ &:hover{
+  color:#9160A6;
+ }
+ `;
 const SignedInHeader = (props) => {
+    const {t,i18n} = useTranslation('translation');
 
     let currentLanguage = '';
     const getSelectedLocale= (locale)=>{
@@ -52,14 +61,18 @@ const SignedInHeader = (props) => {
                                         <li className="nav-item dropdown ml-3 mr-3">
                                             <LanguageSelector onSelectLanguge={getSelectedLocale}/>
                                         </li>
-                                        <li className="nav-item dropdown ml-2">
+                                        <li className="nav-item dropdown ml-2 mr-5">
                                             <UserDropdown {...props} />
                                         </li>
-                                        {
-                                            props.displayToggle && <SideBarToggle to="#" >
-                                                <FaIcons.FaBars onClick={handleClick} />
-                                            </SideBarToggle>
-                                        }
+                                        <li className="nav-item dropdown pt-2 sidebar-toggle">
+                                            {
+                                                props.displayToggle && <SideBarToggle to="#" onClick={handleClick} >
+                                                    <ShowSideBarText>{t('sidebar.menu-text')}</ShowSideBarText>
+                                                    <i className="show-sidebar-toggle-icon"><FaIcons.FaBars/></i>
+                                                </SideBarToggle>
+                                            }
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>

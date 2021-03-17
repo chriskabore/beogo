@@ -9,8 +9,8 @@ export const SideBarToggle = styled(Link)`
     font-size:1rem;
     height:40px;
     display:flex;
-    justify-content: flex-end;
-    align-items:center;
+    justify-content: flex-end!important;;
+    align-items: center!important;
     color: #ffffff;
     padding-right:0.5rem;
     &:hover{

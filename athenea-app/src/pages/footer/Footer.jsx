@@ -5,7 +5,9 @@ const Footer = () => {
 
         return (
             <>
-                    <div className="row">
+
+                <div className="row">
+                    <div className="footer-wrap">
                         <hr className="footer-separator"/>
                         <footer className="footer container-fluid">
                             <div className="col-12 my-auto">
@@ -14,6 +16,7 @@ const Footer = () => {
                             </div>
                         </footer>
                     </div>
+                </div>
             </>
         );
 

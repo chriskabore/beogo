@@ -37,6 +37,7 @@
 	},
 	"sidebar": {
 		"close": "Fermer",
+		"menu-text": "Menu",
 		"menu": {
 			"dashboard": "Tableau de bord",
 			"projects": "Projets",
