@@ -150,7 +150,7 @@
 }
 .user-name, .user-position{
     color:#ffffff;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 .user-name{
@@ -222,6 +222,10 @@
     display:flex;
     justify-content: center!important;;
     align-items: center!important;
+}
+
+.pl-8{
+    padding-left:2.5rem;
 }
 
 

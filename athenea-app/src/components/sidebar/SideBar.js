@@ -279,19 +279,17 @@ const SideBar = (props)=> {
 
     return (
             <>
-                <div className="col-md-3">
-                        <SideBarNav displaySideBar={displaySideBar}>
-                            <SideBarWrap>
-                                <SideBarToggle to="#" onClick={showSideBar}>
-                                    <CloseSideBarText>{t('sidebar.close')}</CloseSideBarText>
-                                   <i className="close-sidebar-toogle-icon"><AiIcons.AiFillCaretLeft /></i>
-                                </SideBarToggle>
-                                {menuData.map((item,index)=>{
-                                    return <SubMenu item={item} index={index}/>
-                                })}
-                            </SideBarWrap>
-                        </SideBarNav>
-                </div>
+                <SideBarNav displaySideBar={displaySideBar}>
+                    <SideBarWrap>
+                        <SideBarToggle to="#" onClick={showSideBar}>
+                            <CloseSideBarText>{t('sidebar.close')}</CloseSideBarText>
+                            <i className="close-sidebar-toogle-icon"><AiIcons.AiFillCaretLeft/></i>
+                        </SideBarToggle>
+                        {menuData.map((item, index) => {
+                            return <SubMenu key={index} item={item} index={index}/>
+                        })}
+                    </SideBarWrap>
+                </SideBarNav>
             </>
     );
 

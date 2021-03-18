@@ -18,11 +18,13 @@ const AuthenticatedPagesLayout = ({children}) => {
                        setDisplayToggle={setDisplayToggle}/>
                     <div className="container-fluid px-0">
                         <div className="row">
-                            <SideBar displaySideBar={displaySideBar}
-                                     setDisplaySideBar={setDisplaySideBar}
-                                     displayToggle={displayToggle}
-                                     setDisplayToggle={setDisplayToggle}/>
-                            <div className="col-md-9">
+                            <div className={displaySideBar ? 'col-md-3 px-0': 'd-none'}>
+                                <SideBar displaySideBar={displaySideBar}
+                                         setDisplaySideBar={setDisplaySideBar}
+                                         displayToggle={displayToggle}
+                                         setDisplayToggle={setDisplayToggle}/>
+                            </div>
+                            <div className={displaySideBar ?'col-md-9 pt-3 pl-0 pr-3':'col-md-12 pl-8 pt-3'}>
                                 <main>{children}</main>
                             </div>
                         </div>

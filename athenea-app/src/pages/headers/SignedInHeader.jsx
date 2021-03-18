@@ -9,6 +9,7 @@ import {SideBarToggle} from "../../components/sidebar/SideBarToggle";
 import * as FaIcons from 'react-icons/fa';
 import styled from 'styled-components';
 import {useTranslation} from "react-i18next";
+import * as Constants from '../../utils/constants';
 
 
 
@@ -41,10 +42,10 @@ const SignedInHeader = (props) => {
             <>
                 <header className="header row navbar navbar-light navbar-expand-md">
                     <nav className="nav navbar navbar-expand-md w-100">
-                        <div className="container-fluid">
+                        <div className="container-fluid pr-0">
                             <div className="navbar-wrapper w-100">
                                 <div className="navbar-header">
-                                    <a href="#" className="navbar-brand">
+                                    <a href={Constants.HOME_PATHNAME} className="navbar-brand">
                                         <img  src={atheneaLogo} alt="athenea logo" className="brand-logo-image img-fluid"/>
                                     </a>
                                 </div>
@@ -61,10 +62,10 @@ const SignedInHeader = (props) => {
                                         <li className="nav-item dropdown ml-3 mr-3">
                                             <LanguageSelector onSelectLanguge={getSelectedLocale}/>
                                         </li>
-                                        <li className="nav-item dropdown ml-2 mr-5">
+                                        <li className="nav-item dropdown ml-2 mr-2">
                                             <UserDropdown {...props} />
                                         </li>
-                                        <li className="nav-item dropdown pt-2 sidebar-toggle">
+                                        <li className={props.displayToggle ? "nav-item dropdown pt-2 sidebar-toggle": "d-none"}>
                                             {
                                                 props.displayToggle && <SideBarToggle to="#" onClick={handleClick} >
                                                     <ShowSideBarText>{t('sidebar.menu-text')}</ShowSideBarText>

@@ -1,18 +1,21 @@
-import React, {Component, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import AuthenticatedPagesLayout from "../../components/layouts/AuthenticatedPagesLayout";
 import * as Constants from "../../utils/constants";
+import AtheneaBreadCrumbs from "../../components/header/AtheneaBreadCrumbs";
 
-const Preferences = () =>  {
+const Projects = ()=>  {
     useEffect(() => {
-        document.title = Constants.SETTINGS__PAGE_TITLE;
+        document.title = Constants.PROJECTS_PAGE_TITLE;
     });
         return (
             <>
                 <AuthenticatedPagesLayout>
-                    <h3>Preferences</h3>
+                    <AtheneaBreadCrumbs/>
+                    <h3>Projects</h3>
                 </AuthenticatedPagesLayout>
             </>
         );
+
 }
 
-export default Preferences;
+export default Projects;

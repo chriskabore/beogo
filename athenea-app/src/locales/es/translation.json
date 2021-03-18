@@ -5,7 +5,8 @@
 		"view-all-notifications": "Ver todas sus notificaciones",
 		"read-all-messages": "Leer todos sus mensajes",
 		"my-profile": "Mi perfil",
-		"settings": "Configuraciones"
+		"settings": "Configuraciones",
+		"preferences": "Preferencias"
 	},
 	"footer": {
 		"copyright": "Copyright BEOGOTECH SARL. Todos derechos reservados."

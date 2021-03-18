@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import {Route, Redirect} from 'react-router-dom';
-import Auth from '../athentication/Auth'
+import {getUser} from '../athentication';
+import {ROLE_ADMIN} from "../constants";
 
 const AuthorizedRoute = ({component:Component,isAuthorized,...rest}) => (
     <Route {...rest} render={(props)=>{
-        const isSignedIn =sessionStorage.getItem('isAuthenticated');
-        if(!isSignedIn){
+
+        let user = getUser();
+
+        if(!user){
             return (<Redirect to={{pathname:'/sign-in', state:{from:props.location}}}/>);
         }
 
-        if(!isAuthorized){
+        if(user && !user.roles.includes(ROLE_ADMIN)){
             return (<Redirect to={{pathname:'/', state:{from:props.location}}}/>);
         }
         return <Component {...props}/>

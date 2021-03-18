@@ -5,7 +5,8 @@
 		"view-all-your-notifications": "View all your notifications",
 		"read-all-your-messages": "Read all your messages",
 		"my-profile": "My Profile",
-		"settings": "Settings"
+		"settings": "Settings",
+		"preferences": "Preferences"
 	},
 	"footer": {
 		"copyright": "Copyright BEOGOTECH SARL. All rights reserved."
@@ -43,7 +44,7 @@
 			"budgets": "Budgets",
 			"procurements": "Procurements",
 			"indicators": "Indicators",
-			"stakeholders": "StakeHolders",
+			"stakeholders": "Stakeholders",
 			"messages": "Messages",
 			"notifications": "Notifications",
 			"settings": "Settings"

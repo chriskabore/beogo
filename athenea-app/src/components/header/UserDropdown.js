@@ -8,8 +8,9 @@ import * as Constants from "../../utils/constants";
 const UserDropdown = (props) =>  {
          let authenticatedUser = getUser();
          const history = useHistory();
-          let userInfo={};
+         let userInfo={};
          if(authenticatedUser){
+             const userId = authenticatedUser.id;
              const username = authenticatedUser.name;
              const position = authenticatedUser.position;
              const userImg = authenticatedUser.avatar;
@@ -17,12 +18,13 @@ const UserDropdown = (props) =>  {
              const isAuthenticated = isSignedIn;
 
              userInfo= {
-                 id: "userId",
+                 id: userId,
                  name:username,
                  position:position,
                  avatar:userImg,
                  isSignedIn:isAuthenticated
              }
+
          }
 
 
@@ -50,7 +52,7 @@ const UserDropdown = (props) =>  {
                     <ul aria-labelledby="user-dropdown" className="user-dropdown dropdown-menu">
 
                         <li>
-                            <a href="/profile" className="user-dropdown-item dropdown-item">
+                            <a href={Constants.PROFILE_PATHNAME} className="user-dropdown-item dropdown-item">
                                 <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 <span className="d-none d-sm-inline-block mr-2">
                                    <Trans i18nKey="header.my-profile"> My Profile</Trans>
@@ -58,16 +60,16 @@ const UserDropdown = (props) =>  {
                             </a>
                         </li>
                         <li>
-                            <a href="/settings" className="user-dropdown-item dropdown-item">
+                            <a href={Constants.PREFERENCES_PATHNAME} className="user-dropdown-item dropdown-item">
                                 <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 <span className="d-none d-sm-inline-block mr-2">
-                                    <Trans i18nKey="header.settings"> Settings </Trans>
+                                    <Trans i18nKey="header.preferences"> Preferences </Trans>
                                 </span>
                             </a>
                         </li>
                         <hr/>
                         <li>
-                            <a href="/sign-in" className="user-dropdown-item dropdown-item logout" onClick={handleSignOut}>
+                            <a href={Constants.SIGNIN_PATHNAME} className="user-dropdown-item dropdown-item logout" onClick={handleSignOut}>
                                 <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 <span className="d-none d-sm-inline-block">
                                   <Trans i18nKey="auth.sign-out"> Sign Out </Trans>
