@@ -23,6 +23,7 @@ const ShowSideBarText= styled.span`
  }
  `;
 const SignedInHeader = (props) => {
+
     const {t,i18n} = useTranslation('translation');
 
     let currentLanguage = '';

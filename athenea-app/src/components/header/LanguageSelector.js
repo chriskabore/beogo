@@ -7,16 +7,6 @@ import flagFR from '../../img/flags/FR.svg';
 
 const  LanguageSelector = props => {
 
-    const defaultLanguage = {
-        id:"en",
-        title:"English",
-        name:"English",
-        flagImg: flagEn
-    };
-
-     const[currentLanguage, setCurrentLanguage]=useState();
-    const [toggleContent, setToggleContent] = useState(<><Fragment><img src={defaultLanguage.flagImg} alt={defaultLanguage.title} className="mr-2"/>
-        <span>{defaultLanguage.name}</span></Fragment></>);
 
     const languages = [
         {
@@ -38,6 +28,30 @@ const  LanguageSelector = props => {
 
         }
     ];
+
+    const defaultLanguage = {
+        id:"en",
+        title:"English",
+        name:"English",
+        flagImg: flagEn
+    };
+
+    let userPreferredLanguage = localStorage.getItem("currentLanguage");
+
+    useEffect(() => {
+        localStorage.setItem("currentLanguage", currentLanguage)
+    });
+
+    const[currentLanguage, setCurrentLanguage]=useState(userPreferredLanguage? userPreferredLanguage:defaultLanguage.id);
+
+
+
+    let selectedLanguage = languages.find(lang =>{return (lang.id === currentLanguage)});
+
+    const [toggleContent, setToggleContent] = useState(<><Fragment><img src={selectedLanguage.flagImg} alt={selectedLanguage.title} className="mr-2"/>
+        <span>{selectedLanguage.name}</span></Fragment></>);
+
+
 
 
 const handleChange = (event)=>{
