@@ -5,8 +5,8 @@ import {withTranslation} from "react-i18next";
 import SideBar from "../sidebar/SideBar";
 
 const AuthenticatedPagesLayout = ({children}) => {
-         const [displaySideBar, setDisplaySideBar] = useState(false);
-         const [displayToggle, setDisplayToggle] = useState(true);
+         const [displaySideBar, setDisplaySideBar] = useState(true);
+         const [displayToggle, setDisplayToggle] = useState(false);
 
         return (
             <>

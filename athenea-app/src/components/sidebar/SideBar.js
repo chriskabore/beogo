@@ -60,7 +60,7 @@ const SideBar = (props)=> {
     const {t,i18n} = useTranslation('translation');
     let displaySideBar = props.displaySideBar;
 
-    const showSideBar = ()=>{
+    const showSideBar = () => {
         displaySideBar=false;
         props.setDisplaySideBar(false);
         props.setDisplayToggle(true);

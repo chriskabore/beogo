@@ -11,7 +11,7 @@ const Settings = () => {
             <>
                 <AuthenticatedPagesLayout>
                     <AtheneaBreadCrumbs/>
-                    <h2>settigns</h2>
+                    <h2>Settings</h2>
                 </AuthenticatedPagesLayout>
             </>
         );
