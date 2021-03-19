@@ -19,3 +19,14 @@
     margin-left: 7.2rem;
 }
 
+.sidebar-toggle{
+    margin-top:0.8rem;
+}
+.sidebar-toggle a{
+    font-size: 1.4rem;
+    display:flex;
+    justify-content: center!important;;
+    align-items: center!important;
+}
+
+

@@ -214,15 +214,6 @@
     width:100%;
 }
 
-.sidebar-toggle{
-    margin-top:0.8rem;
-}
-.sidebar-toggle a{
-    font-size: 1.4rem;
-    display:flex;
-    justify-content: center!important;;
-    align-items: center!important;
-}
 
 .pl-8{
     padding-left:2.5rem;

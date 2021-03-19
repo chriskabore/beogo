@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import usePrevious from "../../utils/hooks/usePrevious";
 
 const DropdownLink = styled(Link)`
   background-color: #181c20;
@@ -55,16 +56,35 @@ const SideBarLabel = styled.span`
  margin-left:1rem;
 `;
 
+
+
 const SubMenu = ({item}) => {
 
     const [subNav, setSubNav] = useState(false);
+    const prevSubNav = usePrevious(subNav);
+    //console.clear();
+    //console.log("printing from SubMenu");
+    //console.log("\n");
+    //console.log("current subNav:", subNav);
+   // console.log("\n");
+    //console.log("Previous subNav:", prevSubNav);
+    console.log("\n");
+
     const showSubNav = () =>{
         setSubNav(!subNav);
     }
 
+    const handleClick= (e)=>{
+        showSubNav();
+        console.log("clicked from: ", e);
+    }
+
+
+
+
         return (
             <>
-                <SideBarLink to={item.subNav ? '#':item.path} onClick={item.subNav && showSubNav}>
+                <SideBarLink to={item.path} onClick={item.subNav && handleClick}>
                     <div className="menu-item">
                         <i className="menu-icon">{item.icon}</i>
                         <SideBarLabel>{item.title}</SideBarLabel>

@@ -3,6 +3,7 @@ import { Breadcrumbs as MUIBreadcrumbs, Link, Typography} from '@material-ui/cor
 import {withRouter} from 'react-router-dom';
 import * as Constants from '../../utils/constants';
 import styled from 'styled-components';
+import {useTranslation} from "react-i18next";
 
 
 
@@ -15,12 +16,51 @@ import styled from 'styled-components';
   align-items:center;
   padding-left: 0.4rem;  
  `;
+
+
 const AtheneaBreadCrumbs = (props) => {
+
+    const {t,i18n} = useTranslation('translation');
      const {location :{pathname},
          history} = props;
-    console.log("we are here :",pathname);
     const pathNames = pathname.split('/').filter(x =>x);
-    console.log("pathNames :", pathNames);
+
+    let pathLabels = new Map();
+    pathLabels.set("sign-in", `${t('auth.sign-in')}`);
+    pathLabels.set("sign-up", `${t('auth.sign-out')}`);
+    pathLabels.set("dashboard", `${t('sidebar.menu.dashboard')}`);
+    pathLabels.set("settings", `${t('sidebar.menu.settings')}`);
+    pathLabels.set("preferences", `${t('sidebar.menu.settings')}`);
+    pathLabels.set("budgets", `${t('sidebar.menu.budgets')}`);
+    pathLabels.set("budget-lines", `${t('sidebar.submenu.budget-lines')}`);
+    pathLabels.set("payments", `${t('sidebar.submenu.payments')}`);
+    pathLabels.set("procurements", `${t('sidebar.menu.procurements')}`);
+    pathLabels.set("procurement-plans", `${t('sidebar.submenu.procurement-plans')}`);
+    pathLabels.set("contracts", `${t('sidebar.submenu.contracts')}`);
+    pathLabels.set("invoices", `${t('sidebar.submenu.invoices')}`);
+    pathLabels.set("indicators", `${t('sidebar.menu.indicators')}`);
+    pathLabels.set("indicators-of-impact", `${t('sidebar.submenu.indicators-of-impact')}`);
+    pathLabels.set("indicators-of-results", `${t('sidebar.submenu.indicators-of-results')}`);
+    pathLabels.set("indicators-of-evaluation", `${t('sidebar.submenu.indicators-of-evaluation')}`);
+    pathLabels.set("stakeholders", `${t('sidebar.menu.stakeholders')}`);
+    pathLabels.set("beneficiaries", `${t('sidebar.submenu.beneficiaries')}`);
+    pathLabels.set("suppliers", `${t('sidebar.submenu.suppliers')}`);
+    pathLabels.set("supervisors", `${t('sidebar.submenu.supervisors')}`);
+    pathLabels.set("messages", `${t('sidebar.menu.messages')}`);
+    pathLabels.set("inbox", `${t('sidebar.submenu.inbox')}`);
+    pathLabels.set("compose", `${t('sidebar.submenu.compose-mail')}`);
+    pathLabels.set("sent", `${t('sidebar.submenu.sent')}`);
+    pathLabels.set("trash", `${t('sidebar.submenu.trash')}`);
+    pathLabels.set("users", `${t('sidebar.submenu.users')}`);
+    pathLabels.set("permissions", `${t('sidebar.submenu.permissions')}`);
+    pathLabels.set("notifications", `${t('sidebar.menu.notifications')}`);
+    pathLabels.set("projects", `${t('sidebar.menu.projects')}`);
+    pathLabels.set("action-plans", `${t('sidebar.submenu.action-plans')}`);
+    pathLabels.set("actions", `${t('sidebar.submenu.actions')}`);
+    pathLabels.set("activities", `${t('sidebar.submenu.activities')}`);
+
+
+
 
     return (
             <>
@@ -34,7 +74,7 @@ const AtheneaBreadCrumbs = (props) => {
                         {pathNames.map((name, index)=>{
                             const routeTo = `/${pathNames.slice(0, index +1).join(Constants.HOME_PATHNAME)}`;
                             const isLast = index === pathNames.length -1;
-                            return isLast ? (<Typography key={name}>{name}</Typography>)  :(<Link  key={name} onClick={() =>history.push(routeTo)}>{name}</Link>);
+                            return isLast ? (<Typography key={name}>{pathLabels.has(name) ? pathLabels.get(name) : name}</Typography>)  :(<Link  key={name} onClick={() =>history.push(routeTo)}>{pathLabels.has(name) ? pathLabels.get(name) : name}</Link>);
                         })}
                     </MUIBreadcrumbs>
                 </BreadcrumbsWrap>

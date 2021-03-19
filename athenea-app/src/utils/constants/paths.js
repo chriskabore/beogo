@@ -30,9 +30,11 @@ export const TRASH_PATHNAME='/messages/trash';
 export const USERS_PATHNAME='/settings/users';
 export const PERMISSIONS_PATHNAME='/settings/permissions';
 export const HOME_PATHNAME='/';
+export const ERROR_PATHNAME='/error';
 export const NOTIFICATIONS_PATHNAME='/notifications';
 export const PROJECTS_PATHNAME='/projects';
 export const ACTION_PLANS_PATHNAME='/projects/action-plans';
 export const ACTIONS_PATHNAME='/projects/actions';
 export const ACTIVITIES_PATHNAME='/projects/activities';
 export const ALL_PATHS='*';
+

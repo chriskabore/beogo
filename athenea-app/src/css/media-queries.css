@@ -29,6 +29,14 @@
     .phrase-container .phrase{
         font-size: 0.9rem;;
     }
+
+    .w-22{
+        max-width: 22%!important;
+    }
+    .w-88{
+        flex: 0 0 77%;
+        max-width: 88%;
+    }
 }
 
 /* Large devices (desktops, 992px and up)*/

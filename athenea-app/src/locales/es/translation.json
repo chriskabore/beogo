@@ -48,7 +48,8 @@
 			"stakeholders": "Colaboradores",
 			"messages": "Mensajes",
 			"notifications": "Notificaciones",
-			"settings": "Configuraciones"
+			"settings": "Configuraciones",
+			"preferences": "Preferencias"
 		},
 		"submenu": {
 			"action-plans": "Planes de acción",
