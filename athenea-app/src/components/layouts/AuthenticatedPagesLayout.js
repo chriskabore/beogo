@@ -5,7 +5,7 @@ import {withTranslation} from "react-i18next";
 import SideBar from "../sidebar/SideBar";
 import AtheneaBreadCrumbs from "../header/AtheneaBreadCrumbs";
 
-const AuthenticatedPagesLayout = (props, {children}) => {
+const AuthenticatedPagesLayout = ({children}, props) => {
          const [displaySideBar, setDisplaySideBar] = useState(true);
          const [displayToggle, setDisplayToggle] = useState(false);
 
@@ -23,7 +23,7 @@ const AuthenticatedPagesLayout = (props, {children}) => {
                                 <SideBar displaySideBar={displaySideBar}
                                          setDisplaySideBar={setDisplaySideBar}
                                          displayToggle={displayToggle}
-                                         setDisplayToggle={setDisplayToggle} {...props}/>
+                                         setDisplayToggle={setDisplayToggle}  {...props}/>
                             </div>
                             <div className={displaySideBar ?'col-md-9 pt-3 pl-2 pr-3 w-88':'col-md-12 pl-8 pt-3'}>
                                 <AtheneaBreadCrumbs/>
