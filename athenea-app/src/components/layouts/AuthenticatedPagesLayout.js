@@ -3,8 +3,9 @@ import Footer from "../../pages/footer/Footer";
 import SignedInHeader from "../../pages/headers/SignedInHeader";
 import {withTranslation} from "react-i18next";
 import SideBar from "../sidebar/SideBar";
+import AtheneaBreadCrumbs from "../header/AtheneaBreadCrumbs";
 
-const AuthenticatedPagesLayout = ({children}) => {
+const AuthenticatedPagesLayout = (props, {children}) => {
          const [displaySideBar, setDisplaySideBar] = useState(true);
          const [displayToggle, setDisplayToggle] = useState(false);
 
@@ -22,10 +23,11 @@ const AuthenticatedPagesLayout = ({children}) => {
                                 <SideBar displaySideBar={displaySideBar}
                                          setDisplaySideBar={setDisplaySideBar}
                                          displayToggle={displayToggle}
-                                         setDisplayToggle={setDisplayToggle}/>
+                                         setDisplayToggle={setDisplayToggle} {...props}/>
                             </div>
                             <div className={displaySideBar ?'col-md-9 pt-3 pl-2 pr-3 w-88':'col-md-12 pl-8 pt-3'}>
-                                <main>{children}</main>
+                                <AtheneaBreadCrumbs/>
+                                <div className="page-content">{children}</div>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import {useTranslation} from "react-i18next";
 import * as Constants from "../../utils/constants";
 import * as FaIcons from 'react-icons/fa';
@@ -11,6 +11,7 @@ import * as BsIcons from 'react-icons/bs';
 import styled from 'styled-components';
 import {SideBarToggle} from "./SideBarToggle";
 import SubMenu from './SubMenu';
+import {useHistory} from 'react-router-dom';
 import {ActivityNotificationItems, MessageNotificationItems} from "../../utils/constants/HeaderNotifications";
 
 
@@ -52,20 +53,33 @@ const CloseSideBarText= styled.span`
  
 `;
 
-const SideBar = (props)=> {
+const SideBar = (props, {defaultActive})=> {
 
     let numberOfActNotifications = ActivityNotificationItems.length;
     let numberOfMsgNotifications =MessageNotificationItems.length;
+    const history = useHistory();
+    const location = history.location;
+
+    //Load this string from localStorage
+    const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
+    //Parse it to a number
+    const lastActiveIndex = Number(lastActiveIndexString);
+    const [activeIndex, setActiveIndex] = useState(defaultActive || Number(defaultActive));
+
 
     const {t,i18n} = useTranslation('translation');
     let displaySideBar = props.displaySideBar;
 
+
+    const changeActiveIndex = (newIndex) =>{
+        localStorage.setItem("lastActiveIndex", newIndex);
+        setActiveIndex(newIndex);
+    }
     const showSideBar = () => {
         displaySideBar=false;
         props.setDisplaySideBar(false);
         props.setDisplayToggle(true);
     }
-
 
 
     const menuData = [
@@ -277,16 +291,23 @@ const SideBar = (props)=> {
         }
     ];
 
+    //This re-renders when the route changes
+    useEffect(()=> {
+        //Get an item with the same 'route' as the one provided by react router (the current route)
+        const activeItem = menuData.findIndex(item=> item.path === location.pathname);
+        changeActiveIndex(activeItem);
+    }, [location]);
+
     return (
             <>
                 <SideBarNav displaySideBar={displaySideBar}>
                     <SideBarWrap>
                         <SideBarToggle to="#" onClick={showSideBar}>
                             <CloseSideBarText>{t('sidebar.close')}</CloseSideBarText>
-                            <i className="close-sidebar-toogle-icon"><AiIcons.AiFillCaretLeft/></i>
+                            <i className="close-sidebar-toggle-icon"><AiIcons.AiFillCaretLeft/></i>
                         </SideBarToggle>
                         {menuData.map((item, index) => {
-                            return <SubMenu key={index} item={item} index={index}/>
+                            return <SubMenu key={item.title} item={item} index={index} active={index === activeIndex}/>
                         })}
                     </SideBarWrap>
                 </SideBarNav>

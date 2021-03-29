@@ -22,10 +22,10 @@ footer .copyright{
 
 
 .footer-wrap{
-
-    bottom:0px;
-    width:100%;
-    position: absolute;
-    left:0;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: fixed;
 }
+
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import usePrevious from "../../utils/hooks/usePrevious";
+
 
 const DropdownLink = styled(Link)`
   background-color: #181c20;
@@ -58,24 +58,25 @@ const SideBarLabel = styled.span`
 
 
 
-const SubMenu = ({item}) => {
+const SubMenu = (props) => {
 
     const [subNav, setSubNav] = useState(false);
-    const prevSubNav = usePrevious(subNav);
-    //console.clear();
-    //console.log("printing from SubMenu");
-    //console.log("\n");
-    //console.log("current subNav:", subNav);
-   // console.log("\n");
-    //console.log("Previous subNav:", prevSubNav);
+    const {item, index,active} = props;
+
     console.log("\n");
 
     const showSubNav = () =>{
         setSubNav(!subNav);
     }
 
-    const handleClick= (e)=>{
+    const handleMenuItemClick= (e)=>{
         showSubNav();
+        console.log("clicked from: ", e.target);
+        console.log("clicked Item index : ", index);
+        console.log("clicked Item active: ", active);
+    }
+
+    const handleSubmenuItemClick = (e)=>{
         console.log("clicked from: ", e);
     }
 
@@ -84,7 +85,7 @@ const SubMenu = ({item}) => {
 
         return (
             <>
-                <SideBarLink to={item.path} onClick={item.subNav && handleClick}>
+                <SideBarLink to={item.path} onClick={item.subNav && handleMenuItemClick}>
                     <div className="menu-item">
                         <i className="menu-icon">{item.icon}</i>
                         <SideBarLabel>{item.title}</SideBarLabel>
@@ -95,7 +96,7 @@ const SubMenu = ({item}) => {
                     </div>
                 </SideBarLink>
                 {subNav && item.subNav.map((subItem,index)=>{
-                    return(<DropdownLink to={subItem.path} key={index}>
+                    return(<DropdownLink to={subItem.path} key={subItem.title} onClick={handleSubmenuItemClick}>
                         <i className="submenu-icon">{subItem.icon}</i>
                         <SideBarLabel>{subItem.title}</SideBarLabel>
                         {subItem.badge && subItem.badge}

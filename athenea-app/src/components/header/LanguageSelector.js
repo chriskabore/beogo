@@ -36,7 +36,7 @@ const  LanguageSelector = props => {
         flagImg: flagEn
     };
 
-    let userPreferredLanguage = localStorage.getItem("currentLanguage");
+    let userPreferredLanguage = localStorage.getItem("i18nextLng");
 
     useEffect(() => {
         localStorage.setItem("currentLanguage", currentLanguage)

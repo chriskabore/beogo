@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import AuthenticatedPagesLayout from "../../../components/layouts/AuthenticatedPagesLayout";
 import * as Constants from "../../../utils/constants";
-import AtheneaBreadCrumbs from "../../../components/header/AtheneaBreadCrumbs";
+
 
 const UserPreferences = () =>  {
     useEffect(() => {
@@ -10,7 +10,6 @@ const UserPreferences = () =>  {
         return (
             <>
                 <AuthenticatedPagesLayout>
-                    <AtheneaBreadCrumbs/>
                     <h3>User Preferences</h3>
                 </AuthenticatedPagesLayout>
             </>

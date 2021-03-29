@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import AuthenticatedPagesLayout from "../../components/layouts/AuthenticatedPagesLayout";
 import * as Constants from "../../utils/constants";
-import AtheneaBreadCrumbs from "../../components/header/AtheneaBreadCrumbs";
+
 
 const Dashboard = ()=>  {
     useEffect(() => {
@@ -10,8 +10,7 @@ const Dashboard = ()=>  {
         return (
             <>
                 <AuthenticatedPagesLayout>
-                    <AtheneaBreadCrumbs/>
-                    <h3>Dashboard</h3>
+                    <h4>Dashboard</h4>
                 </AuthenticatedPagesLayout>
             </>
         );
