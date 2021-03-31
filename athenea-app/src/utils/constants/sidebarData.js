@@ -7,6 +7,7 @@ import * as MdIcons from 'react-icons/md';
 import * as BiIcons from 'react-icons/bi';
 import * as BsIcons from 'react-icons/bs';
 import * as DiIcons from 'react-icons/di';
+import {useTranslation} from "react-i18next";
 
 
 export const SideBarData = [
