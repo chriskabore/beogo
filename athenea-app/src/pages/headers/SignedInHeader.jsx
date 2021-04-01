@@ -57,16 +57,16 @@ const SignedInHeader = (props) => {
                                         <li className="nav-item dropdown mr-3">
                                             <ActivityNotifications/>
                                         </li>
-                                        <li className="nav-item dropdown mr-3">
+                                        <li className="nav-item dropdown mr-5">
                                             <MessageNotifications/>
                                         </li>
-                                        <li className="nav-item dropdown ml-3 mr-3">
+                                        <li className="nav-item dropdown ml-5 mr-2">
                                             <LanguageSelector onSelectLanguge={getSelectedLocale}/>
                                         </li>
-                                        <li className="nav-item dropdown ml-2 mr-2">
+                                        <li className="nav-item dropdown ml-2 mr-5">
                                             <UserDropdown {...props} />
                                         </li>
-                                        <li className={props.displayToggle ? "nav-item dropdown pt-2 sidebar-toggle": "d-none"}>
+                                        <li className={props.displayToggle ? "nav-item dropdown pt-2 ml-4 sidebar-toggle": "d-none"}>
                                             {
                                                 props.displayToggle && <SideBarToggle to="#" onClick={handleClick} >
                                                     <ShowSideBarText>{t('sidebar.menu-text')}</ShowSideBarText>
