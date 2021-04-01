@@ -8,81 +8,19 @@ import * as Io5Icons from 'react-icons/io5';
 import * as MdIcons from 'react-icons/md';
 import * as BsIcons from 'react-icons/bs';
 import {useTranslation} from "react-i18next";
-import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
 import {ActivityNotificationItems, MessageNotificationItems} from "../../utils/constants/HeaderNotifications";
-import MenuItemToggle from "./MenuItemToggle";
+
+import MenuItem from "./MenuItem";
 
 
-const MenuItem = styled.li`
-  display:flex;
-  color:#fff;
-  justify-content: space-between;
-  align-items: center;
-  list-style:none;
-  text-decoration:none;
-  font-size: 1.05rem;
-  font-weight: 200;
-  border-bottom: 1px solid #23282e;
-  line-height: 2.2rem;
-  &:hover{
-    border-left: 4px solid #9160A6;
-    background-color: #4f5b69;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-    color:#fff;
-    text-decoration:none;
-    cursor: pointer;
-  }&.active{
-    border-left: 4px solid #9160A6;
-    background-color: #4f5b69;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-    color:#fff;
-    text-decoration:none;
-    cursor: pointer;
-  }
-`;
-
-const MenuText = styled.span`
- margin-left:1rem;
-`;
-
-const MenuLink = styled.a`
-    color:#ffffff;
-    &:hover{
-        color:#ffffff;
-    }
-`;
 
 
-const Menu = (props, {defaultActive}) => {
-
-    let numberOfActNotifications = ActivityNotificationItems.length;
-    let numberOfMsgNotifications =MessageNotificationItems.length;
-
-
+const Menu = () => {
 
     const {t,i18n} = useTranslation('translation');
-    const history = useHistory();
-    const [displaySubMenu, setDisplaySubMenu] = useState(false);
-
-    const location = history.location;
-
-
-    //Load this string from localStorage
-    const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
-    //Parse it to a number
-    const lastActiveIndex = Number(lastActiveIndexString);
-    const [activeIndex, setActiveIndex] = useState(defaultActive || Number(defaultActive));
-    const [activeItem, setActiveItem] = useState({});
-
+    let numberOfActNotifications = ActivityNotificationItems.length;
+    let numberOfMsgNotifications =MessageNotificationItems.length;
 
     const menuData = [
         {
@@ -321,10 +259,19 @@ const Menu = (props, {defaultActive}) => {
             ]
         }
     ];
+    const history = useHistory();
+    const location = history.location;
 
-    const showSubMenu = () =>{
-        setDisplaySubMenu(!displaySubMenu);
-    }
+
+    //Load this string from localStorage
+    const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
+    //Parse it to a number
+    const lastActiveIndex = Number(lastActiveIndexString);
+    const lastActiveMenuItem = menuData[lastActiveIndex];
+    const [activeIndex, setActiveIndex] = useState( lastActiveIndex);
+    const [activeItem, setActiveItem] = useState(lastActiveMenuItem);
+
+
 
     const changeActiveIndex = (newIndex) =>{
         localStorage.setItem("lastActiveIndex", newIndex);
@@ -335,28 +282,19 @@ const Menu = (props, {defaultActive}) => {
     useEffect(()=> {
         //Get an item with the same 'route' as the one provided by react router (the current route)
         const activeItemIndex = menuData.findIndex(item=> item.path === location.pathname);
-        setActiveItem(menuData[activeItemIndex]);
-        changeActiveIndex(activeItemIndex);
+        if(activeItemIndex!==-1){
+            setActiveItem(menuData[activeItemIndex]);
+            changeActiveIndex(activeItemIndex);
+        }
+
     }, [location]);
 
-    const  handleMenuItemClick = (e,menuItem) => {
-        e.preventDefault();
-        setActiveItem(menuItem);
-        showSubMenu();
-        history.push(menuItem.path);
 
-    }
 
     return (
             <>
-                {menuData.map((menuItem, index)=>{
-                    return <MenuItem className={(activeItem.title === menuItem.title)? "nav-item menu-item active":"nav-item menu-item"} key={menuItem.title} index={index}  onClick={(e)=>handleMenuItemClick(e,menuItem)}>
-                        <MenuLink href="#" className="nav-link">
-                            <i className="menu-item-icon">{menuItem.icon}</i>
-                            <MenuText className="menu-text">{menuItem.title}</MenuText>
-                        </MenuLink>
-                        <MenuItemToggle menuItem={menuItem} isActive={activeItem.title === menuItem.title}/>
-                    </MenuItem>
+                {menuData.map((menuItem, menuItemIndex)=>{
+                    return <MenuItem menuItem={menuItem} key={menuItemIndex} activeItem={activeItem} activeIndex={activeIndex} menuItemIndex={menuItemIndex} />
                 })}
             </>
         );

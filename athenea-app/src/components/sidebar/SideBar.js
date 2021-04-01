@@ -4,7 +4,7 @@ import {SideBarToggle} from "./SideBarToggle";
 import Menu from "./Menu";
 import * as AiIcons from 'react-icons/ai';
 import {useTranslation} from "react-i18next";
-import usePrevious from "../../utils/hooks/usePrevious";
+
 
 
 
@@ -23,8 +23,8 @@ const SideBarNav = styled.nav`
     transition:350ms;
     z-index:1;
     top:5.28rem;
-    max-height: 83.5%;
-    height: 84%;
+    max-height: 100%;
+    height: 82.2%;
     overflow-y:auto;
     left:${({displaySideBar})=>(displaySideBar? '0':'-100%')}
 `;
@@ -39,6 +39,7 @@ const CloseSideBarText= styled.span`
  font-weight:200;
  font-size:1rem;
  margin-right:0.4rem;
+  
  &:hover{
   color:#9160A6;
  }
@@ -64,7 +65,7 @@ const SideBar = (props)=> {
             <>
                <SideBarNav displaySideBar={displaySideBar}>
                    <SideBarWrap>
-                       <SideBarToggle to="#" onClick={showSideBar}>
+                       <SideBarToggle className="close-toggle" to="#" onClick={showSideBar}>
                            <CloseSideBarText>{t('sidebar.close')}</CloseSideBarText>
                            <i className="close-sidebar-toggle-icon"><AiIcons.AiFillCaretLeft/></i>
                        </SideBarToggle>
