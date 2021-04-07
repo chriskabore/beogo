@@ -19,6 +19,9 @@ export const getToken = () => {
 export const removeUserSession = () => {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
+    sessionStorage.removeItem('lastDisplaySubMenu');
+    sessionStorage.removeItem('lastActiveIndex');
+    sessionStorage.removeItem('lastActiveSubMenuIndex');
     sessionStorage.setItem('isAuthenticated', false);
     sessionStorage.setItem('isAuthorized',false);
 }

@@ -20,16 +20,16 @@ import {useTranslation} from "react-i18next";
 
 const AtheneaBreadCrumbs = (props) => {
 
-    const {t,i18n} = useTranslation('translation');
-     const {location :{pathname},
+    const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
+    const {location :{pathname},
          history} = props;
     const pathNames = pathname.split('/').filter(x =>x);
 
     let pathLabels = new Map();
-    pathLabels.set("sign-in", `${t('auth.sign-in')}`);
-    pathLabels.set("sign-up", `${t('auth.sign-out')}`);
-    pathLabels.set("dashboard", `${t('sidebar.menu.dashboard')}`);
-    pathLabels.set("settings", `${t('sidebar.menu.settings')}`);
+    pathLabels.set("sign-in", `${t(Constants.SIGNIN_MSG_PROP)}`);
+    pathLabels.set("sign-up", `${t(Constants.SIGNOUT_MSG_PROP)}`);
+    pathLabels.set("dashboard", `${t(Constants.SIDEBAR_MENU_DASHBOARD_MSG_PROP)}`);
+    pathLabels.set("settings", `${t(Constants.SIDEBAR_MENU_SETTINGS_MSG_PROP)}`);
     pathLabels.set("preferences", `${t('sidebar.menu.settings')}`);
     pathLabels.set("budgets", `${t('sidebar.menu.budgets')}`);
     pathLabels.set("budget-lines", `${t('sidebar.submenu.budget-lines')}`);

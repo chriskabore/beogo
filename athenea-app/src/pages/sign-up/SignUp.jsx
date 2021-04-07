@@ -1,8 +1,10 @@
 import React, {Component, useEffect} from 'react';
 import PublicPagesLayout from "../../components/layouts/PublicPagesLayout";
 import * as Constants from "../../utils/constants";
+import {useTranslation} from "react-i18next";
 
 const SignUp = () =>  {
+
     useEffect(() => {
         document.title = Constants.SIGNUP_PAGE_TITLE;
     });

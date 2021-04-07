@@ -18,7 +18,7 @@ import MenuItem from "./MenuItem";
 
 const Menu = () => {
 
-    const {t,i18n} = useTranslation('translation');
+    const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
     let numberOfActNotifications = ActivityNotificationItems.length;
     let numberOfMsgNotifications =MessageNotificationItems.length;
 
@@ -264,7 +264,7 @@ const Menu = () => {
 
 
     //Load this string from localStorage
-    const lastActiveIndexString = localStorage.getItem("lastActiveIndex");
+    const lastActiveIndexString = sessionStorage.getItem("lastActiveIndex");
     //Parse it to a number
     const lastActiveIndex = Number(lastActiveIndexString);
     const lastActiveMenuItem = menuData[lastActiveIndex];
@@ -274,7 +274,7 @@ const Menu = () => {
 
 
     const changeActiveIndex = (newIndex) =>{
-        localStorage.setItem("lastActiveIndex", newIndex);
+        sessionStorage.setItem("lastActiveIndex", newIndex);
         setActiveIndex(newIndex);
     }
 

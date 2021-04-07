@@ -24,7 +24,7 @@ const ShowSideBarText= styled.span`
  `;
 const SignedInHeader = (props) => {
 
-    const {t,i18n} = useTranslation('translation');
+    const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
 
     let currentLanguage = '';
     const getSelectedLocale= (locale)=>{

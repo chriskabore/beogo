@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import {ActivityNotificationItems} from "../../utils/constants/HeaderNotifications";
 import {Trans} from "react-i18next";
+import * as Constants from "../../utils/constants";
 
 const ActivityNotifications = props =>  {
 
@@ -41,7 +42,7 @@ const ActivityNotifications = props =>  {
                                className="dropdown-item all-notifications text-center">
                                 <strong>
                                     <i className="fa fa-bell all-notifications-icon"></i>
-                                    <Trans i18nKey="header.view-all-notifications">view all notifications</Trans>
+                                    <Trans i18nKey={Constants.VIEW_ALL_NOTIFICATIONS_MSG_PROP}>view all notifications</Trans>
                                 </strong>
                             </a>
                         </li>

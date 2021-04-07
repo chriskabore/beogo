@@ -76,6 +76,24 @@
 			"permissions": "Permisos"
 		}
 
+	},
+	"project": {
+		"from": "De:",
+		"to": "A:",
+		"eaqip": {
+			"title": "Proyecto de Mejoramiento del Acceso y la Calidad de la Educación en Burkina Faso",
+			"badge": "PMACE",
+			"location": "Burkina Faso, África occidental",
+			"dateStart": "02 de abril 2015",
+			"dateEnd": "31 de julio 2020"
+		},
+		"eaqipaf": {
+			"title": "Proyecto de Mejoramiento del Acceso y la Calidad de la Educación Financiamiento adicional en Burkina Faso",
+			"badge": "PMACE",
+			"location": "Burkina Faso, África occidental",
+			"dateStart": "01 de enero 2021",
+			"dateEnd": "31 de augosto 2024"
+		}
 	}
 
 }

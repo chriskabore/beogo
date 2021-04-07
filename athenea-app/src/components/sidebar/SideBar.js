@@ -4,6 +4,7 @@ import {SideBarToggle} from "./SideBarToggle";
 import Menu from "./Menu";
 import * as AiIcons from 'react-icons/ai';
 import {useTranslation} from "react-i18next";
+import * as Constants from "../../utils/constants";
 
 
 
@@ -24,7 +25,7 @@ const SideBarNav = styled.nav`
     z-index:1;
     top:5.28rem;
     max-height: 100%;
-    height: 82.2%;
+    height: 83.5%;
     overflow-y:auto;
     left:${({displaySideBar})=>(displaySideBar? '0':'-100%')}
 `;
@@ -50,7 +51,7 @@ const CloseSideBarText= styled.span`
 
 const SideBar = (props)=> {
 
-    const {t,i18n} = useTranslation('translation');
+    const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
 
     let displaySideBar = props.displaySideBar || false;
 

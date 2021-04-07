@@ -1,0 +1,14 @@
+
+.project-badge{
+    height: 1.35rem;
+    padding-top: 0.4rem;
+    color:#fff;
+}
+
+.project-footer{
+    padding: 0.25rem;
+}
+
+.project-location,.project-calendar{
+    color:#000;
+}

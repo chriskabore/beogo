@@ -50,7 +50,7 @@ const SubMenu = (props)=>  {
     const history = useHistory();
     const location = history.location;
 
-    const lastActiveSubMenuIndexString = localStorage.getItem("lastActiveSubMenuIndex");
+    const lastActiveSubMenuIndexString = sessionStorage.getItem("lastActiveSubMenuIndex");
     const lastActiveSubMenuIndex = Number(lastActiveSubMenuIndexString);
     const lastActiveSubMenuItem = subMenuData[lastActiveSubMenuIndex];
     const [activeSubMenuIndex, setActiveSubMenuIndex] = useState(lastActiveSubMenuIndex);
@@ -62,7 +62,7 @@ const SubMenu = (props)=>  {
         e.preventDefault();
         setActiveSubMenuItem(subMenuItem);
         setActiveSubMenuIndex(subMenuItemIndex);
-        localStorage.setItem("lastActiveSubMenuIndex",subMenuItemIndex);
+        sessionStorage.setItem("lastActiveSubMenuIndex",subMenuItemIndex);
         history.push(subMenuItem.path);
     }
 

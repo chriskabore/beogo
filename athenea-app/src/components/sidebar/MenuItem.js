@@ -56,7 +56,7 @@ const MenuItem = (props) => {
 
     const {menuItem, menuItemIndex, activeItem, activeIndex} = props;
     const history = useHistory();
-    const lastDisplaySubMenuString = localStorage.getItem("lastDisplaySubMenu");
+    const lastDisplaySubMenuString = sessionStorage.getItem("lastDisplaySubMenu");
     const lastDisplaySubMenu = JSON.parse(lastDisplaySubMenuString);
     const defaultDisplaySubMenu = lastDisplaySubMenu!==null ? (activeItem && activeItem.title===menuItem.title):false;
     const [displaySubMenu, setDisplaySubMenu] = useState(defaultDisplaySubMenu);
@@ -71,13 +71,13 @@ const MenuItem = (props) => {
     const  handleMenuItemClick = (e,menuItem,menuItemIndex) => {
         e.preventDefault();
         showSubMenu();
-        localStorage.setItem("lastActiveSubMenuIndex",-1);
+        sessionStorage.setItem("lastActiveSubMenuIndex",-1);
         if(menuItem.subMenu){
-            localStorage.setItem("lastDisplaySubMenu",!displaySubMenu);
+            sessionStorage.setItem("lastDisplaySubMenu",!displaySubMenu);
         }else{
-            localStorage.setItem("lastDisplaySubMenu",false);
+            sessionStorage.setItem("lastDisplaySubMenu",false);
         }
-        localStorage.setItem("lastActiveIndex", menuItemIndex);
+        sessionStorage.setItem("lastActiveIndex", menuItemIndex);
         history.push(menuItem.path);
 
     }

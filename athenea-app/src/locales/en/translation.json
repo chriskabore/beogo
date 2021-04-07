@@ -75,6 +75,27 @@
 			"permissions": "Permissions"
 		}
 
+	},
+	"error": {
+		"incorrect-credentials-error": "Incorrect credentials"
+	},
+	"project": {
+		"from": "From:",
+		"to": "To:",
+		"eaqip": {
+			"title": "Education Access and Quality Improvement Project in Burkina Faso",
+			"badge": "EAQIP",
+			"location": "Burkina Faso, West Africa",
+			"dateStart": "April 02, 2015",
+			"dateEnd": "July 31, 2020"
+		},
+		"eaqipaf": {
+			"title": "Education Access and Quality Improvement Project Additional Financing in Burkina Faso",
+			"badge": "EAQIP",
+			"location": "Burkina Faso, West Africa",
+			"dateStart": "January 01, 2021",
+			"dateEnd": "July 31, 2024"
+		}
 	}
 
 }
