@@ -37,12 +37,14 @@ const  LanguageSelector = props => {
     };
 
     let userPreferredLanguage = localStorage.getItem("i18nextLng");
+    let userLocalPreferredLanguage = localStorage.getItem("currentLanguage");
+
 
     useEffect(() => {
         localStorage.setItem("currentLanguage", currentLanguage)
     });
 
-    const[currentLanguage, setCurrentLanguage]=useState(userPreferredLanguage? userPreferredLanguage:defaultLanguage.id);
+    const[currentLanguage, setCurrentLanguage]=useState(userLocalPreferredLanguage? userLocalPreferredLanguage:(userPreferredLanguage?userPreferredLanguage:defaultLanguage.id));
 
 
 
