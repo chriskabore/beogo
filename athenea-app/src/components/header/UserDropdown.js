@@ -27,9 +27,7 @@ const UserDropdown = (props) =>  {
 
          }
 
-
-
-    const [toggleContent, setToggleContent]= useState(<><Fragment>
+         const [toggleContent, setToggleContent]= useState(<><Fragment>
         <img src={userInfo.avatar} className="img-fluid rounded-circle user-avatar"/>
         <div className="user-info ml-3">
             <div className="user-name">{userInfo.name}</div>
@@ -41,6 +39,22 @@ const UserDropdown = (props) =>  {
              removeUserSession();
              history.push(Constants.SIGNIN_PATHNAME);
          }
+         const handleGoToProfile = (e) =>{
+             e.preventDefault();
+             sessionStorage.removeItem("lastActiveIndex");
+             sessionStorage.removeItem("lastActiveSubMenuIndex");
+             sessionStorage.removeItem("lastDisplaySubMenu");
+             history.push(Constants.PROFILE_PATHNAME);
+         }
+
+        const handleGoToPreferences = (e) =>{
+            e.preventDefault();
+            sessionStorage.removeItem("lastActiveIndex");
+            sessionStorage.removeItem("lastActiveSubMenuIndex");
+            sessionStorage.removeItem("lastDisplaySubMenu");
+            history.push(Constants.PREFERENCES_PATHNAME);
+         }
+
         return (
             <>
                 <Fragment>
@@ -52,7 +66,7 @@ const UserDropdown = (props) =>  {
                     <ul aria-labelledby="user-dropdown" className="user-dropdown dropdown-menu">
 
                         <li>
-                            <a href={Constants.PROFILE_PATHNAME} className="user-dropdown-item dropdown-item">
+                            <a href={Constants.PROFILE_PATHNAME} className="user-dropdown-item dropdown-item" onClick={handleGoToProfile}>
                                 <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 <span className="d-none d-sm-inline-block mr-2">
                                    <Trans i18nKey="header.my-profile"> My Profile</Trans>
@@ -60,7 +74,7 @@ const UserDropdown = (props) =>  {
                             </a>
                         </li>
                         <li>
-                            <a href={Constants.PREFERENCES_PATHNAME} className="user-dropdown-item dropdown-item">
+                            <a href={Constants.PREFERENCES_PATHNAME} className="user-dropdown-item dropdown-item" onClick={handleGoToPreferences}>
                                 <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 <span className="d-none d-sm-inline-block mr-2">
                                     <Trans i18nKey="header.preferences"> Preferences </Trans>

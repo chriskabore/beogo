@@ -266,10 +266,10 @@ const Menu = () => {
     //Load this string from localStorage
     const lastActiveIndexString = sessionStorage.getItem("lastActiveIndex");
     //Parse it to a number
-    const lastActiveIndex = Number(lastActiveIndexString);
-    const lastActiveMenuItem = menuData[lastActiveIndex];
-    const [activeIndex, setActiveIndex] = useState( lastActiveIndex);
-    const [activeItem, setActiveItem] = useState(lastActiveMenuItem);
+    const lastActiveIndex = (lastActiveIndexString ? Number(lastActiveIndexString): -1);
+    const lastActiveMenuItem = lastActiveIndex!== -1 ? menuData[lastActiveIndex] : {};
+    const [activeIndex, setActiveIndex] = useState(lastActiveIndex);
+    const [activeItem, setActiveItem] = useState(lastActiveMenuItem ? lastActiveMenuItem : {});
 
 
 

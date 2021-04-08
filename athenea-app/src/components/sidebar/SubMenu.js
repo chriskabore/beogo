@@ -53,8 +53,8 @@ const SubMenu = (props)=>  {
     const lastActiveSubMenuIndexString = sessionStorage.getItem("lastActiveSubMenuIndex");
     const lastActiveSubMenuIndex = Number(lastActiveSubMenuIndexString);
     const lastActiveSubMenuItem = subMenuData[lastActiveSubMenuIndex];
-    const [activeSubMenuIndex, setActiveSubMenuIndex] = useState(lastActiveSubMenuIndex);
-    const [activeSubMenuItem, setActiveSubMenuItem] = useState(lastActiveSubMenuItem);
+    const [activeSubMenuIndex, setActiveSubMenuIndex] = useState(lastActiveSubMenuIndex ? lastActiveSubMenuIndex : -1);
+    const [activeSubMenuItem, setActiveSubMenuItem] = useState(lastActiveSubMenuItem ? lastActiveSubMenuItem : {} );
 
 
 
