@@ -12,3 +12,16 @@
 .project-location,.project-calendar{
     color:#000;
 }
+
+.project-footer-text{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-background::after{
+    content:"";
+    position:absolute;
+    top:0;right:0;left:0;bottom:0;
+    background-color:rgba(0,0,0,0.5);
+    z-index:-1;
+}

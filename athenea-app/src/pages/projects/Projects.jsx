@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {useTranslation} from "react-i18next";
 import Project from "../../components/projects/Project";
 import bgEaqip from "../../img/project/bg-eaqip.jpg";
-import bgEaqipf from "../../img/project/bg-eaqipf.jpeg";
+import bgEaqipf from "../../img/project/bg-eaqipfa.jpeg";
 
 
 const PageHeader = styled.h4`
@@ -31,7 +31,7 @@ const ProjectListWrap = styled.div`
 
 const ProjectWrap = styled.div`
      overflow-y:scroll;
-     height: 25rem;
+     height: 20rem;
      
  
      
