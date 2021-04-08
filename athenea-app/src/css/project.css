@@ -25,3 +25,7 @@
     background-color:rgba(0,0,0,0.5);
     z-index:-1;
 }
+
+.spacer{
+    margin-bottom: 2rem;
+}

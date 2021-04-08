@@ -6,6 +6,7 @@ import {useTranslation} from "react-i18next";
 import Project from "../../components/projects/Project";
 import bgEaqip from "../../img/project/bg-eaqip.jpg";
 import bgEaqipf from "../../img/project/bg-eaqipfa.jpeg";
+import {Link} from 'react-router-dom';
 
 
 const PageHeader = styled.h4`
@@ -18,26 +19,25 @@ const ProjectListWrap = styled.div`
      border:1px solid #cecece;
      height: 32.4rem;
      overflow-y:scroll;
-     padding-top:5rem;
-     display:flex-inline;
-    
-    
-     
-     
-     
- 
-     
+     padding-top:2rem;
+     display:flex-inline; 
 `;
 
 const ProjectWrap = styled.div`
      overflow-y:scroll;
      height: 20rem;
-     
- 
-     
 `;
 
-
+const NewProjectButton = styled.button`
+     background-color: #9160A6;
+     border-color: #9160A6;
+     height:2rem;
+     padding:0.1rem .75rem;
+     &:hover{
+        background-color: #43425D;
+        border-color: #43425D;
+     }
+`;
 
 const Projects = ()=>  {
 
@@ -70,22 +70,31 @@ const Projects = ()=>  {
         }
     ];
 
-
+    const handleAddNewProject = (e)=>{
+        e.preventDefault();
+    }
     return (
         <>
             <AuthenticatedPagesLayout>
                 <PageHeader>{t('sidebar.menu.projects')}</PageHeader>
                 <ProjectListWrap>
+                    <div className="row">
+                        <div className="col-md-10"></div>
+                        <div className="col-md-2">
+                            <NewProjectButton className="btn btn-primary" onClick={(e) => handleAddNewProject(e)}>{t('project.add-project-text')}</NewProjectButton>
+                        </div>
+                    </div>
+                    <div className="spacer"></div>
                     <div className="container">
                         <div className="row">
-                    {projectsList.map((project, projectIndex)=>{
-                        return(
-                                    <ProjectWrap key={project.title} index={projectIndex} className={projectsList.length>=2?"col-md-6":"col-md-12"}>
-                                        <Project  project={project}/>
-                                    </ProjectWrap>
+                            {projectsList.map((project, projectIndex)=>{
+                                    return(
+                                        <ProjectWrap key={project.title} index={projectIndex} className={projectsList.length>=2?"col-md-6":"col-md-12"}>
+                                            <Project  project={project}/>
+                                        </ProjectWrap>
 
-                            )
-                    })}
+                                    )
+                            })}
                         </div>
                     </div>
                 </ProjectListWrap>

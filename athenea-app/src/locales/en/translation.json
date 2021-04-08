@@ -82,6 +82,7 @@
 	"project": {
 		"from": "From:",
 		"to": "To:",
+		"add-project-text": "Add project",
 		"eaqip": {
 			"title": "Education Access and Quality Improvement Project in Burkina Faso",
 			"badge": "EAQIP",

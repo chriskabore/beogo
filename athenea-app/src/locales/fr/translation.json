@@ -80,6 +80,7 @@
 	"project": {
 		"from": "Du:",
 		"to": "Au:",
+		"add-new-project-text": "Ajouter projet",
 		"eaqip": {
 			"title": "Projet d’Amélioration de l’Accès et de la Qualité de l’Education au Burkina Faso",
 			"badge": "PAAQE",

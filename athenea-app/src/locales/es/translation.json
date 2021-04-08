@@ -80,6 +80,7 @@
 	"project": {
 		"from": "Del:",
 		"to": "Al:",
+		"add-new-project-text": "Añadir proyecto",
 		"eaqip": {
 			"title": "Proyecto de Mejoramiento del Acceso y la Calidad de la Educación en Burkina Faso",
 			"badge": "PMACE",
