@@ -19,3 +19,13 @@ export const SIGNIN_MSG_PROP="auth.sign-in";
 export const SIGNOUT_MSG_PROP="auth.sign-out";
 export const SIDEBAR_MENU_DASHBOARD_MSG_PROP="sidebar.menu.dashboard";
 export const SIDEBAR_MENU_SETTINGS_MSG_PROP="sidebar.menu.settings";
+
+// Parameters
+
+export const LOCAL_STORAGE_PARAM_USER = "user";
+export const API_URL_PARAM_ADMIN = "admin";
+export const API_URL_PARAM_USER = "user";
+export const API_URL_PARAM_ALL = "all";
+export const API_URL_PARAM_SIGNIN = "sign-in";
+export const AUTH_HEADER_PARAM_BEARER = "Bearer ";
+

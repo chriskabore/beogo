@@ -15,7 +15,7 @@ const SignInForm = (props)=> {
             <>
 
                 <form className="form" onSubmit={handleSubmit}>
-                    <div className={errors.incorrectCredentialsError? 'alert alert-danger text-align-center' : 'hidden'}>{t(errors.incorrectCredentialsError)}</div>
+                    <div className={errors.incorrectCredentialsError? 'alert alert-danger text-align-center mb-5 error-msg' : 'hidden'}>{t(errors.incorrectCredentialsError)}</div>
                     <div className="input-group email-input-group shakeable">
                         <div className="input-group-append">
                             <span className="input-group-text"><i className="fas fa-user fa-lg"></i></span>
@@ -26,7 +26,7 @@ const SignInForm = (props)=> {
                                placeholder={t(Constants.EMAIL_PLACEHOLDER_MSG_PROP)}
                                 onBlur={handleOnBlur}/>
                     </div>
-                     <div className={errors.emailFieldError? "text-danger" : "hidden"}>{t(errors.emailFieldError)}</div>
+                     <div className={errors.emailFieldError? 'alert alert-danger mb-5 error-msg' : 'hidden'}>{t(errors.emailFieldError)}</div>
                     <div className="input-group password-input-group shakeable">
                         <div className="input-group-append">
                             <span className="input-group-text"><i className="fas fa-key fa-lg"></i></span>
@@ -38,7 +38,7 @@ const SignInForm = (props)=> {
                                onBlur={handleOnBlur}
                         />
                     </div>
-                    <div className={errors.passwordFieldError? "text-danger" : "hidden"}>{t(errors.passwordFieldError)}</div>
+                    <div className={errors.passwordFieldError? "alert alert-danger mb-3 error-msg" : "hidden"}>{t(errors.passwordFieldError)}</div>
                     <div className="input-group justify-content-between">
                         <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="remember-me" name="rememberMe"  value={credentials.rememberMe} onChange={handleOnCheck} />

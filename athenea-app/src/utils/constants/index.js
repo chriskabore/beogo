@@ -4,3 +4,4 @@ export * from './common';
 export * from './paths';
 export * from './user-roles';
 export * from './parameters';
+export * from './api-urls';

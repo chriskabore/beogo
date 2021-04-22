@@ -29,13 +29,25 @@ const ProjectWrap = styled.div`
 `;
 
 const NewProjectButton = styled.button`
-     background-color: #9160A6;
-     border-color: #9160A6;
+     background-color: #4f5b69;
+     border-color: #4f5b69;
      height:2rem;
      padding:0.1rem .75rem;
      &:hover{
-        background-color: #43425D;
-        border-color: #43425D;
+        background-color: #9160A6;
+        border-color: #9160A6;
+        
+     }
+     &.active{
+        background-color: #9160A6;
+        border-color: #9160A6;
+     }&.visited{
+        background-color: #9160A6;
+        border-color: #9160A6;
+     }&:focus{
+         background-color: #9160A6;
+        border-color: #9160A6;
+        box-shadow: 0 0 0 .2rem rgba(145, 96, 166, 0.3)
      }
 `;
 
@@ -92,7 +104,6 @@ const Projects = ()=>  {
                                         <ProjectWrap key={project.title} index={projectIndex} className={projectsList.length>=2?"col-md-6":"col-md-12"}>
                                             <Project  project={project}/>
                                         </ProjectWrap>
-
                                     )
                             })}
                         </div>

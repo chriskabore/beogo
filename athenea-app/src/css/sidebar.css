@@ -32,5 +32,10 @@
 .close-toggle{
     border-bottom: 1px solid #23282e;
 }
+.close-toggle:hover{
+    color:#9160A6;
+}
+
+
 
 

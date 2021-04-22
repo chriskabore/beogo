@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect} from 'react';
+import React, {Suspense, useEffect,useState} from 'react';
 import './App.css';
 import './css/athenea.css';
 
@@ -43,6 +43,7 @@ import Notifications from "./pages/notifications/Notifications";
 import Users from "./pages/users/Users";
 import Permissions from "./pages/settings/Permissions";
 import UserProfile from "./pages/users/user/UserProfile";
+import {getCurrentUser} from "./services/AuthService";
 
 
 
@@ -50,16 +51,22 @@ import UserProfile from "./pages/users/user/UserProfile";
 
 function Athenea () {
 
-    let isUserAuthorized = false;
-    let isUserAuthenticated = false;
-    let authenticatedUser = getUser();
-    if(authenticatedUser){
-        isUserAuthenticated = true;
-        if(authenticatedUser.roles.includes(ROLE_ADMIN)){
-            isUserAuthorized = true;
-        }
-    }
+    const [currentUser, setCurrentUser]= useState({});
+    const [isUserAuthenticated, setIsUserAuthenticated]= useState(false);
+    const [isUserAuthorized, setIsUserAuthorized]= useState(false);
 
+    useEffect(()=> {
+
+        const user = getCurrentUser();
+        if(user){
+            //setCurrentUser(user);
+           // setIsUserAuthenticated(true);
+            if(user.roles.includes(ROLE_ADMIN)){
+              //  setIsUserAuthorized(true);
+            }
+
+        }
+    });
 
   return (
     <>
@@ -117,6 +124,7 @@ function Athenea () {
 };
 
 export default function  App(){
+
   return(
           <Suspense fallback={<div>Loading...</div>}>
               <Athenea />

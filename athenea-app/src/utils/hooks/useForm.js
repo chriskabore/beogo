@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {authenticateUser} from "../athentication";
 import * as Constants from "../../utils/constants";
 import {validatePassword, validateUserName, clearErrors, shakeUserNameInput,shakePasswordInput} from "../validations";
+import {signin} from "../../services/AuthService";
 
 
 const useForm= (props) =>  {
@@ -56,7 +57,14 @@ const useForm= (props) =>  {
         }
 
         if(canSubmitForm){
-         isAuthenticated = authenticateUser(credentials);
+          signin(credentials.username, credentials.password).then(
+             ()=>{
+                console.error("login called is successful:",{});
+             },
+             error =>{
+                 console.error("login called is not successful:",{});
+             }
+         );
             if(isAuthenticated){
                 props.history.push(Constants.DASHBOARD_PATHNAME);
             }else if(!isAuthenticated){
