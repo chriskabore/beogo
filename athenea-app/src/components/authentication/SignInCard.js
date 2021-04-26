@@ -18,7 +18,7 @@ const SignInCard = (props) => {
                         </div>
                         <div className="card-footer d-flex justify-content-center">
                             <span><Trans i18nKey={Constants.NO_ACCOUNT_TEXT_MSG_PROP}> Don't have an account?</Trans></span>&nbsp; <a
-                            className="signup-text" href={Constants.HOME_PATHNAME}><Trans i18nKey={Constants.SIGNUP_TEXT_MSG_PROP}>Sign
+                            className="signup-text" href={Constants.SIGNUP_PATHNAME}><Trans i18nKey={Constants.SIGNUP_TEXT_MSG_PROP}>Sign
                             up!</Trans></a>
                         </div>
                     </div>

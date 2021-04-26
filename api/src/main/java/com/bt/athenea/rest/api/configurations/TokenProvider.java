@@ -118,6 +118,10 @@ public class TokenProvider implements Serializable {
 				LoggerFactoryUtil.writeErrorMessage(LOG,me,"Invalid JWT token: {}");
 			}catch (ExpiredJwtException ee){
 				LoggerFactoryUtil.writeErrorMessage(LOG,ee,"JWT token is expired : {}");
+			}catch (UnsupportedJwtException ue){
+				LoggerFactoryUtil.writeErrorMessage(LOG,ue,"JWT token is not supported : {}");
+			}catch (IllegalArgumentException ie){
+				LoggerFactoryUtil.writeErrorMessage(LOG,ie,"JWT claims string is empty : {}");
 			}
 		}
 		return isValidToken;

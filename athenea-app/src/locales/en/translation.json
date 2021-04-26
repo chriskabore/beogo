@@ -28,12 +28,24 @@
 		"username": "username",
 		"password": "password"
 	},
+	"register": {
+		"signup-text": "Please fill out this form to create an account!",
+		"already-signed-up-text": "Already have an account?",
+		"submit-button-text": "Create account",
+		"user-firstname-placeholder": "Please enter your first name here!",
+		"user-lastname-placeholder": "Please enter your last name here!",
+		"user-confirm-password-placeholder": "Please enter your password again here!",
+		"agreed-to-text": "I read and agree to",
+		"terms-and-conditions-text": "terms & conditions"
+	},
 	"validation": {
 		"field-is-required-text": "This field is required and must not be empty.",
 		"invalid-email-format-text": "Invalid email address format. johndoe@example.com is an example of valid email address.",
 		"password-format-text": "password must contain at least one number, one special character and one uppercase and lowercase letter.",
 		"password-length-text": "password must contain at least 8 or more characters",
-		"incorrect-email-address-or-password-text": "Incorrect username or password."
+		"incorrect-email-address-or-password-text": "Incorrect username or password.",
+		"passwords-are-not-identical-text": "Passwords must be identical",
+		"must-agree-to-terms-and-conditions-text": "You must agree to terms and conditions"
 	},
 	"sidebar": {
 		"close": "Close",

@@ -1,0 +1,41 @@
+
+.registration-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.card-header, .card-footer{
+    text-align: center;
+    color: #9160A6;
+
+}
+
+.input-group{
+    margin-top: 2rem;
+    margin-bottom:1rem;
+}
+
+label.form-check-label{
+    color: #9160A6;
+}
+
+
+
+#registration-submit{
+    background-color: #9160A6;
+    border-color: #9160A6;
+}
+
+.registration-button-group{
+    margin-top: 2rem;
+}
+
+.error-msg{
+    font-size: 0.85rem;
+}
+
+
+
+

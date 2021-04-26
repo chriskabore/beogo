@@ -28,12 +28,24 @@
 		"username": "Nombre de usuario",
 		"password": "Contraseña"
 	},
+	"register": {
+		"signup-text":"¡Por favor rellene este formulario para crear una cuenta!",
+		"already-signed-up-text": "¿Ya tiene usted una cuenta?",
+		"submit-button-text": "Crear una cuenta",
+		"user-firstname-placeholder": "¡Por favor, introduzca aquí su nombre!",
+		"user-lastname-placeholder": "¡Por favor, introduzca aquí su apellido!",
+		"user-confirm-password-placeholder": "¡Por favor introduzca de nuevo su contraseña aquí!",
+		"agreed-to-text": "he leído y acepto",
+		"terms-and-conditions-text": "los términos y condiciones"
+	},
 	"validation": {
 		"field-is-required-text": "Este campo es obligatorio y no debe estar vacío.",
 		"invalid-email-format-text": "Formato de dirección de correo electrónico no válido. johndoe@example.com es un ejemplo de una dirección de correo electrónico válida.",
 		"password-format-text": "Su contraseña debe contener al menos un número, un carácter especial, una letra mayúscula y una letra minúscula.",
 		"password-length-text": "Su contraseña debe tener al menos 8 caracteres o más.",
-		"incorrect-email-address-or-password-text": "Nombre de usuario o contraseña incorrecta."
+		"incorrect-email-address-or-password-text": "Nombre de usuario o contraseña incorrecta.",
+		"passwords-are-not-identical-text": "Las contraseñas deben ser idénticas",
+		"must-agree-to-terms-and-conditions-text": "Usted debe aceptar los términos y condiciones."
 
 	},
 	"sidebar": {

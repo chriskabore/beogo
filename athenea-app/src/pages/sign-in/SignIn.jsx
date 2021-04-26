@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect} from 'react';
 import PublicPagesLayout from "../../components/layouts/PublicPagesLayout";
 import * as Constants from "../../utils/constants";
 import SignInCard from "../../components/authentication/SignInCard";

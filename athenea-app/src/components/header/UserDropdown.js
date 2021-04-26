@@ -2,19 +2,19 @@ import React, {Fragment, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {Trans} from 'react-i18next';
-import {authenticateUser, getUser,getToken,removeUserSession,setUserSession,setUserPermissions } from "../../utils/athentication";
+import {getCurrentUser, removeUserSession} from "../../services/AuthService";
 import * as Constants from "../../utils/constants";
 
 const UserDropdown = (props) =>  {
-         let authenticatedUser = getUser();
+         let authenticatedUser = getCurrentUser();
          const history = useHistory();
          let userInfo={};
          if(authenticatedUser){
-             const userId = authenticatedUser.id;
-             const username = authenticatedUser.name;
-             const position = authenticatedUser.position;
-             const userImg = authenticatedUser.avatar;
-             const isSignedIn= authenticatedUser.isSignedIn;
+             const userId = authenticatedUser.userId;
+             const username = "Kirsi Armand KABORE";
+             const position = "Project Coordinator";
+             const userImg = '';
+             const isSignedIn= true;
              const isAuthenticated = isSignedIn;
 
              userInfo= {
@@ -41,17 +41,17 @@ const UserDropdown = (props) =>  {
          }
          const handleGoToProfile = (e) =>{
              e.preventDefault();
-             sessionStorage.removeItem("lastActiveIndex");
-             sessionStorage.removeItem("lastActiveSubMenuIndex");
-             sessionStorage.removeItem("lastDisplaySubMenu");
+             sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_ACTIVE_INDEX);
+             sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_ACTIVE_SUBMENU_INDEX);
+             sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_DISPLAY_SUBMENU);
              history.push(Constants.PROFILE_PATHNAME);
          }
 
         const handleGoToPreferences = (e) =>{
             e.preventDefault();
-            sessionStorage.removeItem("lastActiveIndex");
-            sessionStorage.removeItem("lastActiveSubMenuIndex");
-            sessionStorage.removeItem("lastDisplaySubMenu");
+            sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_ACTIVE_INDEX);
+            sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_ACTIVE_SUBMENU_INDEX);
+            sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_DISPLAY_SUBMENU);
             history.push(Constants.PREFERENCES_PATHNAME);
          }
 

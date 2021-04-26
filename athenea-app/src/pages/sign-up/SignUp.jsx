@@ -1,9 +1,9 @@
-import React, {Component, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import PublicPagesLayout from "../../components/layouts/PublicPagesLayout";
 import * as Constants from "../../utils/constants";
-import {useTranslation} from "react-i18next";
+import SignUpCard from "../../components/registration/SignUpCard";
 
-const SignUp = () =>  {
+const SignUp = (props) =>  {
 
     useEffect(() => {
         document.title = Constants.SIGNUP_PAGE_TITLE;
@@ -11,7 +11,7 @@ const SignUp = () =>  {
         return (
             <>
                 <PublicPagesLayout>
-                    <h2>Sign Up</h2>
+                    <SignUpCard {...props}/>
                 </PublicPagesLayout>
 
             </>

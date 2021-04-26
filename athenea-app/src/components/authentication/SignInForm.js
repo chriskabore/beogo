@@ -5,16 +5,17 @@ import * as Constants from "../../utils/constants";
 
 
 
+
 const SignInForm = (props)=> {
 
     const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
 
-    const { handleOnCheck,handleSubmit,handleChange,handleOnBlur, credentials, errors} = useForm(props);
+    const { handleOnRememberMe,handleSignInSubmit,handleSignInFieldChange,handleOnBlur, credentials, errors} = useForm(props);
 
     return (
             <>
 
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="form" onSubmit={handleSignInSubmit}>
                     <div className={errors.incorrectCredentialsError? 'alert alert-danger text-align-center mb-5 error-msg' : 'hidden'}>{t(errors.incorrectCredentialsError)}</div>
                     <div className="input-group email-input-group shakeable">
                         <div className="input-group-append">
@@ -22,7 +23,7 @@ const SignInForm = (props)=> {
                         </div>
                         <input id="email-address" type="text" name="username" autoFocus={true}
                                className="form-control input_user" defaultValue={credentials.username}
-                               onChange={handleChange}
+                               onChange={handleSignInFieldChange}
                                placeholder={t(Constants.EMAIL_PLACEHOLDER_MSG_PROP)}
                                 onBlur={handleOnBlur}/>
                     </div>
@@ -33,7 +34,7 @@ const SignInForm = (props)=> {
                         </div>
                         <input id="password" type="password" name="password"
                                className="form-control input_pass" defaultValue={credentials.password}
-                               onChange={handleChange}
+                               onChange={handleSignInFieldChange}
                                placeholder={t(Constants.PASSWORD_PLACEHOLDER_MSG_PROP)}
                                onBlur={handleOnBlur}
                         />
@@ -41,7 +42,7 @@ const SignInForm = (props)=> {
                     <div className={errors.passwordFieldError? "alert alert-danger mb-3 error-msg" : "hidden"}>{t(errors.passwordFieldError)}</div>
                     <div className="input-group justify-content-between">
                         <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="remember-me" name="rememberMe"  value={credentials.rememberMe} onChange={handleOnCheck} />
+                            <input type="checkbox" className="form-check-input" id="remember-me" name="rememberMe"  value={credentials.rememberMe} onChange={handleOnRememberMe} />
                             <label htmlFor="remember-me" className="form-check-label">
                                 <Trans i18nKey={Constants.REMEMBER_ME_TEXT_MSG_PROP}> Remember me </Trans>
                             </label>
@@ -59,7 +60,7 @@ const SignInForm = (props)=> {
                                    name="login-submit"
                                    id="login-submit"
                                    className="form-control btn btn-primary"
-                                   value={t(Constants.SUBMIT_BUTTON_TEXT_MSG_PROP)}/>
+                                   value={t(Constants.SIGNIN_BUTTON_TEXT_MSG_PROP)}/>
                         </div>
                     </div>
                 </form>

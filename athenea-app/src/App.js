@@ -51,22 +51,32 @@ import {getCurrentUser} from "./services/AuthService";
 
 function Athenea () {
 
-    const [currentUser, setCurrentUser]= useState({});
+    /*const [currentUser, setCurrentUser]= useState({});
     const [isUserAuthenticated, setIsUserAuthenticated]= useState(false);
-    const [isUserAuthorized, setIsUserAuthorized]= useState(false);
+    const [isUserAuthorized, setIsUserAuthorized]= useState(false);*/
 
-    useEffect(()=> {
+    /*useEffect(()=> {
 
         const user = getCurrentUser();
         if(user){
-            //setCurrentUser(user);
-           // setIsUserAuthenticated(true);
+            setCurrentUser(user);
+            setIsUserAuthenticated(true);
             if(user.roles.includes(ROLE_ADMIN)){
-              //  setIsUserAuthorized(true);
+                setIsUserAuthorized(true);
             }
 
         }
-    });
+    });*/
+
+    let isUserAuthorized = false;
+    let isUserAuthenticated = false;
+    let authenticatedUser = getCurrentUser();
+    if(authenticatedUser){
+        isUserAuthenticated = true;
+        if(authenticatedUser.roles.includes(ROLE_ADMIN)){
+            isUserAuthorized = true;
+        }
+    }
 
   return (
     <>

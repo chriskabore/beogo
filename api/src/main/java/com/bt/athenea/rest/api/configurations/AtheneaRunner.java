@@ -1,6 +1,6 @@
 package com.bt.athenea.rest.api.configurations;
 
-import com.bt.athenea.rest.api.model.roles.ERole;
+import com.bt.athenea.rest.api.model.roles.RoleName;
 import com.bt.athenea.rest.api.model.roles.Role;
 import com.bt.athenea.rest.api.model.users.User;
 import com.bt.athenea.rest.api.repository.roles.RoleRepository;
@@ -40,8 +40,8 @@ public class AtheneaRunner implements CommandLineRunner {
 		
 		List<Role> userRoles = new ArrayList<>();
 		
-		Role roleUser = new Role(ERole.ROLE_USER);
-		Role roleAdmin = new Role(ERole.ROLE_ADMIN);
+		Role roleUser = new Role(RoleName.ROLE_USER);
+		Role roleAdmin = new Role(RoleName.ROLE_ADMIN);
 		roleRepository.save(roleUser);
 		roleRepository.save(roleAdmin);
 		String password="secret";

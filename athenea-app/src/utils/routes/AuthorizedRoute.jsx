@@ -3,11 +3,12 @@ import {Route, Redirect} from 'react-router-dom';
 import {getUser} from '../athentication';
 import {ROLE_ADMIN} from "../constants";
 import {withTranslation} from "react-i18next";
+import {getCurrentUser} from "../../services/AuthService";
 
 const AuthorizedRoute = ({component:Component,isAuthorized,...rest}) => (
     <Route {...rest} render={(props)=>{
 
-        let user = getUser();
+        let user = getCurrentUser();
 
         if(!user){
             return (<Redirect to={{pathname:'/sign-in', state:{from:props.location}}}/>);

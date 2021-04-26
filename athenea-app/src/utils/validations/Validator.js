@@ -38,27 +38,47 @@ export const validatePasswordFormat = (password) =>{
 }
 
 
- export const shakeUserNameInput = () =>{
+ export const shakeInput = (inputId) =>{
     $('.shakeable').removeClass('animated shake');
-    $('#email-address').addClass('is-invalid');
-    setTimeout(function()
-    {
-        $('.shakeable').addClass('animated shake')
-    },1);
-
-
-};
-
-export const shakePasswordInput = ()=>{
-    $('.shakeable').removeClass('animated shake');
-    $('#password').addClass('is-invalid');
+    $(''+inputId).addClass('is-invalid');
     setTimeout(function()
     {
         $('.shakeable').addClass('animated shake')
     },1);
 };
+
+
 
 export const clearErrors = () =>{
     $('#email-address').removeClass('is-invalid');
+    $('#first-name').removeClass('is-invalid');
+    $('#last-name').removeClass('is-invalid');
     $('#password').removeClass('is-invalid');
+    $('#confirm-password').removeClass('is-invalid');
 };
+
+export const validateFirstName = (firstName)=>{
+    let firstNameErrorKey="";
+    if(!firstName || ""===firstName){
+        firstNameErrorKey='validation.field-is-required-text';
+    }
+    return firstNameErrorKey;
+}
+
+export const validateLastName = (lastName)=>{
+    let lastNameErrorKey="";
+    if(!lastName || ""===lastName){
+        lastNameErrorKey='validation.field-is-required-text';
+    }
+    return lastNameErrorKey;
+}
+
+export const checkPasswordsAreIdentical= (password, confirmPassword) =>{
+        let nonIdenticalPasswordsErrorKey ="";
+        if(password && confirmPassword && !(password.normalize()===confirmPassword.normalize())){
+            nonIdenticalPasswordsErrorKey = 'validation.passwords-are-not-identical-text';
+        }
+        return nonIdenticalPasswordsErrorKey;
+}
+
+

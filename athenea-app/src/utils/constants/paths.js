@@ -36,5 +36,6 @@ export const PROJECTS_PATHNAME='/projects';
 export const ACTION_PLANS_PATHNAME='/projects/action-plans';
 export const ACTIONS_PATHNAME='/projects/actions';
 export const ACTIVITIES_PATHNAME='/projects/activities';
+export const TERMS_AND_CONDITIONS_PATHNAME='/terms-and-conditions';
 export const ALL_PATHS='*';
 

@@ -1,4 +1,4 @@
 // user roles names
 
-export const ROLE_ADMIN='admin';
-export const ROLE_USER='user';
+export const ROLE_ADMIN='ROLE_ADMIN';
+export const ROLE_USER='ROLE_USER';
