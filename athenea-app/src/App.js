@@ -112,8 +112,8 @@ function Athenea () {
                 <AuthenticatedRoute exact path={Constants.NOTIFICATIONS_PATHNAME} component={Notifications} />
                 <AuthenticatedRoute exact path={Constants.PREFERENCES_PATHNAME} component={UserPreferences} />
                 <AuthenticatedRoute exact path={Constants.PROFILE_PATHNAME} component={UserProfile} />
-                <AuthorizedRoute isAuthorized={isUserAuthorized} exact path={Constants.SETTINGS_PATHNAME} component={Settings} />
-                <AuthorizedRoute isAuthorized={isUserAuthorized} exact path={Constants.USERS_PATHNAME} component={Users} />
+                <AuthenticatedRoute exact path={Constants.SETTINGS_PATHNAME} component={Settings} />
+                <AuthenticatedRoute exact path={Constants.USERS_PATHNAME} component={Users} />
                 <AuthorizedRoute isAuthorized={isUserAuthorized} exact path={Constants.PERMISSIONS_PATHNAME} component={Permissions} />
                 <Route
                     exact

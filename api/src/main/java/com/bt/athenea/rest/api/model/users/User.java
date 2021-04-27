@@ -94,6 +94,11 @@ public class User {
 	inverseJoinColumns = @JoinColumn(name="role_id"))
 	private List<Role> userRoles = new ArrayList<>();
 	
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
+	private byte[] profilePicture;
+	
+	
 	
 	public User(@NotBlank @Size(max = 50) @Email String emailAddress,
 	            @NotBlank String firstName, @NotBlank String lastName,
@@ -178,5 +183,13 @@ public class User {
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 		this.userRoles = userRoles;
+	}
+	
+	public byte[] getProfilePicture() {
+		return profilePicture;
+	}
+	
+	public void setProfilePicture(byte[] profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 }

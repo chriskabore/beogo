@@ -3,7 +3,6 @@ import * as Constants from "../../utils/constants";
 import {validatePassword, validateUserName, validateFirstName, validateLastName, checkPasswordsAreIdentical, clearErrors, shakeInput} from "../validations";
 import {signin, signup} from "../../services/AuthService";
 
-import {withRouter} from "react-router-dom";
 
 
 const useForm = (props) =>  {
@@ -21,7 +20,7 @@ const useForm = (props) =>  {
     const [errors, setErrors] = useState({});
 
     const [isFormValid, setIsFormValid]  = useState(false);
-  //  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
 
    const handleSignInFieldChange = (e) => {
         setErrors({});
@@ -159,14 +158,14 @@ const useForm = (props) =>  {
             let rolesNames = [];
             rolesNames[0]=Constants.ROLE_USER;
 
-           // let response = await signup(firstName,lastName, username,password,agreedToTerms ,null,rolesNames);
+
             signup(firstName,lastName, username,password,agreedToTerms ,null,rolesNames).then(response=>{
                 props.history.push(Constants.SIGNIN_PATHNAME);
             }).catch(err=>{
                 console.error("Something went wrong! User was not registered successfully...");
                 console.error(err);
             });
-            console.log("registering user....");
+
         }
 
     }

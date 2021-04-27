@@ -1,4 +1,4 @@
 package com.bt.athenea.rest.api.service;
 
-public class ServiceClass {
+public class UserService {
 }
