@@ -10,7 +10,7 @@ const SignInForm = (props)=> {
 
     const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
 
-    const { handleOnRememberMe,handleSignInSubmit,handleSignInFieldChange,handleOnBlur, credentials, errors} = useForm(props);
+    const { handleOnRememberMe,handleSignInSubmit,handleSignInFieldChange,handleSignInOnBlur, credentials, errors} = useForm(props);
 
     return (
             <>
@@ -25,7 +25,7 @@ const SignInForm = (props)=> {
                                className="form-control input_user" defaultValue={credentials.username}
                                onChange={handleSignInFieldChange}
                                placeholder={t(Constants.EMAIL_PLACEHOLDER_MSG_PROP)}
-                                onBlur={handleOnBlur}/>
+                                onBlur={handleSignInOnBlur}/>
                     </div>
                      <div className={errors.emailFieldError? 'alert alert-danger mb-5 error-msg' : 'hidden'}>{t(errors.emailFieldError)}</div>
                     <div className="input-group password-input-group shakeable">
@@ -36,7 +36,7 @@ const SignInForm = (props)=> {
                                className="form-control input_pass" defaultValue={credentials.password}
                                onChange={handleSignInFieldChange}
                                placeholder={t(Constants.PASSWORD_PLACEHOLDER_MSG_PROP)}
-                               onBlur={handleOnBlur}
+                               onBlur={handleSignInOnBlur}
                         />
                     </div>
                     <div className={errors.passwordFieldError? "alert alert-danger mb-3 error-msg" : "hidden"}>{t(errors.passwordFieldError)}</div>

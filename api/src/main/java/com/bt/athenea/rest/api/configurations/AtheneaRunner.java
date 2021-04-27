@@ -47,10 +47,19 @@ public class AtheneaRunner implements CommandLineRunner {
 		String password="secret";
 		String encodedPassword = new BCryptPasswordEncoder(11).encode(password);
 		String testEmailAddress= "kirsikabore@gmail.com";
+		String firstName = "Kirsi Armand";
+		String lastName = "KABORE";
+		String position = "Project Coordinator";
 		
 		userRoles.add(roleUser);
 		userRoles.add(roleAdmin);
-		User testUser = new User(testEmailAddress, encodedPassword,userRoles);
+		User testUser = new User();
+		testUser.setEmailAddress(testEmailAddress);
+		testUser.setPassword(encodedPassword);
+		testUser.setUserRoles(userRoles);
+		testUser.setFirstName(firstName);
+		testUser.setLastName(lastName);
+		testUser.setPosition(position);
 		Date now = new Date();
 		testUser.setCreatedAt(now);
 		testUser.setUpdatedAt(now);

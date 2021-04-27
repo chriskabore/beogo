@@ -38,15 +38,17 @@ export const signout = () => {
     removeUserSession();
 }
 
-export const signup = (emailAddress, password, firstName,lastName, agreedToTermsOfUse) => {
+export const signup = (firstName,lastName, username,password, agreedToTerms,position,rolesNames ) => {
 
     let signUpData = {
-        emailAddress: emailAddress,
+        emailAddress: username,
         password: password,
-        username: emailAddress,
+        username: username,
         firstName:firstName,
         lastName:lastName,
-        agreedToTermsOfUse: agreedToTermsOfUse
+        agreedToTerms: agreedToTerms,
+        position:position,
+        rolesNames:rolesNames
 
     };
 

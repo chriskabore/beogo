@@ -28,6 +28,51 @@ public class User {
 	private String emailAddress;
 	
 	@Column
+	@NotBlank
+	private String firstName;
+	
+	@Column
+	@NotBlank
+	private String lastName;
+	
+	private boolean agreeToTerms;
+	
+	@Column
+	private String position;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public boolean isAgreeToTerms() {
+		return agreeToTerms;
+	}
+	
+	public void setAgreeToTerms(boolean agreeToTerms) {
+		this.agreeToTerms = agreeToTerms;
+	}
+	
+	public String getPosition() {
+		return position;
+	}
+	
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	
+	@Column
 	@JsonIgnore
 	@NotBlank
 	@Size(max = 150)
@@ -50,22 +95,23 @@ public class User {
 	private List<Role> userRoles = new ArrayList<>();
 	
 	
-	public User(Long userId, @NotBlank @Size(max = 50) @Email String emailAddress,
-	            @NotBlank @Size(max = 150) String password, List<Role> userRoles) {
-		this.userId = userId;
+	public User(@NotBlank @Size(max = 50) @Email String emailAddress,
+	            @NotBlank String firstName, @NotBlank String lastName,
+	            boolean agreeToTerms, String position,
+	            @NotBlank @Size(max = 150) String password, Date createdAt,
+	            Date updatedAt, List<Role> userRoles) {
 		this.emailAddress = emailAddress;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.agreeToTerms = agreeToTerms;
+		this.position = position;
 		this.password = password;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 		this.userRoles = userRoles;
 	}
 	
 	public User() {
-	}
-	
-	public User(@NotBlank @Size(max = 50) @Email String emailAddress,
-	            @NotBlank @Size(max = 150) String password, List<Role> userRoles) {
-		this.emailAddress = emailAddress;
-		this.password = password;
-		this.userRoles = userRoles;
 	}
 	
 	public Long getUserId() {
@@ -120,4 +166,17 @@ public class User {
 		return this.emailAddress;
 	}
 	
+	public User(@NotBlank @Size(max = 50) @Email String emailAddress,
+	            @NotBlank String firstName, @NotBlank String lastName,
+	            boolean agreeToTerms, @NotBlank @Size(max = 150) String password,
+	            Date createdAt, Date updatedAt, List<Role> userRoles) {
+		this.emailAddress = emailAddress;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.agreeToTerms = agreeToTerms;
+		this.password = password;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.userRoles = userRoles;
+	}
 }

@@ -152,12 +152,22 @@ const useForm = (props) =>  {
                 ["agreedToTermsCheckError"]: agreedToTermsCheckErrorKey}));
         }
         if(isFormValid){
-            let response = await signup(registrationData.firstName, registrationData.lastName,
-                registrationData.username,registrationData.password, registrationData.agreedToTerms);
-            console.log("registering user....", response);
+            let firstName = registrationData.firstName;
+            let lastName = registrationData.lastName;
+            let username = registrationData.username;
+            let password = registrationData.password;
+            let rolesNames = [];
+            rolesNames[0]=Constants.ROLE_USER;
+
+           // let response = await signup(firstName,lastName, username,password,agreedToTerms ,null,rolesNames);
+            signup(firstName,lastName, username,password,agreedToTerms ,null,rolesNames).then(response=>{
+                props.history.push(Constants.SIGNIN_PATHNAME);
+            }).catch(err=>{
+                console.error("Something went wrong! User was not registered successfully...");
+                console.error(err);
+            });
+            console.log("registering user....");
         }
-
-
 
     }
 

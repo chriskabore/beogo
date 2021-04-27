@@ -7,12 +7,13 @@ import * as Constants from "../../utils/constants";
 
 const UserDropdown = (props) =>  {
          let authenticatedUser = getCurrentUser();
+         console.log("user loaded from DB: ", authenticatedUser);
          const history = useHistory();
          let userInfo={};
          if(authenticatedUser){
              const userId = authenticatedUser.userId;
-             const username = "Kirsi Armand KABORE";
-             const position = "Project Coordinator";
+             const username = authenticatedUser.firstName +' '+authenticatedUser.lastName;
+             const position = authenticatedUser.position?authenticatedUser.position:'undefined';
              const userImg = '';
              const isSignedIn= true;
              const isAuthenticated = isSignedIn;

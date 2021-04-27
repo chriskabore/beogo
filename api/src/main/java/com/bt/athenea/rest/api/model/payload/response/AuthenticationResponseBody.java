@@ -5,20 +5,33 @@ import java.util.List;
 public class AuthenticationResponseBody {
 	
 	private Long id;
+	private String firstName;
+	private String lastName;
+	private String position;
 	private String username;
 	private String emailAddress;
 	private List<String> roles;
 	private String accessToken;
 	private String tokenType = "Bearer";
 	
-	public AuthenticationResponseBody(Long id, String accessToken, String tokenType,
-	                                  String username, String emailAddress, List<String> roles) {
+	public AuthenticationResponseBody(Long id,
+	                                  String firstName,
+	                                  String lastName,
+	                                  String position,
+	                                  String username,
+	                                  String emailAddress,
+	                                  List<String> roles,
+	                                  String accessToken,
+	                                  String tokenType) {
 		this.id = id;
-		this.accessToken = accessToken;
-		this.tokenType = tokenType;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.position = position;
 		this.username = username;
 		this.emailAddress = emailAddress;
 		this.roles = roles;
+		this.accessToken = accessToken;
+		this.tokenType = tokenType;
 	}
 	
 	public Long getId() {
@@ -27,6 +40,30 @@ public class AuthenticationResponseBody {
 	
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public String getPosition() {
+		return position;
+	}
+	
+	public void setPosition(String position) {
+		this.position = position;
 	}
 	
 	public String getUsername() {
