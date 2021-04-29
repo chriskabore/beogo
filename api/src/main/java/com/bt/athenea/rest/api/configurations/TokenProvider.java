@@ -1,6 +1,6 @@
 package com.bt.athenea.rest.api.configurations;
 
-import com.bt.athenea.rest.api.service.impl.UserDetailsImpl;
+import com.bt.athenea.rest.api.service.impl.security.UserDetailsImpl;
 import com.bt.athenea.rest.api.utils.LoggerFactoryUtil;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.impl.DefaultClock;

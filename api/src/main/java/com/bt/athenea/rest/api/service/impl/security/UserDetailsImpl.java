@@ -1,4 +1,4 @@
-package com.bt.athenea.rest.api.service.impl;
+package com.bt.athenea.rest.api.service.impl.security;
 
 import com.bt.athenea.rest.api.model.users.User;
 import com.bt.athenea.rest.api.utils.LoggerFactoryUtil;

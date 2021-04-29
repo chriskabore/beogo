@@ -3,7 +3,7 @@ package com.bt.athenea.rest.api.model.files;
 import javax.persistence.*;
 
 @Entity
-public class FileModel  {
+public class File {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +16,17 @@ public class FileModel  {
 	private String type;
 	
 	@Lob
-	@Column(name = "data", length = 1000)
 	private byte[] data;
 	
-	public FileModel(String name, String type, byte[] data) {
+	@Column(name = "size_in_MB")
+	private Long sizeInMB;
+	
+	
+	public File(String name, String type, byte[] data, Long sizeInMB) {
 		this.name = name;
 		this.type = type;
 		this.data = data;
+		this.sizeInMB = sizeInMB;
 	}
 	
 	public Long getFileId() {
@@ -57,6 +61,14 @@ public class FileModel  {
 		this.data = data;
 	}
 	
-	public FileModel() {
+	public Long getSizeInMB() {
+		return sizeInMB;
+	}
+	
+	public void setSizeInMB(Long sizeInMB) {
+		this.sizeInMB = sizeInMB;
+	}
+	
+	public File() {
 	}
 }
