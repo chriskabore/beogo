@@ -31,6 +31,7 @@ export const TRASH_PAGE_TITLE ='Trash - ATHENEA M&E';
 export const NOTIFICATIONS_PAGE_TITLE ='Notifications - ATHENEA M&E';
 export const SETTINGS_PAGE_TITLE ='Settings - ATHENEA M&E';
 export const USERS_PAGE_TITLE ='Users - ATHENEA M&E';
+export const PROFILE_PAGE_TITLE ='Profile - ATHENEA M&E';
 export const PREFERENCES_PAGE_TITLE ='Preferences - ATHENEA M&E';
 export const PERMISSIONS_PAGE_TITLE ='Permissions - ATHENEA M&E';
 export const NOTFOUND_PAGE_TITLE ='Error 404 - ATHENEA M&E';

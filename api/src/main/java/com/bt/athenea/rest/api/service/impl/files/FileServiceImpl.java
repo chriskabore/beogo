@@ -6,12 +6,13 @@ import com.bt.athenea.rest.api.service.FileService;
 import com.bt.athenea.rest.api.utils.LoggerFactoryUtil;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.stream.Stream;
 
+
+@Service
 public class FileServiceImpl implements FileService {
 	
 	private static final Logger LOG = LoggerFactoryUtil.getLog(FileServiceImpl.class);
@@ -25,13 +26,7 @@ public class FileServiceImpl implements FileService {
 	}
 	
 	@Override
-	public File storeFile(MultipartFile file) throws IOException {
-		
-		String originalName = file.getOriginalFilename();
-		String contentType = file.getContentType();
-		Long sizeInMB = file.getSize() / (1024 * 1024);
-		String fileName = StringUtils.cleanPath(originalName);
-		File fileToStore = new File(fileName, contentType, file.getBytes(), sizeInMB);
+	public File storeFile(File fileToStore) throws IOException {
 		return fileRepository.save(fileToStore);
 	}
 	
@@ -44,4 +39,6 @@ public class FileServiceImpl implements FileService {
 	public Stream<File> getAllFiles() {
 		return fileRepository.findAll().stream();
 	}
+	
+	
 }

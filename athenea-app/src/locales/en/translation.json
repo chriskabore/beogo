@@ -109,6 +109,9 @@
 			"dateStart": "January 01, 2021",
 			"dateEnd": "July 31, 2024"
 		}
+	},
+	"profile": {
+		"edit-profile-text": "Edit profile"
 	}
 
 }

@@ -138,8 +138,9 @@
 }
 
 .user-avatar{
-    width:2rem;
+    width:2.7rem;
     float:left;
+    height:2.7rem;
 }
 .user-info{
     float:right;

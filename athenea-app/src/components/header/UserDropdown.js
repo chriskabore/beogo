@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom';
 import {Trans} from 'react-i18next';
 import {getCurrentUser, removeUserSession} from "../../services/AuthService";
 import * as Constants from "../../utils/constants";
+import picCoordo from '../../img/IMG-coordo-PAAQE.jpg';
 
 const UserDropdown = (props) =>  {
          let authenticatedUser = getCurrentUser();
@@ -14,7 +15,7 @@ const UserDropdown = (props) =>  {
              const userId = authenticatedUser.userId;
              const username = authenticatedUser.firstName +' '+authenticatedUser.lastName;
              const position = authenticatedUser.position?authenticatedUser.position:'undefined';
-             const userImg = '';
+             const userImg = picCoordo;
              const isSignedIn= true;
              const isAuthenticated = isSignedIn;
 
@@ -30,7 +31,7 @@ const UserDropdown = (props) =>  {
 
          const [toggleContent, setToggleContent]= useState(<><Fragment>
         <img src={userInfo.avatar} className="img-fluid rounded-circle user-avatar"/>
-        <div className="user-info ml-3">
+        <div className="user-info ml-3 pt-1">
             <div className="user-name">{userInfo.name}</div>
             <div className="user-position">{userInfo.position}</div>
         </div>

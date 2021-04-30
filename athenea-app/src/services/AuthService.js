@@ -1,23 +1,21 @@
 import React from 'react';
 import * as Constants from '../utils/constants';
+import authHeader from "../services/auth-header";
 import axios from "axios";
 
 
 const API_URL = Constants.AUTHENTICATION_API_URL;
 
 export const signin = (username, password) => {
+
     let signInData = {
         emailAddress: username,
         password: password
     };
 
-    let config = {
-        headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:8898/api/auth/',
-            'Content-Type': 'application/json',
-        }
-    };
-    return axios.post(API_URL + Constants.API_URL_PARAM_SIGNIN, signInData, config).then(response => {
+
+    return axios.post(API_URL + Constants.API_URL_PARAM_SIGNIN, signInData, authHeader()).then(response => {
+
         if (response.data.accessToken) {
             localStorage.setItem(Constants.LOCAL_STORAGE_PARAM_USER, JSON.stringify(response.data));
         }
@@ -52,13 +50,8 @@ export const signup = (firstName,lastName, username,password, agreedToTerms,posi
 
     };
 
-    let config = {
-        headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:8898/api/auth/',
-            'Content-Type': 'application/json',
-        }
-    };
-    return axios.post(API_URL + Constants.API_URL_PARAM_SIGNUP,signUpData,config).then(response => {
+
+    return axios.post(API_URL + Constants.API_URL_PARAM_SIGNUP,signUpData,authHeader()).then(response => {
         if(response.data){
             return response.data;
         }

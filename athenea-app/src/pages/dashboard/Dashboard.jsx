@@ -8,6 +8,7 @@ const Dashboard = ()=>  {
 
     const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
 
+
     useEffect(() => {
         document.title = Constants.DASHBOARD_PAGE_TITLE;
     });
