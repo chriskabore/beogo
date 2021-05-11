@@ -40,6 +40,7 @@ export const API_URL_PARAM_ADMIN = "admin";
 export const API_URL_PARAM_USER = "user";
 export const API_URL_PARAM_ALL = "all";
 export const API_URL_PARAM_SIGNIN = "sign-in";
+export const API_URL_PARAM_UPLOAD = "upload";
 export const API_URL_PARAM_SIGNUP = "sign-up";
 export const AUTH_HEADER_PARAM_BEARER = "Bearer ";
 

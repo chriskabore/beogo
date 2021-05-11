@@ -2,7 +2,7 @@ package com.bt.athenea.rest.api.controller;
 
 import com.bt.athenea.rest.api.model.files.File;
 import com.bt.athenea.rest.api.model.files.message.ResponseFile;
-import com.bt.athenea.rest.api.model.files.message.ResponseMessage;
+import com.bt.athenea.rest.api.model.files.message.UploadResponseMessage;
 import com.bt.athenea.rest.api.service.FileService;
 import com.bt.athenea.rest.api.utils.LoggerFactoryUtil;
 import org.slf4j.Logger;
@@ -46,7 +46,7 @@ public class FileController {
 		
 		if (file == null) {
 			message = "You must select a file for uploading";
-			return ResponseEntity.badRequest().body(new ResponseMessage(message));
+			return ResponseEntity.badRequest().body(new UploadResponseMessage(message));
 		}
 		
 		String originalName = file.getOriginalFilename();
@@ -57,10 +57,10 @@ public class FileController {
 		
 		if(fileUploaded!=null){
 			LoggerFactoryUtil.writeInfoMessage(LOG,message);
-			return ResponseEntity.ok().body(fileUploaded);
+			return ResponseEntity.ok().body(new UploadResponseMessage(message, fileUploaded));
 		}else{
 			message = "Could not upload the file: "+ originalName+"!";
-			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new UploadResponseMessage(message));
 		}
 		
 	}
@@ -79,7 +79,7 @@ public class FileController {
 			
 			File fileStored = fileService.storeFile(fileToStore);
 			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-					.path("/download/")
+					.path("api/files/download/")
 					.path(String.valueOf(fileStored.getFileId()))
 					.toUriString();
 			
@@ -97,7 +97,7 @@ public class FileController {
 		String message = "";
 		if (files == null) {
 			message = "You must select a file for uploading";
-			return ResponseEntity.badRequest().body(new ResponseMessage(message));
+			return ResponseEntity.badRequest().body(new UploadResponseMessage(message));
 		}
 		
 		List<ResponseFile> filesUploaded = Arrays.asList(files)
@@ -111,7 +111,7 @@ public class FileController {
 			return ResponseEntity.ok().body(filesUploaded);
 		}else{
 			message = "Could not upload the files!";
-			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new UploadResponseMessage(message));
 		}
 	}
 	

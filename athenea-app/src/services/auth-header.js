@@ -1,17 +1,21 @@
 import * as Constants from '../utils/constants';
 
 
-export default function authHeader(){
+export default function authHeader(headersData){
+
   const user = JSON.parse(localStorage.getItem(Constants.LOCAL_STORAGE_PARAM_USER));
 
-  const headersData = {
-    headers: {
-      'authorization': '',
-      'Accept' : 'application/json',
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'http://localhost:8898/api/'
-    }
-  };
+  if(!headersData){
+    headersData = {
+      headers: {
+        'authorization': '',
+        'Accept' : 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    };
+  }
+
 
   if(user && user.accessToken){
     headersData.headers.authorization= Constants.AUTH_HEADER_PARAM_BEARER + user.accessToken;

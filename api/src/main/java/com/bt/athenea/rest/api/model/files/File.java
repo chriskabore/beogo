@@ -21,6 +21,9 @@ public class File {
 	@Column(name = "size_in_MB")
 	private Long sizeInMB;
 	
+	@Column
+	private String title;
+	
 	
 	public File(String name, String type, byte[] data, Long sizeInMB) {
 		this.name = name;

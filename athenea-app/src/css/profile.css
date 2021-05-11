@@ -77,3 +77,24 @@
     font-weight: 400;
 }
 
+.file-input, .upload-msg{
+    font-size: 0.9rem;
+}
+
+.upload-btn{
+    width:7rem;
+    font-size: 1rem;
+}
+
+.upload-btn-wrap{
+    margin-top:1rem;
+    padding-left: 1.9rem!important;
+}
+
+.file-input{
+    width:12rem;
+}
+
+.upload-msg{
+    margin-top:1rem;
+}

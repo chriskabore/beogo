@@ -1,10 +1,20 @@
 import React from 'react';
 import * as Constants from '../utils/constants';
 import authHeader from "../services/auth-header";
-import axios from "axios";
+import http from '../utils/http/HttpCommon';
 
 
-const API_URL = Constants.AUTHENTICATION_API_URL;
+
+const API_URL = Constants.AUTHENTICATION_URL;
+
+const  headersData = {
+    headers: {
+        'authorization': '',
+        'Accept' : 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+    }
+};
 
 export const signin = (username, password) => {
 
@@ -14,7 +24,7 @@ export const signin = (username, password) => {
     };
 
 
-    return axios.post(API_URL + Constants.API_URL_PARAM_SIGNIN, signInData, authHeader()).then(response => {
+    return http.post(API_URL + Constants.API_URL_PARAM_SIGNIN, signInData, authHeader(headersData)).then(response => {
 
         if (response.data.accessToken) {
             localStorage.setItem(Constants.LOCAL_STORAGE_PARAM_USER, JSON.stringify(response.data));
@@ -51,7 +61,7 @@ export const signup = (firstName,lastName, username,password, agreedToTerms,posi
     };
 
 
-    return axios.post(API_URL + Constants.API_URL_PARAM_SIGNUP,signUpData,authHeader()).then(response => {
+    return http.post(API_URL + Constants.API_URL_PARAM_SIGNUP,signUpData,authHeader(headersData)).then(response => {
         if(response.data){
             return response.data;
         }

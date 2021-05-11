@@ -1,9 +1,9 @@
 import React, {Fragment, useEffect} from 'react';
 import styled from 'styled-components';
 import {useTranslation} from "react-i18next";
-import * as Constants from "../../../utils/constants";
-import userImg from '../../../img/user.svg';
-import picCoordo from'../../../img/IMG-coordo-PAAQE.jpg';
+import * as Constants from "../../../../utils/constants";
+import userImg from '../../../../img/user.svg';
+import picCoordo from '../../../../img/IMG-coordo-PAAQE.jpg';
 
 
 
@@ -44,9 +44,14 @@ const UserInfoWrap = styled.div`
     min-height: 3rem;
     color:black;
 `;
-const UserProfileContent = ()=>  {
+const UserProfileContent = (props)=>  {
 
     const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
+
+    const changeEditMode = (e) =>{
+        e.preventDefault();
+        props.setEditMode(true);
+    }
 
 
     return (
@@ -64,7 +69,7 @@ const UserProfileContent = ()=>  {
                         </div>
                         <div className="col-md-6"></div>
                         <div className="col-md-2 pt-4 px-4">
-                            <EditProfileButton className="btn btn-primary">{t('profile.edit-profile-text')}</EditProfileButton>
+                            <EditProfileButton className="btn btn-primary" onClick={changeEditMode}>{t('profile.edit-profile-text')}</EditProfileButton>
                         </div>
 
                     </div>
@@ -229,7 +234,7 @@ const UserProfileContent = ()=>  {
                                     <div className="profile-start-date-wrap">
                                         <div className="row align-items-center">
                                             <div className="col-md-2">
-                                                <div className="profile-start-date-label profile-info-label">START DATE</div>
+                                                <div className="profile-start-date-label profile-info-label">HIRE DATE</div>
                                             </div>
                                             <div className="col-md-3"></div>
                                             <div className="col-md-7">
@@ -244,7 +249,7 @@ const UserProfileContent = ()=>  {
                             <div className="col-md-3">
                                 <div className="card">
                                     <div className="card-body p-0">
-                                        <img src={picCoordo} className="img-fluid align-items-center justify-content-center profile-picture-big"/>
+                                        <img src={picCoordo} className="img-fluid rounded align-items-center justify-content-center profile-picture-big"/>
                                     </div>
 
                                 </div>

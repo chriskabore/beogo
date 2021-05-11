@@ -81,7 +81,8 @@ public class AtheneaSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf()
+		http.cors()
+				.and().csrf()
 				.disable()
 				.headers()
 				.frameOptions()
@@ -95,6 +96,7 @@ public class AtheneaSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/api/auth/**")
 				.permitAll()
+				.antMatchers("/api/files/**").permitAll()
 				.antMatchers("/api/public/**")
 				.permitAll()
 				.anyRequest().authenticated();

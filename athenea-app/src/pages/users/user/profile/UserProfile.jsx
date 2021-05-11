@@ -1,9 +1,10 @@
 import React, {useEffect,useState} from 'react';
-import AuthenticatedPagesLayout from "../../../components/layouts/AuthenticatedPagesLayout";
-import * as Constants from "../../../utils/constants";
+import AuthenticatedPagesLayout from "../../../../components/layouts/AuthenticatedPagesLayout";
+import * as Constants from "../../../../utils/constants";
 import {useTranslation} from "react-i18next";
-import UserProfileContent from "../../../components/users/profile/UserProfileContent";
+import UserProfileContent from "../../../../components/users/user/profile/UserProfileContent";
 import styled from 'styled-components';
+import EditUserProfileContent from "../../../../components/users/user/profile/EditUserProfileContent";
 
 
 const PageHeader = styled.h4`
@@ -17,6 +18,7 @@ const UserProfile = ({match})=>  {
     const { t, i18n } = useTranslation(Constants.TRANSLATION_PARAM);
     const [user, setUser] = useState({});
     const [redirectToSignIn,setRedirectToSignIn] = useState(false);
+    const [editMode,setEditMode]  = useState(false);
 
     useEffect(() => {
         document.title = Constants.PROFILE_PAGE_TITLE;
@@ -25,7 +27,8 @@ const UserProfile = ({match})=>  {
         <>
             <AuthenticatedPagesLayout>
                 <PageHeader>{t('header.my-profile')}</PageHeader>
-                <UserProfileContent/>
+                { editMode ?(<EditUserProfileContent setEditMode={setEditMode} />):( <UserProfileContent setEditMode={setEditMode}/>)}
+
             </AuthenticatedPagesLayout>
         </>
     );

@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import NotFound from "./pages/404/NotFound";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Projects from "./pages/projects/Projects";
-import UserPreferences from "./pages/users/user/UserPreferences";
+import UserPreferences from "./pages/users/user/preferences/UserPreferences";
 import Settings from "./pages/settings/Settings";
 import Test from "./pages/test/Test";
 import SignUp from "./pages/sign-up/SignUp";
@@ -42,7 +42,7 @@ import Trash from "./pages/messages/Trash";
 import Notifications from "./pages/notifications/Notifications";
 import Users from "./pages/users/Users";
 import Permissions from "./pages/settings/Permissions";
-import UserProfile from "./pages/users/user/UserProfile";
+import UserProfile from "./pages/users/user/profile/UserProfile";
 import {getCurrentUser} from "./services/AuthService";
 
 

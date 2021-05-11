@@ -3,6 +3,7 @@ package com.bt.athenea.rest.api.model.files.message;
 public class ResponseFile {
 	private Long fileId;
 	private String fileName;
+	private String fileTitle;
 	private String url;
 	private String type;
 	private long sizeInMB;
@@ -53,5 +54,13 @@ public class ResponseFile {
 	
 	public void setSizeInMB(long sizeInMB) {
 		this.sizeInMB = sizeInMB;
+	}
+	
+	public String getFileTitle() {
+		return fileTitle;
+	}
+	
+	public void setFileTitle(String fileTitle) {
+		this.fileTitle = fileTitle;
 	}
 }

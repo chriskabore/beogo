@@ -111,7 +111,17 @@
 		}
 	},
 	"profile": {
-		"edit-profile-text": "Edit profile"
+		"edit-profile-text": "Edit profile",
+		"image-size-error-text": "error: Image file size exceeds limit of 2MB.",
+		"empty-image-error-text": "error: No file selected! Please select an image.",
+		"image-extension-error-text": "error: Not an image file! Please select a valid image."
+
+	},
+	"global": {
+		"cancel-text": "Cancel",
+		"save-text": "Save",
+		"upload-file-text": "Upload file",
+		"choose-file": "Choose file"
 	}
 
 }

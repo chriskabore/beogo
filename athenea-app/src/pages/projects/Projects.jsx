@@ -6,7 +6,7 @@ import {useTranslation} from "react-i18next";
 import Project from "../../components/projects/Project";
 import bgEaqip from "../../img/project/bg-eaqip.jpg";
 import bgEaqipf from "../../img/project/bg-eaqipfa.jpeg";
-import {Link} from 'react-router-dom';
+
 
 
 const PageHeader = styled.h4`
