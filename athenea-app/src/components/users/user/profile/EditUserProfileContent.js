@@ -4,6 +4,7 @@ import {useTranslation} from "react-i18next";
 import * as Constants from "../../../../utils/constants";
 import styled from 'styled-components';
 import {uploadFile} from '../../../../services/FileService';
+import {FaCheckCircle} from 'react-icons/fa';
 
 
 const ProfileWrap =styled.div`
@@ -107,22 +108,35 @@ const EditUserProfileContent = (props) => {
     }
 
    const handleFileUpload =()=>{
+        setProgress(0);
         uploadFile(selectedFile, (data)=>{
             setProgress(Math.round((100 * data.loaded) / data.total));
         }).then((response)=>{
             console.log("file uploaded!: {}",response);
             setMessage(response.data.message);
-                console.log("Progress status:{}",progress);
-                //profilePicInputRef.current.value=" ";
-                //setShowProgressBar(false);
 
 
-        }).catch((error)=>{
+
+
+        }).then((result)=>{
+            setTimeout(()=>{
+                profilePicInputRef.current.value ="";
+                profilePicInputRef.current.files=null;
+                setShowProgressBar(false);
+                setMessage(null);
+                setProgress(0);
+            },1500);
+
+            console.log(result);
+            }).catch((error)=>{
             setProgress(0);
-            setMessage("An error occurred! File not uploaded!");
+            setError("An error occurred! File not uploaded!");
             setSelectedFile(null);
         });
-        //alert("uploading file....");
+
+
+
+
     }
 
         return (
@@ -331,11 +345,12 @@ const EditUserProfileContent = (props) => {
                                     <label className="btn btn-default">
                                         <input type="file" className="file-input" onChange={handleFileChange} ref={profilePicInputRef} id="profile-pic-input"/>
                                     </label>
+
                                     <div className="progress-bar-wrap">
                                         {showProgressBar && (
                                             <div className="progress">
                                                 <div
-                                                    className="progress-bar progress-bar-info progress-bar-striped"
+                                                    className="progress-bar progress-bar-info progress-bar-striped bg-info"
                                                     role="progressbar"
                                                     aria-valuenow={progress}
                                                     aria-valuemin="0"
@@ -345,12 +360,16 @@ const EditUserProfileContent = (props) => {
                                                     {progress}%
                                                 </div>
                                             </div>
+
                                         )}
+
+
                                     </div>
+
                                     <div className="row">
                                         <div className="col-md-2"></div>
                                         <div className="col-md-8 upload-btn-wrap d-flex justify-content-center mb-4">
-                                            <Button className="btn btn-primary upload-btn" onClick={handleFileUpload}>{t('global.upload-file-text')}</Button>
+                                            <Button className=" btn btn-primary upload-btn" onClick={handleFileUpload}>{t('global.upload-file-text')}</Button>
                                         </div>
                                         <div className="col-md-2"></div>
                                     </div>
@@ -358,12 +377,12 @@ const EditUserProfileContent = (props) => {
                                 </div>
                                 {
                                     error && (
-                                        <div className="alert alert-danger">
+                                        <div className="alert alert-danger" role="alert">
                                             {error}
                                         </div>
                                     )}
                                 {message && (<div className="alert alert-info upload-msg" role="alert">
-                                    {message}
+                                    <span className="mr-3"><FaCheckCircle className=" fa fa-lg"/></span>{message}
                                 </div>)}
 
                             </div>

@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState} from 'react';
 import flagEn from '../../img/flags/US.svg';
 import flagES from '../../img/flags/ES.svg';
 import flagFR from '../../img/flags/FR.svg';
+import usePrevious from "../../utils/hooks/usePrevious";
 
 
 
@@ -39,12 +40,29 @@ const  LanguageSelector = props => {
     let userPreferredLanguage = localStorage.getItem("i18nextLng");
     let userLocalPreferredLanguage = localStorage.getItem("currentLanguage");
 
+    const[currentLanguage, setCurrentLanguage]=useState(userLocalPreferredLanguage ? userLocalPreferredLanguage:(userPreferredLanguage ? userPreferredLanguage:defaultLanguage.id));
+
+
 
     useEffect(() => {
-        localStorage.setItem("currentLanguage", currentLanguage)
+
+        if(userPreferredLanguage && userLocalPreferredLanguage){
+
+            if(userPreferredLanguage.localeCompare(userLocalPreferredLanguage)==0){
+                localStorage.setItem("currentLanguage", userLocalPreferredLanguage)
+                console.log("selected language is user local lang: {}",userLocalPreferredLanguage);
+            }else{
+                localStorage.setItem("currentLanguage", userLocalPreferredLanguage)
+                console.log("selected language is user pref lang: {}",userPreferredLanguage);
+            }
+        } else{
+            localStorage.setItem("currentLanguage", defaultLanguage)
+            console.log("selected language is default lang: {}",defaultLanguage);
+        }
+
     });
 
-    const[currentLanguage, setCurrentLanguage]=useState(userLocalPreferredLanguage? userLocalPreferredLanguage:(userPreferredLanguage?userPreferredLanguage:defaultLanguage.id));
+
 
 
 

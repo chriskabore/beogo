@@ -2,7 +2,7 @@ import React from 'react';
 import * as Constants from "../utils/constants";
 import authHeader from "./auth-header";
 import http from '../utils/http/HttpCommon';
-import axios from "axios";
+
 
 
 const API_URL = Constants.FILE_URL;
@@ -31,7 +31,7 @@ export const uploadFile = (file, onUploadProgress)=>{
     formData.append('file',file);
     uploadFileHeadersData.onUploadProgress=onUploadProgress;
 
-    return axios.post(Constants.API_BASE_URL+ API_URL + Constants.API_URL_PARAM_UPLOAD,formData, uploadFileHeadersData);
+    return http.post(API_URL + Constants.API_URL_PARAM_UPLOAD,formData, uploadFileHeadersData);
 
 }
 
