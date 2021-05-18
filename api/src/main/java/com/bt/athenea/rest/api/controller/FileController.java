@@ -1,8 +1,8 @@
 package com.bt.athenea.rest.api.controller;
 
 import com.bt.athenea.rest.api.model.files.File;
-import com.bt.athenea.rest.api.model.files.message.ResponseFile;
-import com.bt.athenea.rest.api.model.files.message.UploadResponseMessage;
+import com.bt.athenea.rest.api.model.payload.response.files.ResponseFile;
+import com.bt.athenea.rest.api.model.payload.response.files.UploadResponseMessage;
 import com.bt.athenea.rest.api.service.FileService;
 import com.bt.athenea.rest.api.utils.LoggerFactoryUtil;
 import org.slf4j.Logger;

@@ -115,9 +115,6 @@ const EditUserProfileContent = (props) => {
             console.log("file uploaded!: {}",response);
             setMessage(response.data.message);
 
-
-
-
         }).then((result)=>{
             setTimeout(()=>{
                 profilePicInputRef.current.value ="";
@@ -125,7 +122,7 @@ const EditUserProfileContent = (props) => {
                 setShowProgressBar(false);
                 setMessage(null);
                 setProgress(0);
-            },1500);
+            },2000);
 
             console.log(result);
             }).catch((error)=>{

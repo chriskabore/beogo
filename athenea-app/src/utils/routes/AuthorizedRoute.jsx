@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {Route, Redirect} from 'react-router-dom';
-import {getUser} from '../athentication';
 import {ROLE_ADMIN} from "../constants";
 import {withTranslation} from "react-i18next";
-import {getCurrentUser} from "../../services/AuthService";
+import {getCurrentUser} from "../../services/UserService";
 
 const AuthorizedRoute = ({component:Component,isAuthorized,...rest}) => (
     <Route {...rest} render={(props)=>{

@@ -8,13 +8,11 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Projects from "./pages/projects/Projects";
 import UserPreferences from "./pages/users/user/preferences/UserPreferences";
 import Settings from "./pages/settings/Settings";
-import Test from "./pages/test/Test";
 import SignUp from "./pages/sign-up/SignUp";
 import SignIn from "./pages/sign-in/SignIn";
 import AuthenticatedRoute from "./utils/routes/AuthenticatedRoute";
 import AuthorizedRoute from "./utils/routes/AuthorizedRoute";
 import * as Constants from './utils/constants';
-import {getUser} from './utils/athentication';
 import {ROLE_ADMIN} from "./utils/constants";
 import ActionPlans from "./pages/projects/ActionPlans";
 import Actions from "./pages/projects/Actions";
@@ -43,30 +41,13 @@ import Notifications from "./pages/notifications/Notifications";
 import Users from "./pages/users/Users";
 import Permissions from "./pages/settings/Permissions";
 import UserProfile from "./pages/users/user/profile/UserProfile";
-import {getCurrentUser} from "./services/AuthService";
+import {getCurrentUser} from "./services/UserService";
 
 
 
 
 
 function Athenea () {
-
-    /*const [currentUser, setCurrentUser]= useState({});
-    const [isUserAuthenticated, setIsUserAuthenticated]= useState(false);
-    const [isUserAuthorized, setIsUserAuthorized]= useState(false);*/
-
-    /*useEffect(()=> {
-
-        const user = getCurrentUser();
-        if(user){
-            setCurrentUser(user);
-            setIsUserAuthenticated(true);
-            if(user.roles.includes(ROLE_ADMIN)){
-                setIsUserAuthorized(true);
-            }
-
-        }
-    });*/
 
     let isUserAuthorized = false;
     let isUserAuthenticated = false;

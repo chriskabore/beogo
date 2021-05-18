@@ -1,4 +1,4 @@
-package com.bt.athenea.rest.api.model.payload.request;
+package com.bt.athenea.rest.api.model.payload.request.auth;
 
 import java.util.ArrayList;
 import java.util.List;

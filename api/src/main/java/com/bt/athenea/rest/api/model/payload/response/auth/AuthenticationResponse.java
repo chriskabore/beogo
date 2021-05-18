@@ -1,8 +1,8 @@
-package com.bt.athenea.rest.api.model.payload.response;
+package com.bt.athenea.rest.api.model.payload.response.auth;
 
 import java.util.List;
 
-public class AuthenticationResponseBody {
+public class AuthenticationResponse {
 	
 	private Long id;
 	private String firstName;
@@ -14,15 +14,15 @@ public class AuthenticationResponseBody {
 	private String accessToken;
 	private String tokenType = "Bearer";
 	
-	public AuthenticationResponseBody(Long id,
-	                                  String firstName,
-	                                  String lastName,
-	                                  String position,
-	                                  String username,
-	                                  String emailAddress,
-	                                  List<String> roles,
-	                                  String accessToken,
-	                                  String tokenType) {
+	public AuthenticationResponse(Long id,
+	                              String firstName,
+	                              String lastName,
+	                              String position,
+	                              String username,
+	                              String emailAddress,
+	                              List<String> roles,
+	                              String accessToken,
+	                              String tokenType) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;

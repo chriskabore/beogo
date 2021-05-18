@@ -96,7 +96,10 @@ public class AtheneaSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/api/auth/**")
 				.permitAll()
-				.antMatchers("/api/files/**").permitAll()
+				.antMatchers("/api/files/**")
+				.permitAll()
+				.antMatchers("/api/users/**")
+				.permitAll()
 				.antMatchers("/api/public/**")
 				.permitAll()
 				.anyRequest().authenticated();

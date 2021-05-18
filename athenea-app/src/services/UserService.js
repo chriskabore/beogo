@@ -3,22 +3,35 @@ import http from '../utils/http/HttpCommon';
 import * as Constants from '../utils/constants';
 import authHeader from "../services/auth-header";
 
-const API_URL = Constants.TEST_URL;
+const API_URL = Constants.USERS_URL;
 
-class UserService extends Component {
+  const  headersData = {
+    headers: {
+        'authorization': '',
+        'Accept' : 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+    }
+  };
 
-    getPublicContent(){
-        return http.get(API_URL+ Constants.API_URL_PARAM_ALL);
+    export const getCurrentUser = () => {
+     return JSON.parse(localStorage.getItem(Constants.LOCAL_STORAGE_PARAM_USER));
     }
 
-    getUserBoard(){
-        return http.get(API_URL + Constants.API_URL_PARAM_USER,{headers: authHeader()});
+    export const getUserDetails = (emailAddress)=>{
+        return http.get(API_URL  + emailAddress,authHeader(headersData)
+        ).then(response=>{
+            console.log("response from get details",response);
+            if(response.data.responseUser){
+                localStorage.setItem("currentUserDetails", JSON.stringify(response.data.responseUser));
+            }
+            console.info("fetched user details successfully", response.data.message);
+            }).catch(err => {
+            console.error("Oops! something went wrong...", err);
+        });
     }
 
-    getAdminBoard(){
-        return http.get(API_URL + Constants.API_URL_PARAM_ADMIN,{headers: authHeader()});
-    }
-}
 
 
-export default UserService;
+
+

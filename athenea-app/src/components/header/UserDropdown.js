@@ -2,7 +2,8 @@ import React, {Fragment, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {Trans} from 'react-i18next';
-import {getCurrentUser, removeUserSession} from "../../services/AuthService";
+import {removeUserSession} from "../../services/AuthService";
+import {getCurrentUser} from "../../services/UserService";
 import * as Constants from "../../utils/constants";
 import picCoordo from '../../img/IMG-coordo-PAAQE.jpg';
 

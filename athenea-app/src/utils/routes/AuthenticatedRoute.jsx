@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getCurrentUser} from "../../services/AuthService";
+import {getCurrentUser} from "../../services/UserService";
 import {Route, Redirect} from 'react-router-dom';
 import {withTranslation} from "react-i18next";
 

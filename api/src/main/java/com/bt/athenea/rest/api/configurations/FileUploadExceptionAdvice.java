@@ -1,6 +1,6 @@
 package com.bt.athenea.rest.api.configurations;
 
-import com.bt.athenea.rest.api.model.files.message.UploadResponseMessage;
+import com.bt.athenea.rest.api.model.payload.response.files.UploadResponseMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

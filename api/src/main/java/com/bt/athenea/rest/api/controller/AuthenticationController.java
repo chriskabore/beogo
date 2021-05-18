@@ -1,9 +1,9 @@
 package com.bt.athenea.rest.api.controller;
 
 import com.bt.athenea.rest.api.configurations.TokenProvider;
-import com.bt.athenea.rest.api.model.payload.request.SignInRequestBody;
-import com.bt.athenea.rest.api.model.payload.request.SignUpRequestBody;
-import com.bt.athenea.rest.api.model.payload.response.AuthenticationResponseBody;
+import com.bt.athenea.rest.api.model.payload.request.auth.SignInRequestBody;
+import com.bt.athenea.rest.api.model.payload.request.auth.SignUpRequestBody;
+import com.bt.athenea.rest.api.model.payload.response.auth.AuthenticationResponse;
 import com.bt.athenea.rest.api.model.roles.Role;
 import com.bt.athenea.rest.api.model.roles.RoleName;
 import com.bt.athenea.rest.api.model.users.User;
@@ -82,7 +82,7 @@ public class AuthenticationController {
 			User userLoaded = userRepository.findByEmailAddress(userDetails.getEmailAddress())
 					.orElseThrow(() -> new UsernameNotFoundException("User not found with email address:" +emailAddress));
 			
-			return  ResponseEntity.ok(new AuthenticationResponseBody(userDetails.getUserId(),userLoaded.getFirstName(),
+			return  ResponseEntity.ok(new AuthenticationResponse(userDetails.getUserId(),userLoaded.getFirstName(),
 					userLoaded.getLastName(), userLoaded.getPosition(),userDetails.getUsername(),userDetails.getEmailAddress(), roles,
 					jwtToken,tokenType));
 		}else{
@@ -106,7 +106,7 @@ public class AuthenticationController {
 					.orElseThrow(()-> new RuntimeException("Error: role not found"));
 			userRoles.add(roleUser);
 		}else{
-			roleNames.forEach(role->{
+			roleNames.forEach(role -> {
 				switch (role){
 					case("ROLE_ADMIN"):
 						Role roleAdmin = roleRepository.findByRoleName(RoleName.ROLE_ADMIN)

@@ -37,28 +37,21 @@ const  LanguageSelector = props => {
         flagImg: flagEn
     };
 
-    let userPreferredLanguage = localStorage.getItem("i18nextLng");
-    let userLocalPreferredLanguage = localStorage.getItem("currentLanguage");
+    let userSelectedLanguageLocale = localStorage.getItem("currentLocale");
+    //let userPreferredLanguage = localStorage.getItem("currentLanguage");
 
-    const[currentLanguage, setCurrentLanguage]=useState(userLocalPreferredLanguage ? userLocalPreferredLanguage:(userPreferredLanguage ? userPreferredLanguage:defaultLanguage.id));
+    console.warn("userPreferredLanguage {} from currentLocale:",userSelectedLanguageLocale);
 
 
+
+
+    const[currentLanguageLocale, setCurrentLanguageLocale]=useState(userSelectedLanguageLocale? userSelectedLanguageLocale:defaultLanguage.id);
+    let previouslySelectedLanguage = usePrevious(currentLanguageLocale);
 
     useEffect(() => {
 
-        if(userPreferredLanguage && userLocalPreferredLanguage){
 
-            if(userPreferredLanguage.localeCompare(userLocalPreferredLanguage)==0){
-                localStorage.setItem("currentLanguage", userLocalPreferredLanguage)
-                console.log("selected language is user local lang: {}",userLocalPreferredLanguage);
-            }else{
-                localStorage.setItem("currentLanguage", userLocalPreferredLanguage)
-                console.log("selected language is user pref lang: {}",userPreferredLanguage);
-            }
-        } else{
-            localStorage.setItem("currentLanguage", defaultLanguage)
-            console.log("selected language is default lang: {}",defaultLanguage);
-        }
+
 
     });
 
@@ -66,7 +59,7 @@ const  LanguageSelector = props => {
 
 
 
-    let selectedLanguage = languages.find(lang =>{return (lang.id === currentLanguage)});
+    let selectedLanguage = languages.find(lang =>{return (lang.id === currentLanguageLocale)});
 
     const [toggleContent, setToggleContent] = useState(<><Fragment><img src={selectedLanguage.flagImg} alt={selectedLanguage.title} className="mr-2"/>
         <span>{selectedLanguage.name}</span></Fragment></>);
@@ -76,7 +69,7 @@ const  LanguageSelector = props => {
 
 const handleChange = (event)=>{
     let selectedLanguageLocale = event.currentTarget.getAttribute('data-key');
-    setCurrentLanguage(selectedLanguageLocale);
+    setCurrentLanguageLocale(selectedLanguageLocale);
     props.onSelectLanguge(selectedLanguageLocale);
     let selectedLanguage = languages.find(lang =>{return (lang.id === selectedLanguageLocale)});
     setToggleContent(<><Fragment><img src={selectedLanguage.flagImg} alt={selectedLanguage.title} className="mr-2"/>

@@ -4,6 +4,7 @@ import {useTranslation} from "react-i18next";
 import * as Constants from "../../../../utils/constants";
 import userImg from '../../../../img/user.svg';
 import picCoordo from '../../../../img/IMG-coordo-PAAQE.jpg';
+import {getCurrentUser, getUserDetails} from "../../../../services/UserService";
 
 
 
@@ -52,6 +53,13 @@ const UserProfileContent = (props)=>  {
         e.preventDefault();
         props.setEditMode(true);
     }
+
+    let authUser = getCurrentUser();
+    let emailAddress = authUser.emailAddress;
+
+    let userDetails = getUserDetails(emailAddress);
+
+    console.log("user details; {}",userDetails);
 
 
     return (

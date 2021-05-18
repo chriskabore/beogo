@@ -71,9 +71,7 @@ export const signup = (firstName,lastName, username,password, agreedToTerms,posi
     );
 }
 
-export const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem(Constants.LOCAL_STORAGE_PARAM_USER));
-}
+
 
 // set the token and user from the session storage
 export const setUserSession = (user) => {

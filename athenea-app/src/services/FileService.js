@@ -5,9 +5,8 @@ import http from '../utils/http/HttpCommon';
 
 
 
-const API_URL = Constants.FILE_URL;
+const API_URL = Constants.FILES_URL;
 
-const user = JSON.parse(localStorage.getItem(Constants.LOCAL_STORAGE_PARAM_USER));
 
 const uploadFileHeadersData = {
     headers: {
@@ -19,9 +18,7 @@ const uploadFileHeadersData = {
     onUploadProgress:{},
 };
 
-if(user && user.accessToken){
-    uploadFileHeadersData.headers.authorization = Constants.AUTH_HEADER_PARAM_BEARER + user.accessToken;
-}
+
 
 console.warn("headers sent", uploadFileHeadersData);
 
@@ -31,7 +28,7 @@ export const uploadFile = (file, onUploadProgress)=>{
     formData.append('file',file);
     uploadFileHeadersData.onUploadProgress=onUploadProgress;
 
-    return http.post(API_URL + Constants.API_URL_PARAM_UPLOAD,formData, uploadFileHeadersData);
+    return http.post(API_URL + Constants.API_URL_PARAM_UPLOAD,formData, uploadFileHeadersData, authHeader(uploadFileHeadersData));
 
 }
 

@@ -1,4 +1,4 @@
-package com.bt.athenea.rest.api.model.files.message;
+package com.bt.athenea.rest.api.model.payload.response.files;
 
 public class UploadResponseMessage {
 	private String message;
