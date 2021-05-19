@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import * as Constants from "../../../../utils/constants";
 import userImg from '../../../../img/user.svg';
 import picCoordo from '../../../../img/IMG-coordo-PAAQE.jpg';
-import {getCurrentUser, getUserDetails} from "../../../../services/UserService";
+import {getCurrentUserAuthDetails, loadUserInfo} from "../../../../services/UserService";
 
 
 
@@ -54,13 +54,8 @@ const UserProfileContent = (props)=>  {
         props.setEditMode(true);
     }
 
-    let authUser = getCurrentUser();
-    let emailAddress = authUser.emailAddress;
 
-    let userDetails = getUserDetails(emailAddress);
-
-    console.log("user details; {}",userDetails);
-
+    let userDetails = JSON.parse(localStorage.getItem(Constants.LOCAL_STORAGE_PARAM_CURRENT_USER_DETAILS));
 
     return (
             <div className="user-profile-content">

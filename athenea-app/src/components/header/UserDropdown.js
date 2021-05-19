@@ -3,19 +3,21 @@ import {useHistory} from 'react-router-dom';
 
 import {Trans} from 'react-i18next';
 import {removeUserSession} from "../../services/AuthService";
-import {getCurrentUser} from "../../services/UserService";
+import {getCurrentUserInfo} from "../../services/UserService";
 import * as Constants from "../../utils/constants";
 import picCoordo from '../../img/IMG-coordo-PAAQE.jpg';
 
 const UserDropdown = (props) =>  {
-         let authenticatedUser = getCurrentUser();
-         console.log("user loaded from DB: ", authenticatedUser);
+
          const history = useHistory();
+
+
+         let currentUserDetails =getCurrentUserInfo();
          let userInfo={};
-         if(authenticatedUser){
-             const userId = authenticatedUser.userId;
-             const username = authenticatedUser.firstName +' '+authenticatedUser.lastName;
-             const position = authenticatedUser.position?authenticatedUser.position:'undefined';
+         if(currentUserDetails){
+             const userId = currentUserDetails.userId;
+             const username = currentUserDetails.firstName +' '+currentUserDetails.lastName;
+             const position = currentUserDetails.position?currentUserDetails.position:'undefined';
              const userImg = picCoordo;
              const isSignedIn= true;
              const isAuthenticated = isSignedIn;
@@ -91,7 +93,6 @@ const UserDropdown = (props) =>  {
                                 <span className="d-none d-sm-inline-block">
                                   <Trans i18nKey="auth.sign-out"> Sign Out </Trans>
                                 </span>
-
                             </a>
                         </li>
                     </ul>

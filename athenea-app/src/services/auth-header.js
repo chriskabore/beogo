@@ -3,7 +3,7 @@ import * as Constants from '../utils/constants';
 
 export default function authHeader(headersData){
 
-  const user = JSON.parse(localStorage.getItem(Constants.LOCAL_STORAGE_PARAM_USER));
+  const user = JSON.parse(localStorage.getItem(Constants.LOCAL_STORAGE_PARAM_AUTH_DETAILS));
 
   if(!headersData){
     headersData = {

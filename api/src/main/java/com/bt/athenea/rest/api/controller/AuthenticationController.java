@@ -82,8 +82,7 @@ public class AuthenticationController {
 			User userLoaded = userRepository.findByEmailAddress(userDetails.getEmailAddress())
 					.orElseThrow(() -> new UsernameNotFoundException("User not found with email address:" +emailAddress));
 			
-			return  ResponseEntity.ok(new AuthenticationResponse(userDetails.getUserId(),userLoaded.getFirstName(),
-					userLoaded.getLastName(), userLoaded.getPosition(),userDetails.getUsername(),userDetails.getEmailAddress(), roles,
+			return  ResponseEntity.ok(new AuthenticationResponse(userDetails.getUsername(),userDetails.getEmailAddress(), roles,
 					jwtToken,tokenType));
 		}else{
 			return new ResponseEntity<>("Authentication Failed", new HttpHeaders(), HttpStatus.BAD_REQUEST);

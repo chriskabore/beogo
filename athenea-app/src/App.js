@@ -41,7 +41,7 @@ import Notifications from "./pages/notifications/Notifications";
 import Users from "./pages/users/Users";
 import Permissions from "./pages/settings/Permissions";
 import UserProfile from "./pages/users/user/profile/UserProfile";
-import {getCurrentUser} from "./services/UserService";
+import {getCurrentUserAuthDetails, loadUserInfo} from "./services/UserService";
 
 
 
@@ -51,13 +51,17 @@ function Athenea () {
 
     let isUserAuthorized = false;
     let isUserAuthenticated = false;
-    let authenticatedUser = getCurrentUser();
+    let authenticatedUser = getCurrentUserAuthDetails();
     if(authenticatedUser){
         isUserAuthenticated = true;
         if(authenticatedUser.roles.includes(ROLE_ADMIN)){
             isUserAuthorized = true;
         }
     }
+    if(authenticatedUser){
+        loadUserInfo(authenticatedUser.emailAddress);
+    }
+
 
   return (
     <>

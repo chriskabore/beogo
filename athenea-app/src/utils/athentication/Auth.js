@@ -4,11 +4,7 @@
 import userImg from "../../img/user.svg";
 import {ROLE_ADMIN, ROLE_USER} from "../constants";
 
-export const getUser = () => {
-    const userStr = sessionStorage.getItem('user');
-    if (userStr) return JSON.parse(userStr);
-    else return null;
-}
+
 
 // return the token from the session storage
 export const getToken = () => {
