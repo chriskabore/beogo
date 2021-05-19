@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import atheneaLogo  from '../../logo.svg';
 import i18next from "i18next";
 import UserDropdown from "../../components/header/UserDropdown";
@@ -38,6 +38,7 @@ const SignedInHeader = (props) => {
         props.setDisplaySideBar(true);
         props.setDisplayToggle(false);
     }
+
 
 
     return (

@@ -3,6 +3,7 @@ import flagEn from '../../img/flags/US.svg';
 import flagES from '../../img/flags/ES.svg';
 import flagFR from '../../img/flags/FR.svg';
 import usePrevious from "../../utils/hooks/usePrevious";
+import i18next from "i18next";
 
 
 
@@ -38,23 +39,22 @@ const  LanguageSelector = props => {
     };
 
     let userSelectedLanguageLocale = localStorage.getItem("currentLocale");
-    //let userPreferredLanguage = localStorage.getItem("currentLanguage");
-
-    console.warn("userPreferredLanguage {} from currentLocale:",userSelectedLanguageLocale);
+    let systemLanguageLocale = localStorage.getItem("i18nextLng");
 
 
 
 
-    const[currentLanguageLocale, setCurrentLanguageLocale]=useState(userSelectedLanguageLocale? userSelectedLanguageLocale:defaultLanguage.id);
+    const[currentLanguageLocale, setCurrentLanguageLocale]=useState(userSelectedLanguageLocale?
+        userSelectedLanguageLocale:(systemLanguageLocale?systemLanguageLocale:defaultLanguage.id));
+
     let previouslySelectedLanguage = usePrevious(currentLanguageLocale);
 
     useEffect(() => {
-
-
-
-
+        console.warn("comparison: ",userSelectedLanguageLocale===systemLanguageLocale );
+        if(!(userSelectedLanguageLocale===systemLanguageLocale)){
+            i18next.changeLanguage(userSelectedLanguageLocale);
+        }
     });
-
 
 
 

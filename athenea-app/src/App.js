@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect,useState} from 'react';
+import React, {Suspense, Component, useEffect} from 'react';
 import './App.css';
 import './css/athenea.css';
 
@@ -51,16 +51,23 @@ function Athenea () {
 
     let isUserAuthorized = false;
     let isUserAuthenticated = false;
-    let authenticatedUser = getCurrentUserAuthDetails();
-    if(authenticatedUser){
-        isUserAuthenticated = true;
-        if(authenticatedUser.roles.includes(ROLE_ADMIN)){
-            isUserAuthorized = true;
+
+
+    useEffect(() => {
+        let authenticatedUser = getCurrentUserAuthDetails();
+        if(authenticatedUser){
+            isUserAuthenticated = true;
+            if(authenticatedUser.roles.includes(ROLE_ADMIN)){
+                isUserAuthorized = true;
+            }
         }
-    }
-    if(authenticatedUser){
-        loadUserInfo(authenticatedUser.emailAddress);
-    }
+        if(authenticatedUser){
+            loadUserInfo(authenticatedUser.emailAddress);
+        }
+
+    });
+
+
 
 
   return (

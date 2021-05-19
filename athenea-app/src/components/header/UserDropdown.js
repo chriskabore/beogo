@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState,useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {Trans} from 'react-i18next';
@@ -10,9 +10,9 @@ import picCoordo from '../../img/IMG-coordo-PAAQE.jpg';
 const UserDropdown = (props) =>  {
 
          const history = useHistory();
-
-
          let currentUserDetails =getCurrentUserInfo();
+
+
          let userInfo={};
          if(currentUserDetails){
              const userId = currentUserDetails.userId;
@@ -38,12 +38,15 @@ const UserDropdown = (props) =>  {
             <div className="user-name">{userInfo.name}</div>
             <div className="user-position">{userInfo.position}</div>
         </div>
-    </Fragment></>);
+        </Fragment></>);
+
+
          const handleSignOut = (e) =>{
              e.preventDefault();
              removeUserSession();
              history.push(Constants.SIGNIN_PATHNAME);
          }
+
          const handleGoToProfile = (e) =>{
              e.preventDefault();
              sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_ACTIVE_INDEX);
@@ -59,6 +62,8 @@ const UserDropdown = (props) =>  {
             sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_DISPLAY_SUBMENU);
             history.push(Constants.PREFERENCES_PATHNAME);
          }
+
+
 
         return (
             <>
