@@ -30,7 +30,7 @@ const SignedInHeader = (props) => {
     const getSelectedLocale= (locale)=>{
         currentLanguage = locale;
         i18next.changeLanguage(currentLanguage);
-        localStorage.setItem("currentLocale",locale);
+        localStorage.setItem(Constants.CURRENT_LOCALE_PARAM,locale);
 
     }
 

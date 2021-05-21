@@ -10,27 +10,34 @@ import picCoordo from '../../img/IMG-coordo-PAAQE.jpg';
 const UserDropdown = (props) =>  {
 
          const history = useHistory();
+
+         const[userInfo, setUserInfo] = useState();
+
+
          let currentUserDetails =getCurrentUserInfo();
-
-
-         let userInfo={};
+         console.log("currentUserDetails from session: ",currentUserDetails);
+         //let userInfo= {};
          if(currentUserDetails){
+             console.log("currentUserDetails from the if statement: ",currentUserDetails);
              const userId = currentUserDetails.userId;
-             const username = currentUserDetails.firstName +' '+currentUserDetails.lastName;
-             const position = currentUserDetails.position?currentUserDetails.position:'undefined';
-             const userImg = picCoordo;
-             const isSignedIn= true;
-             const isAuthenticated = isSignedIn;
+                 const username = currentUserDetails.firstName +' '+currentUserDetails.lastName;
+                 const position = currentUserDetails.position?currentUserDetails.position:'undefined';
+                 const userImg = picCoordo;
+                 const isSignedIn= true;
+                 const isAuthenticated = isSignedIn;
 
-             userInfo= {
-                 id: userId,
-                 name:username,
-                 position:position,
-                 avatar:userImg,
-                 isSignedIn:isAuthenticated
-             }
+                 setUserInfo({
+                     id: userId,
+                     name:username,
+                     position:position,
+                     avatar:userImg,
+                     isSignedIn:isAuthenticated
+                 }) ;
+
 
          }
+
+
 
          const [toggleContent, setToggleContent]= useState(<><Fragment>
         <img src={userInfo.avatar} className="img-fluid rounded-circle user-avatar"/>

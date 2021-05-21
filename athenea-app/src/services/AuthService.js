@@ -23,12 +23,8 @@ export const signin = async (username, password) => {
     };
 
     try{
-        const response = await http.post(API_URL + Constants.API_URL_PARAM_SIGNIN, signInData, authHeader(headersData));
+        const response =  await http.post(API_URL + Constants.API_URL_PARAM_SIGNIN, signInData, authHeader(headersData));
         const {data} = response;
-        console.log("data:",data);
-        if(data){
-            setUserSession(data);
-        }
         return data;
     }catch (error) {
         console.error("Oops! something went wrong...");
@@ -110,7 +106,7 @@ export const signup = (firstName, lastName, username, password, agreedToTerms, p
 // set the token and user from the session storage
 export const setUserSession = (authDetails) => {
     if(authDetails){
-        sessionStorage.setItem(Constants.LOCAL_STORAGE_PARAM_AUTH_DETAILS, JSON.stringify(authDetails));
+        sessionStorage.setItem(Constants.SESSION_STORAGE_PARAM_AUTH_DETAILS, JSON.stringify(authDetails));
         sessionStorage.setItem(Constants.SESSION_STORAGE_PARAM_IS_AUTHENTICATED, true);
         if(authDetails.roles){
             let roles = authDetails.roles;
@@ -124,12 +120,14 @@ export const setUserSession = (authDetails) => {
 
 // remove the token and user from the session storage
 export const removeUserSession = () => {
-    localStorage.removeItem(Constants.LOCAL_STORAGE_PARAM_AUTH_DETAILS);
-    sessionStorage.removeItem(Constants.LOCAL_STORAGE_PARAM_AUTH_DETAILS);
-    sessionStorage.removeItem(Constants.LOCAL_STORAGE_PARAM_CURRENT_USER_DETAILS);
+    localStorage.removeItem(Constants.SESSION_STORAGE_PARAM_AUTH_DETAILS);
+    sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_AUTH_DETAILS);
+    sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_CURRENT_USER_DETAILS);
     sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_DISPLAY_SUBMENU);
     sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_ACTIVE_INDEX);
     sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_LAST_ACTIVE_SUBMENU_INDEX);
+    sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_CURRENT_USER_DETAILS);
+    sessionStorage.removeItem(Constants.SESSION_STORAGE_PARAM_IS_CURRENT_USER_INFO_LOADED);
     sessionStorage.setItem(Constants.SESSION_STORAGE_PARAM_IS_AUTHENTICATED, false);
     sessionStorage.setItem(Constants.SESSION_STORAGE_PARAM_IS_AUTHORIZED, false);
 }

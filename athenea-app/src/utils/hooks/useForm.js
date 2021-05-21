@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import * as Constants from "../../utils/constants";
 import {validatePassword, validateUserName, validateFirstName, validateLastName, checkPasswordsAreIdentical, clearErrors, shakeInput} from "../validations";
-import {signin, signup} from "../../services/AuthService";
+import {setUserSession, signin, signup} from "../../services/AuthService";
 
 
 
@@ -9,7 +9,7 @@ const useForm = (props) =>  {
 
     //let history = useHistory(props);
 
-
+    const[authUserDetails, setAuthUserDetails] = useState({});
     const [credentials , setCredentials] = useState({});
 
     const [registrationData , setRegistrationData] = useState({});
@@ -74,9 +74,12 @@ const useForm = (props) =>  {
         }
 
         if(isFormValid){
-            let user = await signin(credentials.username, credentials.password);
-            if(user){
-                props.history.push(Constants.DASHBOARD_PATHNAME);
+            let authDetails =  await signin(credentials.username, credentials.password);
+            if(authDetails){
+                //setUserSession(authDetails);
+                setAuthUserDetails(authDetails);
+                props.authDetails(authDetails);
+                props.isRedirect(true);
             }else{
                 console.error("something went wrong while authenticating user: " + credentials.username);
                 setIsFormValid(false);

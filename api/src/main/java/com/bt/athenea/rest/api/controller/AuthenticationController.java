@@ -55,10 +55,7 @@ public class AuthenticationController {
 		this.roleRepository = roleRepository;
 	}
 	
-	@GetMapping("/sign-in")
-	public String helloWorld(){
-		return "Hello World from AuthenticationController";
-	}
+	
 	
 	@PostMapping("/sign-in")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody SignInRequestBody requestBody){
@@ -83,7 +80,7 @@ public class AuthenticationController {
 					.orElseThrow(() -> new UsernameNotFoundException("User not found with email address:" +emailAddress));
 			
 			return  ResponseEntity.ok(new AuthenticationResponse(userDetails.getUsername(),userDetails.getEmailAddress(), roles,
-					jwtToken,tokenType));
+					jwtToken,tokenType, userLoaded.getFirstName(),userLoaded.getLastName(), userLoaded.getPosition()));
 		}else{
 			return new ResponseEntity<>("Authentication Failed", new HttpHeaders(), HttpStatus.BAD_REQUEST);
 		}

@@ -9,19 +9,49 @@ public class AuthenticationResponse {
 	private List<String> roles;
 	private String accessToken;
 	private String tokenType = "Bearer";
+	private String firstName;
+	private String lastName;
+	private String position;
 	
-	public AuthenticationResponse(String username,
-	                              String emailAddress,
-	                              List<String> roles,
-	                              String accessToken,
-	                              String tokenType) {
-		
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public String getPosition() {
+		return position;
+	}
+	
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	
+	public AuthenticationResponse(String username, String emailAddress,
+	                              List<String> roles, String accessToken,
+	                              String tokenType, String firstName, String lastName,
+	                              String position) {
 		this.username = username;
 		this.emailAddress = emailAddress;
 		this.roles = roles;
 		this.accessToken = accessToken;
 		this.tokenType = tokenType;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.position = position;
 	}
+	
+	
 	
 	public String getUsername() {
 		return username;

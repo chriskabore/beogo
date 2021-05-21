@@ -15,23 +15,31 @@ const API_URL = Constants.USERS_URL;
   };
 
     export const getCurrentUserAuthDetails = () => {
-     return JSON.parse(sessionStorage.getItem(Constants.LOCAL_STORAGE_PARAM_AUTH_DETAILS));
+     return JSON.parse(sessionStorage.getItem(Constants.SESSION_STORAGE_PARAM_AUTH_DETAILS));
     }
 
 
     export const getCurrentUserInfo= ()=>{
-        return JSON.parse(sessionStorage.getItem(Constants.LOCAL_STORAGE_PARAM_CURRENT_USER_DETAILS));
+        return JSON.parse(sessionStorage.getItem(Constants.SESSION_STORAGE_PARAM_CURRENT_USER_DETAILS));
+    }
+
+    export const storeCurrentUserInfoToSession = (userInfo)=>{
+        sessionStorage.setItem(Constants.SESSION_STORAGE_PARAM_CURRENT_USER_DETAILS,JSON.stringify(userInfo));
     }
 
 
     export const  loadUserInfo =  async (emailAddress)=>{
         try{
             const response = await http.get(API_URL  + emailAddress,authHeader(headersData));
-            const {message, responseUser}= response.data;
+            const{data} = response;
+            const {message, responseUser }= data;
 
-            sessionStorage.setItem(Constants.LOCAL_STORAGE_PARAM_CURRENT_USER_DETAILS,JSON.stringify(responseUser));
-            console.info( message);
+            if(responseUser){
+                storeCurrentUserInfoToSession(responseUser);
+            }
+            console.log( message);
             return responseUser;
+
         }catch(error){
             console.error("Oops! something went wrong...");
             if (error.response) {
@@ -59,6 +67,14 @@ const API_URL = Constants.USERS_URL;
         }
 
 
+    }
+
+    export const isCurrentUserAuthorized = ()=>{
+        return sessionStorage.getItem(Constants.SESSION_STORAGE_PARAM_IS_AUTHORIZED);
+    }
+
+    export const isCurrentUserAutheticated = () =>{
+        return sessionStorage.getItem(Constants.SESSION_STORAGE_PARAM_IS_AUTHENTICATED);
     }
 
 

@@ -47,24 +47,20 @@ const  LanguageSelector = props => {
     const[currentLanguageLocale, setCurrentLanguageLocale]=useState(userSelectedLanguageLocale?
         userSelectedLanguageLocale:(systemLanguageLocale?systemLanguageLocale:defaultLanguage.id));
 
+
     let previouslySelectedLanguage = usePrevious(currentLanguageLocale);
 
-    useEffect(() => {
-        console.warn("comparison: ",userSelectedLanguageLocale===systemLanguageLocale );
-        if(!(userSelectedLanguageLocale===systemLanguageLocale)){
-            i18next.changeLanguage(userSelectedLanguageLocale);
-        }
-    });
+    // props.onSelectLanguge(currentLanguageLocale);
 
-
+    /*if(!(userSelectedLanguageLocale===systemLanguageLocale)){
+        i18next.changeLanguage(userSelectedLanguageLocale);
+    }*/
 
 
     let selectedLanguage = languages.find(lang =>{return (lang.id === currentLanguageLocale)});
 
     const [toggleContent, setToggleContent] = useState(<><Fragment><img src={selectedLanguage.flagImg} alt={selectedLanguage.title} className="mr-2"/>
-        <span>{selectedLanguage.name}</span></Fragment></>);
-
-
+        <span>{selectedLanguage.name}</span></Fragment></>)
 
 
 const handleChange = (event)=>{

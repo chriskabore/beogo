@@ -2,6 +2,7 @@
 
 //PARAMETERS
 export const TRANSLATION_PARAM='translation';
+export const CURRENT_LOCALE_PARAM="currentLocale";
 
 
 // Message Properties
@@ -30,8 +31,9 @@ export const SIDEBAR_MENU_SETTINGS_MSG_PROP="sidebar.menu.settings";
 
 // Parameters
 
-export const LOCAL_STORAGE_PARAM_AUTH_DETAILS = "authDetails";
-export const LOCAL_STORAGE_PARAM_CURRENT_USER_DETAILS = "currentUserDetails";
+export const SESSION_STORAGE_PARAM_AUTH_DETAILS = "authDetails";
+export const SESSION_STORAGE_PARAM_CURRENT_USER_DETAILS = "currentUserDetails";
+export const SESSION_STORAGE_PARAM_IS_CURRENT_USER_INFO_LOADED = "isCurrentUserInfoLoaded";
 
 export const SESSION_STORAGE_PARAM_LAST_DISPLAY_SUBMENU = "lastDisplaySubMenu";
 export const SESSION_STORAGE_PARAM_LAST_ACTIVE_INDEX = "lastActiveIndex";

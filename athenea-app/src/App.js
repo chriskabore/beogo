@@ -1,4 +1,4 @@
-import React, {Suspense, Component, useEffect} from 'react';
+import React, {Suspense, Component, useEffect, useState} from 'react';
 import './App.css';
 import './css/athenea.css';
 
@@ -41,7 +41,7 @@ import Notifications from "./pages/notifications/Notifications";
 import Users from "./pages/users/Users";
 import Permissions from "./pages/settings/Permissions";
 import UserProfile from "./pages/users/user/profile/UserProfile";
-import {getCurrentUserAuthDetails, loadUserInfo} from "./services/UserService";
+import {getCurrentUserAuthDetails,isCurrentUserAutheticated,isCurrentUserAuthorized } from "./services/UserService";
 
 
 
@@ -49,24 +49,8 @@ import {getCurrentUserAuthDetails, loadUserInfo} from "./services/UserService";
 
 function Athenea () {
 
-    let isUserAuthorized = false;
-    let isUserAuthenticated = false;
-
-
-    useEffect(() => {
-        let authenticatedUser = getCurrentUserAuthDetails();
-        if(authenticatedUser){
-            isUserAuthenticated = true;
-            if(authenticatedUser.roles.includes(ROLE_ADMIN)){
-                isUserAuthorized = true;
-            }
-        }
-        if(authenticatedUser){
-            loadUserInfo(authenticatedUser.emailAddress);
-        }
-
-    });
-
+    let isUserAuthorized = isCurrentUserAuthorized();
+    let isUserAuthenticated = isCurrentUserAutheticated();
 
 
 

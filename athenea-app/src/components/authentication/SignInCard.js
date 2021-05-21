@@ -4,6 +4,14 @@ import SignInForm from "./SignInForm";
 import * as Constants from "../../utils/constants";
 
 const SignInCard = (props) => {
+
+    const getAuthUserDetails = (authUserDetails)=>{
+        props.authUserDetails(authUserDetails);
+    }
+
+    const getRedirect = (isRedirect) => {
+        props.isRedirect(isRedirect);
+    }
     return (
             <>
                 <div className="col-md-5 mx-auto my-4">
@@ -14,7 +22,7 @@ const SignInCard = (props) => {
                             </p>
                         </div>
                         <div className="card-body">
-                            <SignInForm {...props}/>
+                            <SignInForm authDetails={getAuthUserDetails} isRedirect={getRedirect} {...props}/>
                         </div>
                         <div className="card-footer d-flex justify-content-center">
                             <span><Trans i18nKey={Constants.NO_ACCOUNT_TEXT_MSG_PROP}> Don't have an account?</Trans></span>&nbsp; <a
