@@ -4,10 +4,13 @@ public class SignInRequestBody {
 	
 	private String emailAddress;
 	private String password;
+	private Boolean rememberMe = false;
 	
-	public SignInRequestBody(String emailAddress, String password) {
+	
+	public SignInRequestBody(String emailAddress, String password, Boolean rememberMe) {
 		this.emailAddress = emailAddress;
 		this.password = password;
+		this.rememberMe = rememberMe;
 	}
 	
 	public SignInRequestBody() {
@@ -27,5 +30,13 @@ public class SignInRequestBody {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public Boolean getRememberMe() {
+		return rememberMe;
+	}
+	
+	public void setRememberMe(Boolean rememberMe) {
+		this.rememberMe = rememberMe;
 	}
 }

@@ -1,0 +1,37 @@
+//set of constants that are used globally in the app
+
+export const ATHENEA_ME='Athenea M&E';
+export const DASHBOARD_PAGE_TITLE ='Dashboard - ATHENEA M&E';
+export const SIGN_IN_PAGE_TITLE ='Sign In - ATHENEA M&E';
+export const SIGN_UP_PAGE_TITLE ='Sign Up - ATHENEA M&E';
+export const PROJECTS_PAGE_TITLE ='Projects - ATHENEA M&E';
+export const ACTION_PLANS_PAGE_TITLE ='Action Plans - ATHENEA M&E';
+export const ACTIONS_PAGE_TITLE ='Actions - ATHENEA M&E';
+export const ACTIVITIES_PAGE_TITLE ='Activities - ATHENEA M&E';
+export const BUDGETS_PAGE_TITLE ='Budgets - ATHENEA M&E';
+export const BUDGET_LINES_PAGE_TITLE ='Budget Lines - ATHENEA M&E';
+export const PAYMENTS_PAGE_TITLE ='Budget Lines - ATHENEA M&E';
+export const PROCUREMENTS_PAGE_TITLE ='Procurements - ATHENEA M&E';
+export const PROCUREMENT_PLANS_PAGE_TITLE ='Procurement Plans - ATHENEA M&E';
+export const CONTRACTS_PAGE_TITLE ='Contracts - ATHENEA M&E';
+export const INVOICES_PAGE_TITLE ='Invoices - ATHENEA M&E';
+export const INDICATORS_PAGE_TITLE ='Indicators - ATHENEA M&E';
+export const INDICATORS_OF_IMPACT_PAGE_TITLE ='Indicators Of Impact - ATHENEA M&E';
+export const INDICATORS_OF_RESULT_PAGE_TITLE ='Indicators Of Result - ATHENEA M&E';
+export const INDICATORS_OF_EVALUATION_PAGE_TITLE ='Indicators Of Evaluation - ATHENEA M&E';
+export const STAKEHOLDERS_PAGE_TITLE ='Stakeholders - ATHENEA M&E';
+export const BENEFICIARIES_PAGE_TITLE ='Beneficiaries - ATHENEA M&E';
+export const SUPPLIERS_PAGE_TITLE ='Suppliers - ATHENEA M&E';
+export const SUPERVISORS_PAGE_TITLE ='Supervisors - ATHENEA M&E';
+export const MESSAGES_PAGE_TITLE ='Messages - ATHENEA M&E';
+export const COMPOSE_EMAIL_PAGE_TITLE ='Compose Email - ATHENEA M&E';
+export const INBOX_PAGE_TITLE ='Inbox - ATHENEA M&E';
+export const SENT_PAGE_TITLE ='Sent - ATHENEA M&E';
+export const TRASH_PAGE_TITLE ='Trash - ATHENEA M&E';
+export const NOTIFICATIONS_PAGE_TITLE ='Notifications - ATHENEA M&E';
+export const SETTINGS_PAGE_TITLE ='Settings - ATHENEA M&E';
+export const USERS_PAGE_TITLE ='Users - ATHENEA M&E';
+export const PROFILE_PAGE_TITLE ='Profile - ATHENEA M&E';
+export const PREFERENCES_PAGE_TITLE ='Preferences - ATHENEA M&E';
+export const PERMISSIONS_PAGE_TITLE ='Permissions - ATHENEA M&E';
+export const NOTFOUND_PAGE_TITLE ='Error 404 - ATHENEA M&E';

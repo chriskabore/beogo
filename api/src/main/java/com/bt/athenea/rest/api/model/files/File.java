@@ -16,6 +16,7 @@ public class File {
 	private String type;
 	
 	@Lob
+	@Basic(fetch = FetchType.LAZY)
 	private byte[] data;
 	
 	@Column(name = "size_in_MB")
@@ -24,12 +25,16 @@ public class File {
 	@Column
 	private String title;
 	
+	@Column
+	private String downloadLink;
 	
-	public File(String name, String type, byte[] data, Long sizeInMB) {
+	
+	public File(String name, String type, byte[] data, Long sizeInMB, String downloadLink ) {
 		this.name = name;
 		this.type = type;
 		this.data = data;
 		this.sizeInMB = sizeInMB;
+		this.downloadLink = downloadLink;
 	}
 	
 	public Long getFileId() {
@@ -73,5 +78,21 @@ public class File {
 	}
 	
 	public File() {
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getDownloadLink() {
+		return downloadLink;
+	}
+	
+	public void setDownloadLink(String downloadLink) {
+		this.downloadLink = downloadLink;
 	}
 }

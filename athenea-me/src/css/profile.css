@@ -1,0 +1,105 @@
+
+.user-profile-content{
+    overflow-y: scroll;
+}
+.profile-user-name, .profile-user-position{
+    font-size: 0.95rem;
+}
+
+.profile-user-avatar{
+    width:4.5rem;
+    float:left;
+    height:4.5rem;
+}
+
+
+.profile-user-info{
+    float:left;
+}
+
+.profile-user-name{
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.profile-user-position{
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.profile-info-divider{
+
+}
+
+.profile-section{
+    border:1px solid #cecece;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+.profile-identity{
+    width: 100% !important;
+}
+
+.profile-section-title{
+    font-weight:400;
+    font-size: 1.3rem;
+    color: #202124;
+}
+
+.profile-section-wrap{
+    border-top:1px solid #cecece;
+    border-bottom:1px solid #cecece;
+
+}
+
+
+
+.profile-intermediate-section-wrap{
+    border-bottom:1px solid #cecece;
+}
+
+.profile-info-label{
+    letter-spacing: .07272727em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: .6875rem;
+    font-weight: 500;
+    line-height: 1rem;
+    text-transform: uppercase;
+}
+
+.profile-info-text{
+    letter-spacing: .00625em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.file-input, .upload-msg{
+    font-size: 0.9rem;
+}
+
+.upload-btn{
+    width:7rem;
+    font-size: 1rem;
+}
+
+.upload-btn-wrap{
+    margin-top:1rem;
+    padding-left: 1.9rem!important;
+}
+
+.file-input{
+    width:12rem;
+}
+
+.upload-msg{
+    margin-top:1rem;
+}
+
+.profile-password-text{
+    -webkit-text-security: disc;
+    text-security: disc;
+}

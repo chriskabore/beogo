@@ -1,6 +1,7 @@
 package com.bt.athenea.rest.api.configurations;
 
 import com.bt.athenea.rest.api.service.impl.security.UserDetailsServiceImpl;
+import com.bt.athenea.rest.api.utils.AtheneaRequestHelper;
 import com.bt.athenea.rest.api.utils.LoggerFactoryUtil;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,9 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 		
 		try{
 			String token = getTokenStringFromRequest(request);
-			if(StringUtils.hasText(token) && tokenProvider.validateTokenString(token)){
+			String clientIPAddress = AtheneaRequestHelper.getClientIPAddress(request);
+			String userAgent = AtheneaRequestHelper.getUserAgent(request);
+			if(StringUtils.hasText(token) && tokenProvider.validateTokenString(token, clientIPAddress,userAgent)){
 				String username = tokenProvider.getUsernameFromToken(token);
 				Objects.requireNonNull(username);
 				UserDetails userDetails =  userDetailsService.loadUserByUsername(username);

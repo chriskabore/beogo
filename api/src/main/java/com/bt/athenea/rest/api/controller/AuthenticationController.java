@@ -11,6 +11,7 @@ import com.bt.athenea.rest.api.repository.roles.RoleRepository;
 import com.bt.athenea.rest.api.repository.users.UserRepository;
 import com.bt.athenea.rest.api.service.impl.security.UserDetailsImpl;
 import com.bt.athenea.rest.api.service.impl.security.UserDetailsServiceImpl;
+import com.bt.athenea.rest.api.utils.AtheneaRequestHelper;
 import com.bt.athenea.rest.api.utils.LoggerFactoryUtil;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Date;
@@ -58,9 +60,10 @@ public class AuthenticationController {
 	
 	
 	@PostMapping("/sign-in")
-	public ResponseEntity<?> authenticateUser(@Valid @RequestBody SignInRequestBody requestBody){
+	public ResponseEntity<?> authenticateUser(HttpServletRequest request, @Valid @RequestBody SignInRequestBody requestBody){
 		String emailAddress = requestBody.getEmailAddress();
 		String password = requestBody.getPassword();
+		Boolean rememberMe = requestBody.getRememberMe();
 		Objects.requireNonNull(emailAddress);
 		Objects.requireNonNull(password);
 		String tokenType = "Bearer";
@@ -69,7 +72,10 @@ public class AuthenticationController {
 				.authenticate(new UsernamePasswordAuthenticationToken(emailAddress, password));
 		final UserDetailsImpl userDetails = (UserDetailsImpl) userDetailsService.loadUserByUsername(emailAddress);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
-		String jwtToken = tokenProvider.generateToken(userDetails);
+		String clientIPAddress = AtheneaRequestHelper.getClientIPAddress(request);
+		String userAgent = AtheneaRequestHelper.getUserAgent(request);
+		
+		String jwtToken = tokenProvider.generateToken(userDetails, rememberMe, clientIPAddress, userAgent);
 		
 		if(userDetails!=null){
 			List<String> roles = userDetails.getAuthorities().stream()
@@ -79,8 +85,8 @@ public class AuthenticationController {
 			User userLoaded = userRepository.findByEmailAddress(userDetails.getEmailAddress())
 					.orElseThrow(() -> new UsernameNotFoundException("User not found with email address:" +emailAddress));
 			
-			return  ResponseEntity.ok(new AuthenticationResponse(userDetails.getUsername(),userDetails.getEmailAddress(), roles,
-					jwtToken,tokenType, userLoaded.getFirstName(),userLoaded.getLastName(), userLoaded.getPosition()));
+			return  ResponseEntity.ok(new AuthenticationResponse(userDetails.getUserId(),userDetails.getUsername(),userDetails.getEmailAddress(), roles,
+					jwtToken,tokenType));
 		}else{
 			return new ResponseEntity<>("Authentication Failed", new HttpHeaders(), HttpStatus.BAD_REQUEST);
 		}
@@ -130,5 +136,7 @@ public class AuthenticationController {
 		userRepository.save(userToCreate);
 		return ResponseEntity.ok().body("User created successfully");
 	}
+	
+	
 	
 }

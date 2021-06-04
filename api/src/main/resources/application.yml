@@ -40,15 +40,9 @@ logging:
     org.springframework.security: INFO
     com.bt: INFO
 
-
-athenea:
-  rest:
-    api:
-      jwt:
-        signing:
-          key:
-            secret: my$ecret
-
-        token:
-          expiration:
-            in.seconds: 43200
+security:
+  jwt:
+    token:
+      secret-key: my$ecret
+      expire-length: 86400 # 24h * 60 min * 60 sec
+      extended-expire-length: 604800 # 7h * 24h * 60 min * 60 sec

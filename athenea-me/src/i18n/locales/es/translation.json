@@ -1,0 +1,112 @@
+{
+  "header": {
+    "title": "Bienvenido en Athenea M&E",
+    "loading": "Cargando...",
+    "view-all-notifications": "Ver todas sus notificaciones",
+    "read-all-messages": "Leer todos sus mensajes",
+    "my-profile": "Mi perfil",
+    "settings": "Configuraciones",
+    "preferences": "Preferencias"
+  },
+  "footer": {
+    "copyright": "Copyright BEOGOTECH SARL. Todos derechos reservados."
+  },
+  "auth": {
+    "sign-in": "Iniciar sesión",
+    "sign-out": "Cerrar sesión",
+    "sign-up": "Registrarse"
+  },
+  "login": {
+    "phrase-text": "Gestione sus proyectos con mayor facilidad y siga el progreso de sus planes de acción en tiempo real.",
+    "signin-text": "Iniciar sesión en su cuenta",
+    "user-email-placeholder": "¡Por favor, introduzca aquí su correo electrónico!",
+    "user-password-placeholder": "¡Por favor introduzca su contraseña aquí!",
+    "remember-me-text": "Recordarme",
+    "password-forgotten-text": "¿contraseña olvidada?",
+    "submit-button-text": "Iniciar sesión",
+    "no-account-text": "¿No tiene cuenta?",
+    "username": "Nombre de usuario",
+    "password": "Contraseña"
+  },
+  "register": {
+    "signup-text":"¡Por favor rellene este formulario para crear una cuenta!",
+    "already-signed-up-text": "¿Ya tiene usted una cuenta?",
+    "submit-button-text": "Crear una cuenta",
+    "user-firstname-placeholder": "¡Por favor, introduzca aquí su nombre!",
+    "user-lastname-placeholder": "¡Por favor, introduzca aquí su apellido!",
+    "user-confirm-password-placeholder": "¡Por favor introduzca de nuevo su contraseña aquí!",
+    "agreed-to-text": "he leído y acepto",
+    "terms-and-conditions-text": "los términos y condiciones"
+  },
+  "validation": {
+    "field-is-required-text": "Este campo es obligatorio y no debe estar vacío.",
+    "invalid-email-format-text": "Formato de dirección de correo electrónico no válido. johndoe@example.com es un ejemplo de una dirección de correo electrónico válida.",
+    "password-format-text": "Su contraseña debe contener al menos un número, un carácter especial, una letra mayúscula y una letra minúscula.",
+    "password-length-text": "Su contraseña debe tener al menos 8 caracteres o más.",
+    "incorrect-email-address-or-password-text": "Nombre de usuario o contraseña incorrecta.",
+    "passwords-are-not-identical-text": "Las contraseñas deben ser idénticas",
+    "must-agree-to-terms-and-conditions-text": "Usted debe aceptar los términos y condiciones."
+
+  },
+  "sidebar": {
+    "close": "Cerrar",
+    "menu-text": "Menu",
+    "menu": {
+      "dashboard": "Dashboard",
+      "projects": "Proyectos",
+      "budgets": "Presupuestos",
+      "procurements": "Adquisiciones",
+      "indicators": "Indicadores",
+      "stakeholders": "Colaboradores",
+      "messages": "Mensajes",
+      "notifications": "Notificaciones",
+      "settings": "Configuraciones",
+      "preferences": "Preferencias"
+    },
+    "submenu": {
+      "action-plans": "Planes de acción",
+      "actions": "Acciones",
+      "activities": "Actividades",
+      "budget-lines": "Líneas presupuestarias",
+      "payments": "Pagos",
+      "disbursements": "Desembolsos",
+      "procurement-plans": "Planes de adquisiciones",
+      "procurements": "Adquisiciones",
+      "contracts": "Contratos",
+      "invoices": "Facturas",
+      "indicators-of-impact": "Indicadores de impacto",
+      "indicators-of-results": "Indicadores de resultados",
+      "indicators-of-evaluation": "Indicadores de evaluación",
+      "beneficiaries": "Beneficiarios",
+      "suppliers": "Proveedores",
+      "supervisors": "Supervisores",
+      "inbox": "Buzón",
+      "sent": "Enviado",
+      "compose-mail": "Nuevo mensaje",
+      "trash": "Papelera",
+      "users": "Usuarios",
+      "permissions": "Permisos"
+    }
+
+  },
+  "project": {
+    "from": "Del:",
+    "to": "Al:",
+    "add-new-project-text": "Añadir proyecto",
+    "eaqip": {
+      "title": "Proyecto de Mejoramiento del Acceso y la Calidad de la Educación en Burkina Faso",
+      "badge": "PMACE",
+      "location": "Burkina Faso, África occidental",
+      "dateStart": "02 de abril 2015",
+      "dateEnd": "31 de julio 2020"
+    },
+    "eaqipaf": {
+      "title": "Proyecto de Mejoramiento del Acceso y la Calidad de la Educación Financiamiento adicional en Burkina Faso",
+      "badge": "PMACE",
+      "location": "Burkina Faso, África occidental",
+      "dateStart": "01 de enero 2021",
+      "dateEnd": "31 de augosto 2024"
+    }
+  }
+
+}

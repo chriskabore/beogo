@@ -3,52 +3,25 @@ package com.bt.athenea.rest.api.model.payload.response.auth;
 import java.util.List;
 
 public class AuthenticationResponse {
-	
+	private Long id;
 	private String username;
 	private String emailAddress;
 	private List<String> roles;
 	private String accessToken;
 	private String tokenType = "Bearer";
-	private String firstName;
-	private String lastName;
-	private String position;
 	
-	public String getFirstName() {
-		return firstName;
-	}
 	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
 	
-	public String getLastName() {
-		return lastName;
-	}
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	public String getPosition() {
-		return position;
-	}
-	
-	public void setPosition(String position) {
-		this.position = position;
-	}
-	
-	public AuthenticationResponse(String username, String emailAddress,
+	public AuthenticationResponse(Long userId,String username, String emailAddress,
 	                              List<String> roles, String accessToken,
-	                              String tokenType, String firstName, String lastName,
-	                              String position) {
+	                              String tokenType) {
 		this.username = username;
 		this.emailAddress = emailAddress;
 		this.roles = roles;
 		this.accessToken = accessToken;
 		this.tokenType = tokenType;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.position = position;
+		this.id = userId;
+		
 	}
 	
 	
@@ -91,5 +64,13 @@ public class AuthenticationResponse {
 	
 	public void setTokenType(String tokenType) {
 		this.tokenType = tokenType;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 }

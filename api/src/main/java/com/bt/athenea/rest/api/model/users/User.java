@@ -94,11 +94,17 @@ public class User {
 	inverseJoinColumns = @JoinColumn(name="role_id"))
 	private List<Role> userRoles = new ArrayList<>();
 	
-	@Lob
-	@Basic(fetch = FetchType.LAZY)
+	
 	private byte[] profilePicture;
 	
-	
+	private String dateOfBirth;
+	private GenderName gender;
+	private String address;
+	private String mobilePhone;
+	private String workPhone;
+	private String organizationName;
+	private String departmentName;
+	private String hireDate;
 	
 	public User(@NotBlank @Size(max = 50) @Email String emailAddress,
 	            @NotBlank String firstName, @NotBlank String lastName,
@@ -117,6 +123,70 @@ public class User {
 	}
 	
 	public User() {
+	}
+	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	
+	public GenderName getGender() {
+		return gender;
+	}
+	
+	public void setGender(GenderName gender) {
+		this.gender = gender;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public String getMobilePhone() {
+		return mobilePhone;
+	}
+	
+	public void setMobilePhone(String mobilePhone) {
+		this.mobilePhone = mobilePhone;
+	}
+	
+	public String getWorkPhone() {
+		return workPhone;
+	}
+	
+	public void setWorkPhone(String workPhone) {
+		this.workPhone = workPhone;
+	}
+	
+	public String getOrganizationName() {
+		return organizationName;
+	}
+	
+	public void setOrganizationName(String organizationName) {
+		this.organizationName = organizationName;
+	}
+	
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	
+	public String getHireDate() {
+		return hireDate;
+	}
+	
+	public void setHireDate(String hireDate) {
+		this.hireDate = hireDate;
 	}
 	
 	public Long getUserId() {

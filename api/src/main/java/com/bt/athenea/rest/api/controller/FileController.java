@@ -75,7 +75,7 @@ public class FileController {
 			String fileName = StringUtils.cleanPath(originalName);
 			byte[] compressedData = compressBytes(file.getBytes());
 			
-			File fileToStore = new File(fileName, contentType, compressedData, sizeInMB);
+			File fileToStore = new File(fileName, contentType, compressedData, sizeInMB,"");
 			
 			File fileStored = fileService.storeFile(fileToStore);
 			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
